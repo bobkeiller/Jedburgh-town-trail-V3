@@ -1,0 +1,173 @@
+/* Shared smartphone-first finish for Jedburgh puzzle and quiz pages. */
+:root {
+  --trail-touch: 46px;
+  --trail-radius: 16px;
+  --trail-gutter: 12px;
+  --trail-focus: #d99a2b;
+}
+
+html { -webkit-text-size-adjust: 100%; }
+body { overflow-x: hidden; }
+img, video, canvas, svg { max-width: 100%; }
+
+main.page,
+main.app,
+main.shell {
+  width: min(100% - 24px, 940px);
+  margin-inline: auto;
+  padding-top: max(14px, env(safe-area-inset-top));
+  padding-bottom: max(44px, env(safe-area-inset-bottom));
+}
+
+.puzzle-return {
+  display: inline-flex !important;
+  align-items: center;
+  min-height: 44px;
+  margin: 0 0 14px !important;
+  padding: 9px 13px !important;
+  border: 1px solid rgba(35, 45, 40, .12);
+  border-radius: 10px !important;
+  background: rgba(255, 255, 255, .72) !important;
+  box-shadow: 0 3px 10px rgba(25, 35, 30, .08);
+  color: var(--ink, #24332c) !important;
+  font: 800 13px/1.2 system-ui, sans-serif !important;
+  text-decoration: none !important;
+}
+
+.puzzle-return:focus-visible,
+button:focus-visible,
+select:focus-visible,
+input:focus-visible,
+summary:focus-visible {
+  outline: 3px solid var(--trail-focus) !important;
+  outline-offset: 3px !important;
+}
+
+button,
+select,
+input[type="number"],
+input[type="text"] { min-height: var(--trail-touch); }
+
+button { touch-action: manipulation; }
+
+.panel,
+.card,
+.puzzle,
+.quiz-card {
+  max-width: 100%;
+}
+
+.status,
+.feedback,
+.answer-status,
+.player-message,
+.message,
+#result {
+  line-height: 1.45;
+}
+
+.matrix-scroll,
+.grid-scroll,
+.board-scroll,
+.player-grid-wrap,
+.entry-grid-wrap,
+.output-wrap {
+  max-width: 100%;
+  -webkit-overflow-scrolling: touch;
+  overscroll-behavior-inline: contain;
+}
+
+@media (max-width: 700px) {
+  body { font-size: 15px; }
+
+  main.page,
+  main.app,
+  main.shell {
+    width: min(100% - 20px, 940px);
+    padding-top: max(10px, env(safe-area-inset-top));
+  }
+
+  h1 { overflow-wrap: anywhere; }
+
+  .hero,
+  .banner {
+    border-radius: var(--trail-radius) !important;
+  }
+
+  .hero-copy,
+  .panel,
+  .card,
+  .puzzle,
+  .quiz-card,
+  .workspace,
+  .setup,
+  .player,
+  .report {
+    padding-left: 16px !important;
+    padding-right: 16px !important;
+  }
+
+  .actions,
+  .answer-actions,
+  .machine-actions,
+  .setup-actions,
+  .solve-actions,
+  .player-actions,
+  .button-row {
+    gap: 10px !important;
+  }
+
+  .actions > button,
+  .answer-actions > button,
+  .machine-actions > button,
+  .setup-actions > button,
+  .solve-actions > button {
+    min-height: var(--trail-touch);
+  }
+
+  select,
+  input { font-size: 16px; }
+}
+
+@media (max-width: 430px) {
+  main.page,
+  main.app,
+  main.shell { width: min(100% - 16px, 940px); }
+
+  .puzzle-return { width: 100%; }
+
+  .hero h1,
+  header h1 { font-size: clamp(2rem, 11vw, 3.2rem) !important; }
+
+  .actions,
+  .answer-actions,
+  .machine-actions,
+  .setup-actions,
+  .solve-actions {
+    grid-template-columns: 1fr !important;
+  }
+
+  .actions > button,
+  .answer-actions > button,
+  .machine-actions > button,
+  .setup-actions > button,
+  .solve-actions > button {
+    width: 100% !important;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    scroll-behavior: auto !important;
+    animation-duration: .01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: .01ms !important;
+  }
+}
+
+.topbar .puzzle-return {
+  width: auto;
+  min-height: 40px;
+  margin: 0 !important;
+  box-shadow: none;
+}

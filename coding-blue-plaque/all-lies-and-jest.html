@@ -1,0 +1,41 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+  <meta name="theme-color" content="#352d2b">
+  <title>All Lies and Jest</title>
+  <style>
+    :root{--ink:#272522;--muted:#6d6963;--paper:#fffdf8;--brown:#594038;--red:#8e302e;--green:#326646;--gold:#d5a042;--line:#d8d0c4;--shadow:0 18px 50px #30292229}
+    *{box-sizing:border-box}body{margin:0;min-height:100vh;color:var(--ink);font:15px/1.55 Inter,system-ui,sans-serif;background:radial-gradient(circle at 8% 0,#f4e7d9,transparent 32rem),linear-gradient(145deg,#e4e3de,#f3eee6)}button,a{font:inherit}.page{width:min(900px,calc(100% - 28px));margin:auto;padding:18px 0 54px}.back{display:inline-flex;padding:9px 13px;border-radius:10px;color:var(--brown);background:#e8e0d7;font-size:13px;font-weight:850;text-decoration:none}.hero{margin:18px 0}.eyebrow{margin:0 0 7px;color:var(--red);font-size:12px;font-weight:900;letter-spacing:.15em;text-transform:uppercase}h1{margin:0;font:600 clamp(40px,7vw,70px)/.98 Georgia,serif;letter-spacing:-.04em}.intro{max-width:720px;margin:12px 0 0;color:var(--muted);font-size:17px}.scene,.panel{overflow:hidden;margin-top:18px;border-radius:22px;background:var(--paper);box-shadow:var(--shadow)}.scene img{display:block;width:100%;max-height:560px;object-fit:cover}.panel{padding:clamp(21px,4vw,35px);border:1px solid #79665a24}.panel h2{margin:0 0 10px;font:500 29px Georgia,serif}.story p{margin:0 0 11px}.schedule{display:flex;gap:8px;flex-wrap:wrap;margin:18px 0}.day{min-width:62px;padding:9px 11px;border-radius:999px;text-align:center;font-weight:850}.truth{color:#214c32;background:#dcecdf}.lie{color:#722725;background:#f1dcd8}.declaration{margin:22px 0 0;padding:20px;border-left:5px solid var(--red);border-radius:9px;background:#f5e9e5;text-align:center;font:italic 600 clamp(22px,4vw,31px)/1.25 Georgia,serif}.question{text-align:center}.question>p{color:var(--muted)}.choices{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin-top:18px}.choice{min-height:58px;padding:9px;border:2px solid var(--line);border-radius:12px;background:white;font-weight:850;cursor:pointer}.choice:hover{border-color:var(--red)}.choice.selected{border-color:var(--red);background:#f5e9e5}.choice:disabled{cursor:not-allowed;opacity:.65}.choice.correct{border-color:var(--green);color:white;background:var(--green);opacity:1}.status{display:none;min-height:52px;margin:15px 0 0;padding:12px 15px;border-radius:10px;font-weight:800;text-align:center}.status.error,.status.success{display:block}.status.error{border:1px solid #d8aaa5;color:var(--red);background:#f8e9e7}.status.success{border:1px solid #a9cbb4;color:var(--green);background:#eaf3ec}.outcome{display:none;margin-top:18px;padding:20px;border:2px solid var(--green);border-radius:16px;background:#eaf3ec;text-align:left}.outcome.show{display:block}.outcome h2{color:var(--green)}.reasoning{margin:13px 0 0;padding-left:22px}.key{display:flex;justify-content:center;gap:18px;flex-wrap:wrap;margin-top:15px;font-size:13px;font-weight:800}.key span:before{content:"";display:inline-block;width:10px;height:10px;margin-right:6px;border-radius:50%;background:currentColor}button:focus-visible,a:focus-visible{outline:3px solid var(--gold);outline-offset:3px}@media(max-width:620px){.choices{grid-template-columns:repeat(2,1fr)}.scene img{aspect-ratio:1.2;object-fit:cover}}
+  </style>
+<link rel="stylesheet" href="puzzle-consistency.css?v=2"><script defer src="puzzle-consistency.js?v=2"></script>
+</head>
+<body>
+  <main class="page">
+    <a class="back" href="location.html?id=ramparts">← Return to the Ramparts</a>
+    <header class="hero"><p class="eyebrow">Glebe Murder Part 2</p><h1>All Lies and Jest</h1><p class="intro">Alan Renton always follows the same weekly pattern. Can you find the only day on which his statement makes sense?</p></header>
+    <figure class="scene"><img src="../Jedburgh_Town_Trail_Assets/created%20graphics/all_lies.png" alt="Alan Renton in Jedburgh"></figure>
+    <section class="panel story">
+      <h2>The suspect’s strange routine</h2>
+      <p>Alan Renton was in town at the time of the murder and immediately fell under suspicion. He was known for his strict routines: he checked locked doors repeatedly, washed his hands 30 times a day and told lies on specific days of the week.</p>
+      <p>At the time of the murder, Alan told the <strong>truth</strong> on Monday, Wednesday and Friday—and <strong>lied</strong> on every other day.</p>
+      <div class="schedule" aria-label="Alan's weekly truth and lie schedule"><span class="day truth">Mon</span><span class="day lie">Tue</span><span class="day truth">Wed</span><span class="day lie">Thu</span><span class="day truth">Fri</span><span class="day lie">Sat</span><span class="day lie">Sun</span></div>
+      <div class="key" aria-hidden="true"><span class="truth">Truth day</span><span class="lie">Lie day</span></div>
+      <blockquote class="declaration">“Tomorrow I will tell the truth!”</blockquote>
+    </section>
+    <section class="panel question">
+      <h2>On which day did Alan say this?</h2>
+      <p>Choose a day, remembering that the statement itself must follow Alan’s truth-and-lie pattern.</p>
+      <div class="choices" aria-label="Choose a day of the week">
+        <button class="choice" type="button" data-day="Monday">Monday</button><button class="choice" type="button" data-day="Tuesday">Tuesday</button><button class="choice" type="button" data-day="Wednesday">Wednesday</button><button class="choice" type="button" data-day="Thursday">Thursday</button><button class="choice" type="button" data-day="Friday">Friday</button><button class="choice" type="button" data-day="Saturday">Saturday</button><button class="choice" type="button" data-day="Sunday">Sunday</button>
+      </div>
+      <p class="status" id="status" role="status" aria-live="polite"></p>
+      <section class="outcome" id="outcome"><h2>Correct—Saturday</h2><p>Saturday is a lying day, and Sunday is also a lying day. So when Alan says he will tell the truth tomorrow, his statement is false—exactly as it must be on Saturday.</p><ol class="reasoning"><li>On a truth day, tomorrow would also have to be a truth day. None of Alan’s truth days is followed by another truth day.</li><li>On a lie day, tomorrow must not be a truth day. Saturday is the only lie day followed by another lie day.</li></ol></section>
+    </section>
+  </main>
+  <script>
+    (()=>{const buttons=[...document.querySelectorAll('.choice')],status=document.querySelector('#status'),outcome=document.querySelector('#outcome');let complete=false;buttons.forEach(button=>button.addEventListener('click',event=>{event.preventDefault();if(complete)return;const correct=button.dataset.day==='Saturday';buttons.forEach(item=>item.classList.remove('selected','correct'));button.classList.add(correct?'correct':'selected');if(correct){complete=true;buttons.forEach(item=>item.disabled=true);status.textContent='Correct. Saturday is the only possible day.';status.className='status success';outcome.classList.add('show')}else{status.textContent=`Not ${button.dataset.day}. Check whether the statement would be true or false on that day.`;status.className='status error'}}))})();
+  </script>
+</body>
+</html>

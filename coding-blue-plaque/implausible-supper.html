@@ -1,0 +1,104 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#293830">
+  <title>The Implausible Supper | Jedburgh Town Trail</title>
+  <style>
+    :root{--ink:#202722;--muted:#667069;--paper:#fffdf7;--wash:#f0ebdf;--line:#d7cfbf;--green:#237051;--amber:#c9821d;--red:#a9433c;--dark:#293830;--shadow:0 20px 55px rgba(30,42,36,.16)}
+    *{box-sizing:border-box}body{margin:0;min-height:100vh;color:var(--ink);background:radial-gradient(circle at 12% 7%,rgba(210,148,43,.2),transparent 27rem),linear-gradient(145deg,#f5efe2,#e5ece6);font-family:Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif}button{font:inherit;touch-action:manipulation;cursor:pointer}button:focus-visible,summary:focus-visible{outline:3px solid #70b99e;outline-offset:3px}.app{width:min(100% - 26px,920px);margin:auto;padding:22px 0 52px}.back{display:inline-block;margin-bottom:14px;color:var(--green);font-weight:800;text-decoration:none}.hero{display:grid;grid-template-columns:1.15fr .85fr;overflow:hidden;border-radius:22px;background:var(--dark);box-shadow:var(--shadow)}.hero-copy{padding:clamp(22px,5vw,42px);color:#fff}.eyebrow{margin:0 0 7px;color:#e1b760;font-size:.76rem;font-weight:850;letter-spacing:.14em;text-transform:uppercase}h1{margin:0;font:700 clamp(2.35rem,7vw,4.8rem)/.94 Georgia,serif;letter-spacing:-.04em}.hero p:last-child{margin:15px 0 0;line-height:1.55;color:#e3e8e4}.hero img{width:100%;height:100%;min-height:290px;object-fit:cover}.card{margin-top:16px;padding:clamp(18px,4vw,32px);border:1px solid rgba(40,55,47,.1);border-radius:22px;background:rgba(255,253,247,.96);box-shadow:var(--shadow)}h2{margin:0 0 8px;font:700 1.65rem Georgia,serif}p,li{line-height:1.5}.story{margin-top:0}.supper-scene{margin:18px 0}.supper-scene img{display:block;width:100%;height:auto;border-radius:14px}.supper-scene figcaption{margin-top:6px;color:var(--muted);font-size:.8rem;text-align:center}.guest-list{margin:15px 0;border:1px solid var(--line);border-radius:13px;background:#fff}.guest-list summary{padding:14px 16px;color:var(--green);font-weight:850;cursor:pointer}.guest-list dl{margin:0;padding:0 17px 17px}.guest-list dt{margin-top:10px;font-weight:850}.guest-list dd{margin:3px 0 0;color:var(--muted);line-height:1.45}.instruction{padding:14px 16px;border-left:4px solid var(--green);border-radius:0 12px 12px 0;background:#eaf5ef}.orientation{padding:13px 15px;border-radius:11px;background:var(--dark);color:#fff;font-size:.9rem}.clues{margin:18px 0;padding:16px;border-left:4px solid var(--amber);border-radius:0 13px 13px 0;background:#fff5e3}.clues h2{font-size:1.3rem}.clues ol{margin:8px 0 0;padding-left:24px}.clues li+li{margin-top:6px}.section-label{margin:18px 0 8px;color:var(--muted);font-size:.76rem;font-weight:850;letter-spacing:.08em;text-transform:uppercase}.tray{display:flex;min-height:58px;flex-wrap:wrap;gap:8px;padding:10px;border:2px dashed var(--line);border-radius:14px;background:var(--wash)}.person{min-height:39px;padding:0 12px;border:2px solid transparent;border-radius:10px;background:#fff;color:var(--ink);font-weight:800;box-shadow:0 2px 7px rgba(0,0,0,.06)}.person.selected{border-color:var(--green);background:#e9f7f0;box-shadow:0 0 0 3px rgba(35,112,81,.12)}.empty-tray{margin:auto;color:var(--muted);font-size:.82rem}.table-wrap{position:relative;width:min(100%,730px);aspect-ratio:1.45;margin:18px auto}.table{position:absolute;inset:22% 13%;display:grid;place-items:center;border:8px solid #78583c;border-radius:24px;color:#f9eed9;background:linear-gradient(135deg,#a17a54,#6d4d34);box-shadow:inset 0 0 0 2px rgba(255,255,255,.18),0 13px 28px rgba(58,40,27,.22);text-align:center}.table strong{display:block;font:700 clamp(1.1rem,3vw,1.7rem) Georgia,serif}.table small{display:block;margin-top:5px;opacity:.85}.seat{position:absolute;width:clamp(76px,16vw,118px);min-height:62px;padding:7px;border:2px solid var(--line);border-radius:12px;color:var(--ink);background:#fff;font-size:clamp(.67rem,1.7vw,.87rem);font-weight:800;box-shadow:0 5px 13px rgba(0,0,0,.09)}.seat.empty{color:#89928d;font-weight:650}.seat.ready{border-color:var(--green);background:#edf8f3}.seat.correct{border-color:var(--green);background:#e5f6ed}.seat.wrong{border-color:var(--red);background:#fff0ed}.seat-id{display:block;margin-bottom:3px;color:var(--muted);font-size:.61rem;font-weight:850;letter-spacing:.05em;text-transform:uppercase}.remove{position:absolute;top:-9px;right:-9px;display:grid;width:24px;height:24px;place-items:center;border:1px solid var(--line);border-radius:50%;color:var(--red);background:#fff;font-weight:900}.actions{display:grid;grid-template-columns:1fr 2fr;gap:10px}.action{min-height:48px;border-radius:11px;font-weight:850}.clear{border:1px solid var(--line);color:var(--ink);background:#fff}.check{border:0;color:#fff;background:var(--green)}.status{min-height:26px;margin:13px 0 0;text-align:center;font-weight:800}.status.success{color:var(--green)}.status.error{color:var(--red)}.solution{display:none;margin-top:16px;padding:17px;border:2px solid var(--green);border-radius:13px;background:#eaf6ee}.solution.show{display:block}.solution h2{color:var(--green)}
+    @media(max-width:650px){.hero{grid-template-columns:1fr}.hero img{max-height:250px;min-height:0}.table-wrap{aspect-ratio:1.05;margin:24px 0}.table{inset:24% 17%;border-width:5px}.seat{width:72px;min-height:56px;font-size:.64rem}.seat-id{font-size:.54rem}.actions{grid-template-columns:1fr}}
+  </style>
+<link rel="stylesheet" href="puzzle-consistency.css?v=2"><script defer src="puzzle-consistency.js?v=2"></script>
+</head>
+<body>
+  <main class="app">
+    <a class="back" href="location.html?id=pipers-house">← Return to Piper’s House</a>
+    <header class="hero">
+      <div class="hero-copy"><p class="eyebrow">Jedburgh Town Trail · Seating puzzle</p><h1>The Implausible Supper</h1><p>Eight remarkable diners, one carefully arranged table—and a royal favourite hidden among them.</p></div>
+      <img src="../Jedburgh_Town_Trail_Assets/from brochure photographs_native/pipers_house2.png" alt="Piper’s House in Jedburgh">
+    </header>
+    <section class="card">
+      <h2>A most extraordinary guest list</h2>
+      <p class="story">In October 1605, a supper was held in Piper’s House by Alexander Seton. Four diners sat on one side of a simple rectangular table and four faced them on the other. Seton’s suppers were famous for the quality of both conversation and company—but this evening’s guest list was astonishing.</p>
+      <figure class="supper-scene"><img src="../Jedburgh_Town_Trail_Assets/created graphics/implausible_supprer.png" alt="Eight diners gathered around a candlelit table for the Implausible Supper"><figcaption>The extraordinary supper at Piper’s House</figcaption></figure>
+      <details class="guest-list">
+        <summary>Meet the eight diners</summary>
+        <dl>
+          <dt>Alexander Seton</dt><dd>Lord Chancellor of Scotland and host, diplomatically managing volatile rivals in the King’s unexpected presence.</dd>
+          <dt>William Shakespeare</dt><dd>The English playwright, quietly observing the table’s drama while gathering material for <em>Macbeth</em>.</dd>
+          <dt>Andrew Melville</dt><dd>A fiery Presbyterian preacher who opposed royal control over the Kirk—a theological time bomb.</dd>
+          <dt>John Napier</dt><dd>The eccentric Laird of Merchiston, absorbed in mathematics, astronomy and calculations concerning the Apocalypse.</dd>
+          <dt>Duncan Liddel</dt><dd>An Aberdeen mathematician and physician carrying the latest European astronomical charts.</dd>
+          <dt>Robert Kerr</dt><dd>Son of Sir Thomas Kerr, Laird of Ferniehirst Castle, just south of Jedburgh. At school he had the nickname "Wan".</dd>
+          <dt>Thomas Percy</dt><dd>Constable of Alnwick Castle and former secret intermediary in negotiations with King James VI. Also a conspirator in the Gunpowder Plot!</dd>
+          <dt>King James VI</dt><dd>The highly intellectual monarch who ruled the table, debated theology and guarded against hidden threats.</dd>
+        </dl>
+      </details>
+      <p>Some diners fervently supported the King; others questioned royal authority or plotted to topple the Protestant monarch. The King placed his most favoured guest immediately on his right—but who was it?</p>
+      <p class="instruction"><strong>How to play:</strong> Select a diner from the waiting list, then select the seat where you think they belong. Select × to clear an individual seat. Seat everyone, then check your arrangement.</p>
+      <p class="orientation"><strong>Reading the table:</strong> Seats are numbered clockwise. Seats 1–4 run left to right across the top; seats 5–8 run right to left across the bottom. A diner’s left and right are from their own seated point of view. Clues that say “on the diagram” use your point of view.</p>
+      <section class="clues"><h2>Clues</h2><ol>
+        <li>Percy was sitting in an end seat.</li>
+        <li>There were at least two people to the right of William Shakespeare on the diagram.</li>
+        <li>Seton was sitting opposite Shakespeare and beside the man described as a ticking theological time bomb.</li>
+        <li>The person on the King’s left had previously negotiated with the King.</li>
+        <li>Liddel sat beside Melville, occupying one of the two middle seats on his side of the table.</li>
+        <li>Seton sat in the highest-numbered seat.</li>
+        <li>There was at least one person to Seton’s right on the diagram.</li>
+        <li>Napier sat directly opposite Percy.</li>
+      </ol></section>
+      <p class="section-label">Diners waiting to be seated</p>
+      <div class="tray" id="tray"></div>
+      <div class="table-wrap" id="table-wrap"><div class="table"><div><strong>Piper’s House</strong><small>October 1605</small></div></div></div>
+      <div class="actions"><button class="action clear" id="clear" type="button">Clear table</button><button class="action check" id="check" type="button">Check seating</button></div>
+      <p class="status" id="status" aria-live="polite"></p>
+      <section class="solution" id="solution" tabindex="-1"><h2>Correct—the King favoured Robert Kerr!</h2><p>Although the supper is fiction, the King’s choice of intimate male companion is correct—his special friend was a pretty and posh young lad from Jedburgh who he showered with gifts and made the Earl of Somerset.</p></section>
+    </section>
+  </main>
+  <script>
+    (()=>{
+      const people=[
+        {id:"seton",label:"Alexander Seton"},{id:"shakespeare",label:"William Shakespeare"},{id:"melville",label:"Andrew Melville"},{id:"napier",label:"John Napier"},
+        {id:"liddel",label:"Duncan Liddel"},{id:"kerr",label:"Robert Kerr"},{id:"percy",label:"Thomas Percy"},{id:"king",label:"King James VI"}
+      ];
+      const target={1:"shakespeare",2:"kerr",3:"king",4:"percy",5:"napier",6:"liddel",7:"melville",8:"seton"};
+      const tray=document.querySelector("#tray"),wrap=document.querySelector("#table-wrap"),status=document.querySelector("#status"),solution=document.querySelector("#solution");
+      let seats={},selected=null,showFeedback=false;
+      const label=id=>people.find(person=>person.id===id)?.label||id;
+      function waiting(){const used=new Set(Object.values(seats));return people.filter(person=>!used.has(person.id));}
+      function position(button,number){
+        if(number<=4){button.style.left=`${number*20}%`;button.style.top="0";button.style.transform="translate(-50%,0)";}
+        else{button.style.left=`${(9-number)*20}%`;button.style.top="100%";button.style.transform="translate(-50%,-100%)";}
+      }
+      function clearFeedback(){showFeedback=false;status.textContent="";status.className="status";solution.classList.remove("show");}
+      function render(){
+        tray.replaceChildren();
+        const waitingPeople=waiting();
+        if(!waitingPeople.length){const empty=document.createElement("span");empty.className="empty-tray";empty.textContent="Everyone is seated.";tray.append(empty);}
+        waitingPeople.forEach(person=>{const button=document.createElement("button");button.type="button";button.className=`person${selected===person.id?" selected":""}`;button.textContent=person.label;button.setAttribute("aria-pressed",String(selected===person.id));button.onclick=()=>{selected=selected===person.id?null:person.id;clearFeedback();render();};tray.append(button);});
+        wrap.querySelectorAll(".seat").forEach(node=>node.remove());
+        for(let number=1;number<=8;number++){
+          const personId=seats[number],button=document.createElement("button");button.type="button";
+          const feedback=showFeedback?(personId===target[number]?" correct":" wrong"):"";
+          button.className=`seat${personId?"":" empty"}${selected?" ready":""}${feedback}`;
+          button.innerHTML=`<span class="seat-id">Seat ${number}</span>${personId?label(personId):(selected?"Place here":"Empty seat")}`;
+          button.setAttribute("aria-label",`Seat ${number}: ${personId?label(personId):"empty"}`);
+          button.onclick=()=>{if(!selected)return;Object.keys(seats).forEach(key=>{if(seats[key]===selected)delete seats[key];});seats[number]=selected;selected=null;clearFeedback();render();};
+          if(personId){const remove=document.createElement("span");remove.className="remove";remove.textContent="×";remove.setAttribute("role","button");remove.setAttribute("aria-label",`Remove ${label(personId)} from seat ${number}`);remove.onclick=event=>{event.stopPropagation();delete seats[number];clearFeedback();render();};button.append(remove);}
+          position(button,number);wrap.append(button);
+        }
+      }
+      document.querySelector("#clear").onclick=()=>{seats={};selected=null;clearFeedback();render();status.textContent="The table has been cleared.";};
+      document.querySelector("#check").onclick=()=>{
+        if(Object.keys(seats).length!==8){status.className="status error";status.textContent="Seat all eight diners before checking your arrangement.";return;}
+        const correct=Object.keys(target).every(number=>seats[number]===target[number]);showFeedback=true;render();
+        status.className=`status ${correct?"success":"error"}`;status.textContent=correct?"Correct—every diner is in the right seat.":"Not quite. Green seats are correct; red seats need to move.";
+        if(correct){solution.classList.add("show");solution.focus();}
+      };
+      render();
+    })();
+  </script>
+</body>
+</html>

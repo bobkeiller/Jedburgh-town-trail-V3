@@ -1,0 +1,71 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="theme-color" content="#18352b">
+<title>1,200 Years of Jedburgh</title>
+<link rel="stylesheet" href="timeline.css?v=1">
+</head>
+<body>
+<div class="reading-progress" aria-hidden="true"><span id="readingProgress"></span></div>
+<header class="timeline-hero" id="top">
+  <nav class="top-nav" aria-label="Timeline navigation">
+    <a href="index.html">← Trail home</a>
+    <a href="locations.html">Trail locations</a>
+  </nav>
+  <p class="eyebrow">Jedburgh Town Trail</p>
+  <h1>1,200 Years of Jedburgh</h1>
+  <p class="intro">The land that Jedburgh is built on began forming over 470 million years ago on an ocean floor. It has since been shaped by tectonic movements, volcanic activity, weathering and multiple ice ages.
+The town’s history goes back 1200 years.	
+Of that, Jedburgh has hosted royal visitors for nearly 900 years (including 18 monarchs, in every century except the 1600s).
+  From an early settlement beside the Jed Water to a town whose festivals, stories and sporting traditions remain alive today, follow the people, conflicts, ideas and places that shaped Jedburgh.</p>
+  <div class="hero-meta"><strong>c. AD 830–Today</strong><span>Scroll through the story ↓</span></div>
+</header>
+
+<main>
+  <section class="timeline-tools" aria-labelledby="exploreTitle">
+    <h2 id="exploreTitle">Explore the timeline</h2>
+    <div class="tool-grid">
+      <label>Story theme
+        <select id="themeFilter">
+          <option value="all">All stories</option>
+          <option value="faith">Faith and Abbey</option>
+          <option value="royal">Royal Jedburgh</option>
+          <option value="defended">The Defended Burgh</option>
+          <option value="crime">Crime and Justice</option>
+          <option value="words">Words and Writers</option>
+          <option value="minds">Minds of Jedburgh</option>
+          <option value="civic">Civic Life and Trade</option>
+          <option value="war">War and Service</option>
+          <option value="traditions">Living Traditions</option>
+        </select>
+      </label>
+      <label>Jump to period
+        <select id="chapterJump"><option value="">Choose a chapter</option></select>
+      </label>
+    </div>
+    <div class="filter-row">
+      <label class="switch"><input type="checkbox" id="plaquesOnly"><span>Plaques only</span></label>
+      <button type="button" class="reset-filter" id="resetFilters">Reset filters</button>
+    </div>
+    <p class="results-count" id="resultsCount" aria-live="polite"></p>
+  </section>
+
+  <div class="chapter-tracker" id="chapterTracker" aria-live="polite">Beginnings and the Medieval Burgh</div>
+  <div class="timeline" id="timeline"></div>
+  <p class="no-results" id="noResults" hidden>No stories match these filters. <button type="button" id="emptyReset">Show all stories</button></p>
+
+  <section class="today" id="jedburgh-today">
+    <p class="eyebrow">The story continues</p>
+    <h2>Jedburgh Today</h2>
+    <p>History here is not confined to monuments. The Jethart Callant’s Festival, Handba’, the ride through the Canongate ford and Jed-Forest rugby keep place, memory and community closely connected.</p>
+    <a class="cta" href="locations.html">Explore the physical trail →</a>
+  </section>
+</main>
+
+<button class="back-top" id="backTop" type="button" aria-label="Back to top">↑</button>
+<noscript><section class="no-script"><h2>Explore Jedburgh’s history</h2><p>This interactive chronology needs JavaScript to display its stories and filters. You can still explore the town through the <a href="locations.html">Trail Locations</a> page.</p></section></noscript>
+<script src="timeline.js?v=1"></script>
+</body>
+</html>

@@ -1,0 +1,290 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Jed Quiz — Jedburgh Town Trail</title>
+<link rel="stylesheet" href="trail.css">
+<style>
+  .quiz-body{padding:18px 16px}
+  .quiz-intro{color:var(--muted);margin:0 0 18px}
+  .quiz-card{background:var(--card);border:1px solid var(--line);border-radius:14px;box-shadow:var(--shadow);padding:14px 16px;margin:0 0 14px}
+  .quiz-card h2{font:600 16px/1.35 Georgia,serif;margin:0 0 10px}
+  .option{display:flex;align-items:flex-start;gap:10px;margin:8px 0;padding:10px 12px;border-radius:10px;background:#fff;border:1px solid var(--line);color:var(--ink);font-size:14px;cursor:pointer}
+  .option input{margin-top:3px;accent-color:var(--green)}
+  .option.is-correct{background:rgba(83,164,81,.18);border-color:rgba(83,164,81,.72)}
+  .option.is-wrong{background:rgba(164,61,55,.14);border-color:rgba(164,61,55,.7)}
+  .feedback-tag{margin-left:auto;font-size:12px;font-weight:700;white-space:nowrap}
+  .option.is-correct .feedback-tag{color:#2c6b2b}
+  .option.is-wrong .feedback-tag{color:var(--red)}
+  #result{display:none;margin:14px 0 4px;padding:14px 16px;background:var(--card);border:1px solid var(--green2);border-radius:14px;box-shadow:var(--shadow);font-weight:700;text-align:center}
+</style>
+<link rel="stylesheet" href="puzzle-consistency.css?v=2"><script defer src="puzzle-consistency.js?v=2"></script>
+</head>
+<body>
+<header class="topbar">
+  <a href="location.html?id=time-for-reflection" id="backLink">&larr; Return to Time for Reflection</a>
+  <h1>Jed Quiz</h1>
+  <span style="width:36px"></span>
+</header>
+<main class="shell">
+  <form class="quiz-body" id="quizForm">
+    <p class="quiz-intro">Just for fun — how much did you pick up along the trail? Answer all the questions, then test your answers.</p>
+
+    <section class="quiz-card">
+      <h2>1. In which century was Jedburgh Abbey burned three times?</h2>
+      <label class="option"><input type="radio" name="q1" value="a"> 15th</label>
+      <label class="option"><input type="radio" name="q1" value="b"> 11th</label>
+      <label class="option"><input type="radio" name="q1" value="c"> 19th</label>
+    </section>
+
+    <section class="quiz-card">
+      <h2>2. James Hutton’s Unconformity was a key part in establishing the age of our planet, but how long ago did the rocks collide to create the unique geology that he spotted in Jedburgh?</h2>
+      <label class="option"><input type="radio" name="q2" value="a"> 40,000 years</label>
+      <label class="option"><input type="radio" name="q2" value="b"> 1 million years</label>
+      <label class="option"><input type="radio" name="q2" value="c"> 450 million years</label>
+    </section>
+
+    <section class="quiz-card">
+      <h2>3. Which King got married in Jedburgh Abbey?</h2>
+      <label class="option"><input type="radio" name="q3" value="a"> King David I</label>
+      <label class="option"><input type="radio" name="q3" value="b"> King Alexander III</label>
+      <label class="option"><input type="radio" name="q3" value="c"> King William the Lion</label>
+    </section>
+
+    <section class="quiz-card">
+      <h2>4. On which day does the town Callant pay his respects at the War Memorial?</h2>
+      <label class="option"><input type="radio" name="q4" value="a"> Remembrance Day</label>
+      <label class="option"><input type="radio" name="q4" value="b"> Festival Day</label>
+      <label class="option"><input type="radio" name="q4" value="c"> Candlemas</label>
+    </section>
+
+    <section class="quiz-card">
+      <h2>5. Which French General helped to construct the ramparts as gun positions to defend the Abbey?</h2>
+      <label class="option"><input type="radio" name="q5" value="a"> General D’Esse</label>
+      <label class="option"><input type="radio" name="q5" value="b"> General D’Isordeur</label>
+      <label class="option"><input type="radio" name="q5" value="c"> General Hospital</label>
+    </section>
+
+    <section class="quiz-card">
+      <h2>6. Which prominent Jedburgh building was completed the same year that Queen Victoria died?</h2>
+      <label class="option"><input type="radio" name="q6" value="a"> The Abbey</label>
+      <label class="option"><input type="radio" name="q6" value="b"> The Public Hall</label>
+      <label class="option"><input type="radio" name="q6" value="c"> The Castle Jail</label>
+    </section>
+
+    <section class="quiz-card">
+      <h2>7. Where were several skulls found during excavations in 1993?</h2>
+      <label class="option"><input type="radio" name="q7" value="a"> The Market Place</label>
+      <label class="option"><input type="radio" name="q7" value="b"> The Canongate</label>
+      <label class="option"><input type="radio" name="q7" value="c"> Abbey Place</label>
+    </section>
+
+    <section class="quiz-card">
+      <h2>8. The fountain in the Market Place was built to celebrate which of Victoria’s jubilees?</h2>
+      <label class="option"><input type="radio" name="q8" value="a"> Silver</label>
+      <label class="option"><input type="radio" name="q8" value="b"> Gold</label>
+      <label class="option"><input type="radio" name="q8" value="c"> Diamond</label>
+    </section>
+
+    <section class="quiz-card">
+      <h2>9. In what year did Robert Burns visit Jedburgh?</h2>
+      <label class="option"><input type="radio" name="q9" value="a"> 1787</label>
+      <label class="option"><input type="radio" name="q9" value="b"> 1797</label>
+      <label class="option"><input type="radio" name="q9" value="c"> 1801</label>
+    </section>
+
+    <section class="quiz-card">
+      <h2>10. Why did Walter Scott come to Jedburgh so often in the 18th century?</h2>
+      <label class="option"><input type="radio" name="q10" value="a"> He enjoyed the conversations</label>
+      <label class="option"><input type="radio" name="q10" value="b"> He was a defence lawyer in the court</label>
+      <label class="option"><input type="radio" name="q10" value="c"> His parents lived here</label>
+    </section>
+
+    <section class="quiz-card">
+      <h2>11. Which resident of Abbey Close has a College named after them at Oxford University?</h2>
+      <label class="option"><input type="radio" name="q11" value="a"> Dorothy Wordsworth</label>
+      <label class="option"><input type="radio" name="q11" value="b"> Mary Somerville</label>
+      <label class="option"><input type="radio" name="q11" value="c"> Winnie McGuigan</label>
+    </section>
+
+    <section class="quiz-card">
+      <h2>12. Which famous person died at the site of the Castle Jail in 1165 aged only 24?</h2>
+      <label class="option"><input type="radio" name="q12" value="a"> Bishop Aukland</label>
+      <label class="option"><input type="radio" name="q12" value="b"> James (the Black) Douglas</label>
+      <label class="option"><input type="radio" name="q12" value="c"> King Malcolm IV of Scotland</label>
+    </section>
+
+    <section class="quiz-card">
+      <h2>13. Why did Andrew Carnegie come to Jedburgh in 1900?</h2>
+      <label class="option"><input type="radio" name="q13" value="a"> To open a library he had funded</label>
+      <label class="option"><input type="radio" name="q13" value="b"> To visit a friend</label>
+      <label class="option"><input type="radio" name="q13" value="c"> To play in the Hand Ba’</label>
+    </section>
+
+    <section class="quiz-card">
+      <h2>14. During which Jacobite uprising did Prince Charlie come to Jedburgh?</h2>
+      <label class="option"><input type="radio" name="q14" value="a"> the 1689</label>
+      <label class="option"><input type="radio" name="q14" value="b"> the 1715</label>
+      <label class="option"><input type="radio" name="q14" value="c"> the 1745</label>
+    </section>
+
+    <section class="quiz-card">
+      <h2>15. What was upstairs from the Commercial Bank in Exchange Street?</h2>
+      <label class="option"><input type="radio" name="q15" value="a"> A storage room</label>
+      <label class="option"><input type="radio" name="q15" value="b"> A flat for the Manager</label>
+      <label class="option"><input type="radio" name="q15" value="c"> A staff rest room</label>
+    </section>
+
+    <section class="quiz-card">
+      <h2>16. In the annual game of Hand Ba’ who plays who?</h2>
+      <label class="option"><input type="radio" name="q16" value="a"> The Uppies and the Doonies</label>
+      <label class="option"><input type="radio" name="q16" value="b"> The Toonies and the Tuechters</label>
+      <label class="option"><input type="radio" name="q16" value="c"> The Laddies and the Lassies</label>
+    </section>
+
+    <section class="quiz-card">
+      <h2>17. Who visited the Spread Eagle for a refreshment in 1566?</h2>
+      <label class="option"><input type="radio" name="q17" value="a"> Elizabeth I</label>
+      <label class="option"><input type="radio" name="q17" value="b"> Sir Walter Raleigh</label>
+      <label class="option"><input type="radio" name="q17" value="c"> Mary Queen of Scots</label>
+    </section>
+
+    <section class="quiz-card">
+      <h2>18. Near which of Walter Scott’s friends’ houses was the Loupin’-on Stane?</h2>
+      <label class="option"><input type="radio" name="q18" value="a"> Sheriff Patterson</label>
+      <label class="option"><input type="radio" name="q18" value="b"> Sheriff Shortreed</label>
+      <label class="option"><input type="radio" name="q18" value="c"> Sheriff Nottingham</label>
+    </section>
+
+    <section class="quiz-card">
+      <h2>19. Which colour was used to describe the Franciscan monks?</h2>
+      <label class="option"><input type="radio" name="q19" value="a"> Greyfriars</label>
+      <label class="option"><input type="radio" name="q19" value="b"> Whitefriars</label>
+      <label class="option"><input type="radio" name="q19" value="c"> Blackfriars</label>
+    </section>
+
+    <section class="quiz-card">
+      <h2>20. What form of trade took place near the former Trinity Church?</h2>
+      <label class="option"><input type="radio" name="q20" value="a"> A hay market</label>
+      <label class="option"><input type="radio" name="q20" value="b"> A wool market</label>
+      <label class="option"><input type="radio" name="q20" value="c"> A horse market</label>
+    </section>
+
+    <section class="quiz-card">
+      <h2>21. What roofing material covered Mary Queen of Scots House before the slates that were fitted in 1980?</h2>
+      <label class="option"><input type="radio" name="q21" value="a"> Thatched roof</label>
+      <label class="option"><input type="radio" name="q21" value="b"> Red tiles</label>
+      <label class="option"><input type="radio" name="q21" value="c"> Wooden shingles</label>
+    </section>
+
+    <section class="quiz-card">
+      <h2>22. When was the Piper’s House built?</h2>
+      <label class="option"><input type="radio" name="q22" value="a"> 1504</label>
+      <label class="option"><input type="radio" name="q22" value="b"> 1604</label>
+      <label class="option"><input type="radio" name="q22" value="c"> 1704</label>
+    </section>
+
+    <section class="quiz-card">
+      <h2>23. In which century was the Canongate Bridge constructed?</h2>
+      <label class="option"><input type="radio" name="q23" value="a"> 16th</label>
+      <label class="option"><input type="radio" name="q23" value="b"> 17th</label>
+      <label class="option"><input type="radio" name="q23" value="c"> 19th</label>
+    </section>
+
+    <section class="quiz-card">
+      <h2>24. Where did Edward I make John Balliol King of Scotland?</h2>
+      <label class="option"><input type="radio" name="q24" value="a"> Roxburgh Castle</label>
+      <label class="option"><input type="radio" name="q24" value="b"> Floors Castle</label>
+      <label class="option"><input type="radio" name="q24" value="c"> Norham Castle</label>
+    </section>
+
+    <div class="button-row" style="padding:0">
+      <button class="btn primary" type="submit">Test your answers</button>
+      <button class="btn secondary" type="reset">Start again</button>
+    </div>
+
+    <div id="result" aria-live="polite"></div>
+    <div class="button-row" style="padding:10px 0 0">
+      <a class="btn primary" href="songs-that-mention-jedburgh.html">Next: Famous Songs That Mention Jedburgh →</a>
+    </div>
+  </form>
+</main>
+<script src="trail-data.js"></script>
+<script>
+  const correctAnswers = {
+    q1:'a', q2:'c', q3:'b', q4:'b', q5:'a', q6:'b', q7:'c', q8:'c',
+    q9:'a', q10:'b', q11:'b', q12:'c', q13:'a', q14:'c', q15:'b', q16:'a',
+    q17:'c', q18:'b', q19:'a', q20:'c', q21:'b', q22:'b', q23:'a', q24:'c'
+  };
+
+  const form = document.getElementById('quizForm');
+  const result = document.getElementById('result');
+  const totalQuestions = Object.keys(correctAnswers).length;
+
+  function clearFeedback() {
+    form.querySelectorAll('.option').forEach(option => {
+      option.classList.remove('is-correct', 'is-wrong');
+      const tag = option.querySelector('.feedback-tag');
+      if (tag) tag.remove();
+    });
+  }
+
+  function addFeedback(option, text, kind) {
+    option.classList.add(kind);
+    const tag = document.createElement('span');
+    tag.className = 'feedback-tag';
+    tag.textContent = text;
+    option.appendChild(tag);
+  }
+
+  form.addEventListener('submit', event => {
+    event.preventDefault();
+    clearFeedback();
+
+    let score = 0;
+    let answered = 0;
+
+    for (const [question, correct] of Object.entries(correctAnswers)) {
+      const selected = form.querySelector(`input[name="${question}"]:checked`);
+      if (selected) {
+        answered += 1;
+        if (selected.value === correct) score += 1;
+      }
+    }
+
+    result.style.display = 'block';
+
+    if (answered < totalQuestions) {
+      result.textContent = `You answered ${answered} of ${totalQuestions} questions. Please finish the rest to see your full score.`;
+      return;
+    }
+
+    for (const [question, correct] of Object.entries(correctAnswers)) {
+      form.querySelectorAll(`input[name="${question}"]`).forEach(input => {
+        const option = input.closest('.option');
+        if (input.value === correct) addFeedback(option, 'Correct answer', 'is-correct');
+        else if (input.checked) addFeedback(option, 'Not quite', 'is-wrong');
+      });
+    }
+
+    result.textContent = `You scored ${score} out of ${totalQuestions}.`;
+    result.scrollIntoView({ behavior: 'smooth', block: 'center' });
+  });
+
+  form.addEventListener('reset', () => {
+    clearFeedback();
+    result.style.display = 'none';
+    result.textContent = '';
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  });
+
+  const fromId = new URLSearchParams(location.search).get('from');
+  if (fromId && jedburghTrail.pins.some(p => p.id === fromId)) {
+    const backLink = document.getElementById('backLink');
+    backLink.href = `location.html?id=${encodeURIComponent(fromId)}`;
+    backLink.textContent = '← Back';
+  }
+</script>
+</body>
+</html>

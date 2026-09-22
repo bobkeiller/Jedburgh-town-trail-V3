@@ -1,0 +1,40 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Plaque Map — Jedburgh Town Trail</title>
+<link rel="stylesheet" href="trail.css">
+<style>
+  .plaque-map-view{padding:16px;display:flex;flex-direction:column;align-items:center;gap:12px}
+  .plaque-map-view img{width:100%;max-width:100%;border-radius:14px;box-shadow:var(--shadow);background:#e8ede7}
+  .plaque-map-hint{color:var(--muted);font-size:13px;text-align:center;padding:0 8px}
+  @media (orientation:landscape){
+    .plaque-map-view{padding:10px}
+    .plaque-map-view img{max-height:calc(100vh - 90px);width:auto;object-fit:contain}
+  }
+</style>
+</head>
+<body>
+<header class="topbar">
+  <a href="locations.html" id="backLink">&larr; List</a>
+  <h1>Plaque Map</h1>
+  <span style="width:36px"></span>
+</header>
+<main class="shell">
+  <div class="plaque-map-view">
+    <p class="plaque-map-hint">All 32 historic plaques shown on the trail map. Pinch to zoom in for detail, or rotate your phone for a bigger landscape view.</p>
+    <img src="../Jedburgh_Town_Trail_Assets/created%20graphics/plaque-map2.png" alt="Map showing the location of all 32 historic plaques around the Jedburgh Town Trail">
+  </div>
+</main>
+<script src="trail-data.js"></script>
+<script>
+  const fromId = new URLSearchParams(location.search).get('from');
+  const backLink = document.getElementById('backLink');
+  if (fromId && jedburghTrail.pins.some(p => p.id === fromId)) {
+    backLink.href = `location.html?id=${encodeURIComponent(fromId)}`;
+    backLink.textContent = '← Back';
+  }
+</script>
+</body>
+</html>

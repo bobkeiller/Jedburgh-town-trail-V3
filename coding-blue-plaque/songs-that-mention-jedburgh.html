@@ -1,0 +1,80 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+  <meta name="theme-color" content="#46335d">
+  <title>Famous Songs That Mention Jedburgh | Jedburgh Town Trail</title>
+  <style>
+    :root{--ink:#292431;--muted:#706979;--paper:#fffdf8;--purple:#49335f;--purple2:#76528d;--gold:#cb8d35;--green:#2f744d;--pink:#f5dce3;--pink-line:#c65c78;--line:#d9d0dc;--wash:#f1ebf3;--shadow:0 18px 50px #30233c24}
+    *{box-sizing:border-box}body{margin:0;min-height:100vh;color:var(--ink);font:15px/1.5 Inter,system-ui,sans-serif;background:radial-gradient(circle at 8% 0,#eee2f1,transparent 32rem),linear-gradient(145deg,#dedce1,#f4eee5)}button,a{font:inherit}.page{width:min(900px,calc(100% - 24px));margin:auto;padding:16px 0 52px}.back{display:inline-flex;min-height:44px;align-items:center;padding:9px 13px;margin-bottom:14px;border-radius:10px;color:var(--purple);background:#ebe3ee;font-size:13px;font-weight:850;text-decoration:none}.hero{overflow:hidden;padding:clamp(24px,6vw,48px);border-radius:22px;color:white;background:radial-gradient(circle at 85% 20%,#b881cb66,transparent 15rem),linear-gradient(135deg,#342441,#694779);box-shadow:var(--shadow)}.notes{margin:0 0 8px;color:#f4ca75;font-size:30px;letter-spacing:.18em}.eyebrow{margin:0 0 7px;color:#edcb83;font-size:12px;font-weight:900;letter-spacing:.14em;text-transform:uppercase}h1{max-width:700px;margin:0;font:600 clamp(36px,8vw,66px)/.98 Georgia,serif;letter-spacing:-.035em}.intro{max-width:720px;margin:16px 0 0;color:#f1e8f4;font-size:17px}.instructions{margin:18px 0;padding:15px 17px;border-left:5px solid var(--gold);border-radius:11px;background:var(--paper);box-shadow:var(--shadow)}.instructions p{margin:0}.quiz-head{display:flex;align-items:center;justify-content:space-between;gap:12px;margin:22px 2px 12px}.quiz-head h2{margin:0;font:600 27px Georgia,serif}.progress{padding:6px 10px;border-radius:99px;color:var(--purple);background:#e9dfed;font-size:12px;font-weight:850;white-space:nowrap}.quiz{display:grid;gap:14px}.question{padding:17px;border:1px solid #65546a20;border-radius:17px;background:var(--paper);box-shadow:var(--shadow)}.question h2{margin:0 0 11px;font:600 19px/1.25 Georgia,serif}.prompt{margin:0 0 12px;color:var(--muted);font-weight:750}.clip{width:100%;margin-bottom:13px}.options{display:grid;gap:9px}.option{width:100%;min-height:48px;padding:11px 13px;border:2px solid var(--line);border-radius:11px;color:var(--ink);background:white;font-weight:800;text-align:left;cursor:pointer}.option:hover:not(:disabled){border-color:var(--purple2);background:#faf6fb}.option.wrong{border-color:var(--pink-line);background:var(--pink);color:#7d2941}.option.correct{border-color:var(--green);background:#e1f1e6;color:#215c3c}.option:disabled{cursor:default}.feedback{display:none;margin:12px 0 0;padding:11px 13px;border-radius:10px;color:var(--green);background:#e6f2e9;font-weight:800}.feedback.show{display:block}.actions{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:18px}.action{min-height:49px;border:0;border-radius:11px;font-weight:850;cursor:pointer}.reset{color:var(--purple);background:#e8dfeb}.return{color:white;background:var(--purple)}.complete{display:none;margin-top:16px;padding:17px;border:2px solid var(--green);border-radius:14px;color:var(--green);background:#e7f3ea;font-weight:850;text-align:center}.complete.show{display:block}button:focus-visible,a:focus-visible{outline:3px solid var(--gold);outline-offset:3px}@media(max-width:520px){.hero{padding:24px 19px}.question{padding:15px}.actions{grid-template-columns:1fr}.action{width:100%}}
+    .actions .action{display:grid;place-items:center;text-decoration:none}
+  </style>
+  <link rel="stylesheet" href="puzzle-consistency.css?v=2">
+  <script defer src="puzzle-consistency.js?v=2"></script>
+</head>
+<body>
+  <main class="page">
+    <a class="back" href="location.html?id=time-for-reflection">← Return to Time for Reflection</a>
+    <header class="hero">
+      <p class="notes" aria-hidden="true">♪ ♫ ♪</p>
+      <p class="eyebrow">A Jedburgh musical clips quiz</p>
+      <h1>Famous songs that mention Jedburgh</h1>
+      <p class="intro">There are a surprising number of popular music tracks that originally contained references to Jedburgh, often using the shorter and more colloquial forms “Jed” and “Jethart”—but can you name the artists to reveal the original name of each song?</p>
+    </header>
+    <section class="instructions">
+      <p><strong>Play each clip and name the artist.</strong> An incorrect answer turns pink. Find the correct artist to reveal the song’s original title.</p>
+    </section>
+    <div class="quiz-head"><h2>Musical clips</h2><span class="progress" id="progress">0 of 10 correct</span></div>
+    <section class="quiz" id="quiz" aria-label="Music quiz questions"></section>
+    <p class="complete" id="complete" role="status" aria-live="polite">Excellent—you identified all ten artists and revealed every original song title!</p>
+    <div class="actions"><button class="action reset" id="reset" type="button">Start again</button><a class="action return" href="location.html?id=time-for-reflection">Return to Time for Reflection</a></div>
+  </main>
+  <script>
+    (()=>{
+      const audioPath='../Jedburgh_Town_Trail_Assets/audio/';
+      const questions=[
+        {clue:'A hit in 1974, from a classic album',jedburgh:'Jed',artist:'Wings',audio:'Paul McCartney Wings - Jet-quiz-20s-clean.mp3',wrong:['ELO','Slade']},
+        {clue:'This was a hit ten years later',jedburgh:'To Jethart in Electric Dreams',artist:'Phil Oakey and Giorgio Moroder',audio:'Phil Oakley - Together In Electric Dreams-quiz-20s-clean.mp3',wrong:['Duran Duran','Spandau Ballet']},
+        {clue:'One year later still, featuring Randy Crawford',jedburgh:'High Street Life',artist:'The Crusaders',audio:'Randy Crawford  the Crusaders - Street Life 1979-quiz-20s-clean.mp3',wrong:['The Drifters','The Temptations']},
+        {clue:'Back to 1974 for a sparkling song',jedburgh:'Let’s Get to Jethart Again',artist:'The Glitter Band',audio:'Lets Get Together Again-quiz-20s-clean.mp3',wrong:['Arrows','Sweet']},
+        {clue:'A 1980 smash hit',jedburgh:'In Jethart We Are Beautiful',artist:'Fern Kinney',audio:'Together we are beautiful- Fern Kinney-quiz-20s-clean.mp3',wrong:['Gladys Knight','Diana Ross']},
+        {clue:'A 1973 cover of a John Denver song',jedburgh:'Take Me Home, Lanton Road',artist:'Olivia Newton-John',audio:'Olivia Newton-John - Take Me Home Country Roads-quiz-20s-clean.mp3',wrong:['Glen Campbell','Don McLean']},
+        {clue:'Written by Lennon & McCartney in 1970',jedburgh:'Come to Jethart',artist:'The Beatles',audio:'The Beatles - Come Together-quiz-20s-clean.mp3',wrong:['The Troggs','The Animals']},
+        {clue:'Another 1970 absolute classic',jedburgh:'Canongate Bridge over Troubled Jedwater',artist:'Simon & Garfunkel',audio:'Simon  Garfunkel - Bridge Over Troubled Water Audio-quiz-20s-clean.mp3',wrong:['The Everly Brothers','The Bachelors']},
+        {clue:'Gerry Rafferty’s 1978 chart-topper',jedburgh:'Meadow Street',artist:'Gerry Rafferty',audio:'Gerry Rafferty - Baker Street Official Video-quiz-20s-clean.mp3',wrong:['Andrew Gold','Boz Scaggs']},
+        {clue:'An antipodean smash from 1992',jedburgh:'Jethart with You',artist:'Crowded House',audio:'Crowded House - Weather With You-quiz-20s-clean.mp3',wrong:['The Lightning Seeds','Coldplay']}
+      ];
+      const quiz=document.querySelector('#quiz'),progress=document.querySelector('#progress'),complete=document.querySelector('#complete');
+      let solved=new Set;
+      const shuffle=items=>{const result=[...items];for(let i=result.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[result[i],result[j]]=[result[j],result[i]]}return result};
+      function updateProgress(){progress.textContent=`${solved.size} of ${questions.length} correct`;complete.classList.toggle('show',solved.size===questions.length)}
+      function render(){
+        solved=new Set;quiz.replaceChildren();complete.classList.remove('show');
+        questions.forEach((question,index)=>{
+          const card=document.createElement('article');card.className='question';
+          card.innerHTML=`<h2>${index+1}. ${question.clue}</h2><p class="prompt">Play the clip, then name the artist.</p><audio class="clip" controls preload="metadata"><source src="${audioPath}${encodeURIComponent(question.audio)}" type="audio/mpeg">Your browser does not support audio playback.</audio><div class="options"></div><p class="feedback" role="status" aria-live="polite"></p>`;
+          const options=card.querySelector('.options'),feedback=card.querySelector('.feedback');
+          shuffle([question.artist,...question.wrong]).forEach(name=>{
+            const button=document.createElement('button');button.type='button';button.className='option';button.textContent=name;
+            button.addEventListener('click',()=>{
+              if(solved.has(index))return;
+              if(name===question.artist){
+                button.classList.add('correct');button.setAttribute('aria-label',`${name}, correct`);solved.add(index);
+                options.querySelectorAll('.option').forEach(option=>option.disabled=true);
+                feedback.textContent=`The original version of this song was “${question.jedburgh}”.`;feedback.classList.add('show');updateProgress();
+              }else{
+                button.classList.add('wrong');button.disabled=true;button.setAttribute('aria-label',`${name}, incorrect`);
+              }
+            });options.append(button);
+          });quiz.append(card);
+        });
+        quiz.querySelectorAll('audio').forEach(audio=>audio.addEventListener('play',()=>quiz.querySelectorAll('audio').forEach(other=>{if(other!==audio)other.pause()})));
+        updateProgress();
+      }
+      document.querySelector('#reset').addEventListener('click',()=>{quiz.querySelectorAll('audio').forEach(audio=>{audio.pause();audio.currentTime=0});render();scrollTo({top:0,behavior:'smooth'})});
+      render();
+    })();
+  </script>
+</body>
+</html>

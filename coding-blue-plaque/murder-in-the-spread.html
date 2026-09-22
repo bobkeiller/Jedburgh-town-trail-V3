@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Murder in the Spread</title>
+  <link rel="stylesheet" href="matrix-board-puzzle.css?v=1">
+<link rel="stylesheet" href="puzzle-consistency.css?v=2"><script defer src="puzzle-consistency.js?v=2"></script>
+</head>
+<body>
+  <main class="page">
+    <nav class="puzzle-nav" aria-label="Puzzle navigation">
+      <a class="trail-back" href="location.html?id=spread-eagle">&larr; Back to Spread Eagle</a>
+    </nav>
+    <header class="hero">
+      <h1 id="hero-title">Murder in the Spread</h1>
+      <p id="hero-subtitle">31 October 1842</p>
+    </header>
+
+    <section class="panel">
+      <h2 id="context-title">Context</h2>
+      <div id="context-body" class="context-body"></div>
+      <button id="open-rules-example" class="action-btn example-launch" type="button">See an Example</button>
+    </section>
+
+    <section class="panel">
+      <h2 id="clues-title">Clues</h2>
+      <ol id="clue-list" class="clue-list"></ol>
+    </section>
+
+    <section class="panel hints-panel" aria-labelledby="hints-title">
+      <h2 id="hints-title">Need a Hint?</h2>
+      <p class="hints-intro">Reveal the deductions one at a time. Each hint gives the next certain placement.</p>
+      <ol id="hint-list" class="hint-list" aria-live="polite"></ol>
+      <div class="hint-actions">
+        <button id="show-next-hint" class="action-btn" type="button">Show Hint 1 of 9</button>
+        <button id="hide-hints" class="action-btn hint-secondary" type="button" hidden>Hide Hints</button>
+      </div>
+    </section>
+
+    <section class="panel controls-panel">
+      <h2 id="controls-title">Controls</h2>
+      <div id="tool-palette" class="tool-palette" role="toolbar" aria-label="Placement tools"></div>
+      <div class="notes-controls" aria-label="Notes controls">
+        <span id="notes-label" class="notes-label">Note Initial</span>
+        <div id="note-token-palette" class="note-token-palette" role="toolbar" aria-label="Note initials"></div>
+      </div>
+      <div class="action-row">
+        <button id="clear-board" type="button" class="action-btn">Clear Board</button>
+      </div>
+      <p id="status" class="status" aria-live="polite"></p>
+    </section>
+
+    <section class="panel board-panel">
+      <h2 id="board-title">Board</h2>
+      <div class="board-shell">
+        <div class="board-stack">
+          <img id="board-image" class="board-image" src="../Jedburgh_Town_Trail_Assets/created%20graphics/Spread_Eagle_Floorplan.png" alt="Floor plan of the Spread Eagle Hotel">
+          <div id="grid-overlay" class="grid-overlay" role="grid" aria-label="Nine by nine puzzle grid"></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="panel">
+      <h2 id="murderer-title">Name the Murderer</h2>
+      <div class="murderer-row">
+        <label id="murderer-label" class="murderer-label" for="murderer-select">Suspect</label>
+        <select id="murderer-select" class="murderer-select"></select>
+        <button id="check-murderer" type="button" class="action-btn">Check Answer</button>
+      </div>
+      <p id="murderer-feedback" class="murderer-feedback" aria-live="polite"></p>
+    </section>
+  </main>
+
+  <div id="rules-example-dialog" class="example-dialog" role="dialog" aria-modal="true" aria-labelledby="example-dialog-title" hidden>
+    <div class="example-backdrop" data-close-example></div>
+    <section class="example-window">
+      <button id="close-rules-example" class="example-close" type="button" aria-label="Close example">&times;</button>
+      <header class="example-header">
+        <p id="example-step-label" class="example-step-label">Step 1 of 3</p>
+        <h2 id="example-dialog-title">Note Possible Squares</h2>
+      </header>
+      <div class="example-image-wrap"><img id="example-image" class="example-image" alt=""></div>
+      <div id="example-dots" class="example-dots" aria-label="Example progress"></div>
+      <div class="example-actions">
+        <button id="example-previous" class="action-btn" type="button">Previous</button>
+        <button id="example-next" class="action-btn" type="button">Next</button>
+        <button id="example-finish" class="action-btn" type="button" hidden>Got It — Start Solving</button>
+      </div>
+    </section>
+  </div>
+
+  <script src="murder-in-the-spread-data.js"></script>
+  <script src="matrix-board-puzzle.js"></script>
+</body>
+</html>

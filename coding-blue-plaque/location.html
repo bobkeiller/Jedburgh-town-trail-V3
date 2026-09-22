@@ -1,0 +1,348 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Jedburgh Town Trail</title>
+<link rel="stylesheet" href="trail.css?v=7">
+<link rel="stylesheet" href="blue-plaque-game.css?v=18">
+</head>
+<body>
+<header class="topbar">
+  <a href="locations.html">&larr; List</a>
+  <h1 id="stopTitle">Location</h1>
+  <span style="width:36px"></span>
+</header>
+<main class="shell">
+  <div class="experience-strip">
+    <span>Your experience: <strong id="experienceName"></strong></span>
+    <button type="button" class="trail-options-button" data-trail-options>Trail options</button>
+  </div>
+  <div class="button-row" style="padding-top:14px">
+    <button class="btn secondary" id="walkBtn" type="button">🚶 Walking directions here</button>
+  </div>
+  <div class="location-body">
+    <h1 id="bodyTitle">Location</h1>
+    <div id="imageSlot"></div>
+    <section class="location-audio" id="locationAudio" aria-label="Audio guide" hidden>
+      <div class="location-audio-head">
+        <div><strong>Audio guide</strong><small id="audioLocationName"></small></div>
+        <button class="btn secondary audio-btn" id="locationAudioButton" type="button"><span class="btn-icon">🔊</span> <span class="audio-label">Play</span></button>
+      </div>
+      <p class="audio-resume-note" id="audioResumeNote" hidden></p>
+    </section>
+    <div id="contentSlot"></div>
+    <section class="from-here" id="fromHere" hidden>
+      <h2>From here:</h2>
+      <p id="fromHereText"></p>
+    </section>
+    <section class="plaque-section" id="plaqueSection" aria-labelledby="plaqueTitle" hidden>
+      <div class="plaque-section-heading">
+        <h2 id="plaqueTitle">Historic plaques</h2>
+        <span id="plaqueCount"></span>
+      </div>
+      <p class="plaque-intro">Have you seen one? Add it to your collection.</p>
+      <p class="bp-inline-feedback" id="bpInlineFeedback" aria-live="polite"></p>
+      <div class="plaque-list" id="plaqueList"></div>
+      <a class="btn secondary" id="plaqueMapLink" href="plaque-map.html" style="margin-top:10px">🗺️ View Plaque Map</a>
+    </section>
+    <a class="bp-summary-link" id="bpSummaryLink" href="plaque-game.html" hidden>
+      <span><strong>Blue Plaque Puzzle</strong><span id="bpSummaryText">0 of 32 plaques found</span></span><b aria-hidden="true">→</b>
+    </a>
+    <!-- Future: audio/video players can be added here, e.g. <audio> / <video> tags driven by pin.audio / pin.video -->
+  </div>
+  <div class="nav-buttons">
+    <a class="btn secondary" id="prevBtn" href="#">&larr; Previous stop</a>
+    <a class="btn primary" id="nextBtn" href="#">Next stop &rarr;</a>
+  </div>
+</main>
+<script src="trail-data.js?v=6"></script>
+<script src="trail-experience.js?v=1"></script>
+<script src="trail-audio.js?v=3"></script>
+<script src="trail-options.js?v=2"></script>
+<script src="blue-plaque-game.js?v=17"></script>
+<script>
+  const params = new URLSearchParams(location.search);
+  const id = params.get('id');
+  const index = jedburghTrail.pins.findIndex(p => p.id === id);
+  const pin = index >= 0 ? jedburghTrail.pins[index] : jedburghTrail.pins[0];
+  const experienceKey = TrailExperience.current();
+  const experience = TrailExperience.modes[experienceKey];
+  document.getElementById('experienceName').textContent = experience.name;
+
+  document.getElementById('stopTitle').textContent = pin.name;
+  document.getElementById('bodyTitle').textContent = pin.name;
+
+  const imageSlot = document.getElementById('imageSlot');
+  imageSlot.innerHTML = pin.image
+    ? `<img class="stop-image" src="${pin.image}" alt="${pin.name}">`
+    : `<div class="placeholder-image">Add an image for "${pin.name}" (set the "image" field in trail-data.js)</div>`;
+
+  const locationAudio = document.getElementById('locationAudio');
+  if (TrailAudio.enabled()) {
+    const narrationSrc = TrailAudio.sourceFor(pin);
+    const directionSrc = TrailAudio.directionSourceFor(pin);
+    const audioButton = document.getElementById('locationAudioButton');
+    const audioLabel = audioButton.querySelector('.audio-label');
+    const audioIcon = audioButton.querySelector('.btn-icon');
+    const resumeNote = document.getElementById('audioResumeNote');
+    const savedPlayback = TrailAudio.readPlayback();
+    const resumableSources = [narrationSrc, directionSrc].filter(Boolean);
+    const canResume = savedPlayback && savedPlayback.locationId === pin.id && resumableSources.includes(savedPlayback.src) && savedPlayback.currentTime > 0;
+    let currentAudioSrc = canResume ? savedPlayback.src : narrationSrc;
+    const audioPlayer = new Audio(currentAudioSrc);
+    let audioPhase = canResume && savedPlayback.src === directionSrc ? 'directions' : 'narration';
+    let intendedToPlay = !!(canResume && savedPlayback.playing);
+
+    locationAudio.hidden = false;
+    document.getElementById('audioLocationName').textContent = pin.name;
+    audioPlayer.preload = 'metadata';
+
+    function renderAudioButton() {
+      const playing = !audioPlayer.paused;
+      audioButton.classList.toggle('is-playing', playing);
+      audioLabel.textContent = playing && audioPhase === 'directions' ? 'Directions' : (playing ? 'Pause' : (audioPlayer.currentTime > 0 ? 'Resume' : 'Play'));
+      audioIcon.textContent = playing ? '⏸' : (audioPhase === 'directions' ? '➜' : '🔊');
+    }
+
+    function saveLocationPlayback(playing = !audioPlayer.paused) {
+      TrailAudio.savePlayback({ locationId: pin.id, src: currentAudioSrc, currentTime: audioPlayer.currentTime, playing });
+    }
+
+    async function attemptTransferredPlayback() {
+      if (!intendedToPlay) return;
+      try {
+        await audioPlayer.play();
+        resumeNote.hidden = true;
+      } catch (_) {
+        intendedToPlay = false;
+        resumeNote.textContent = 'Your audio is ready at the point where you left it. Press Resume to continue.';
+        resumeNote.hidden = false;
+      }
+      renderAudioButton();
+    }
+
+    if (canResume) {
+      audioPlayer.addEventListener('loadedmetadata', () => {
+        const safeTime = Number.isFinite(audioPlayer.duration)
+          ? Math.min(savedPlayback.currentTime, Math.max(0, audioPlayer.duration - 0.1))
+          : savedPlayback.currentTime;
+        audioPlayer.currentTime = safeTime;
+        renderAudioButton();
+        attemptTransferredPlayback();
+      }, { once: true });
+      audioLabel.textContent = 'Resume';
+    }
+
+    audioButton.addEventListener('click', async () => {
+      if (!audioPlayer.paused) {
+        audioPlayer.pause();
+        intendedToPlay = false;
+        saveLocationPlayback(false);
+      } else {
+        try {
+          intendedToPlay = true;
+          await audioPlayer.play();
+          resumeNote.hidden = true;
+          saveLocationPlayback(true);
+        } catch (_) {
+          intendedToPlay = false;
+          resumeNote.textContent = 'Audio could not be played. Please check the recording and try again.';
+          resumeNote.hidden = false;
+        }
+      }
+      renderAudioButton();
+    });
+
+    audioPlayer.addEventListener('timeupdate', () => saveLocationPlayback());
+    audioPlayer.addEventListener('ended', async () => {
+      if (audioPhase === 'narration' && directionSrc) {
+        audioPhase = 'directions';
+        currentAudioSrc = directionSrc;
+        audioPlayer.src = directionSrc;
+        audioPlayer.load();
+        renderAudioButton();
+        try {
+          intendedToPlay = true;
+          await audioPlayer.play();
+          saveLocationPlayback(true);
+          renderAudioButton();
+          return;
+        } catch (_) {
+          intendedToPlay = false;
+          resumeNote.textContent = 'Directions are ready. Press Play to continue.';
+          resumeNote.hidden = false;
+          renderAudioButton();
+          return;
+        }
+      }
+      TrailAudio.clearPlayback();
+      intendedToPlay = false;
+      audioPhase = 'narration';
+      currentAudioSrc = narrationSrc;
+      audioPlayer.src = narrationSrc;
+      audioPlayer.load();
+      renderAudioButton();
+    });
+    window.addEventListener('pagehide', () => saveLocationPlayback(intendedToPlay && !audioPlayer.ended));
+  }
+
+  const contentSlot = document.getElementById('contentSlot');
+  function withoutOptionalSections(blocks) {
+    let suppress = false;
+    return blocks.filter(block => {
+      if (typeof block === 'string' && block.startsWith('# ')) {
+        if (block === '# Just for Fun' && !experience.puzzles) { suppress = true; return false; }
+        if (block === '# The Blue Plaque Puzzle' && !experience.plaques) { suppress = true; return false; }
+        suppress = false;
+      }
+      return !suppress;
+    });
+  }
+
+  function finalStopContent(blocks) {
+    const reflectionHeading = blocks.indexOf('# Jedburgh - A Town of History and Tradition');
+    const funHeading = blocks.indexOf('# Just for Fun');
+    if (reflectionHeading < 0) return withoutOptionalSections(blocks);
+    const plaqueBlocks = experience.plaques ? blocks.slice(0, reflectionHeading) : [];
+    const paragraphs = blocks.slice(reflectionHeading + 1, funHeading < 0 ? blocks.length : funHeading);
+    const reflection = experienceKey === 'explore'
+      ? ['# Thank You', ...paragraphs.slice(4, 6)]
+      : ['# Jedburgh - A Town of History and Tradition', ...paragraphs.slice(experienceKey === 'plaques' ? 2 : 0, 6)];
+    const puzzleBlocks = experience.puzzles && funHeading >= 0 ? blocks.slice(funHeading) : [];
+    return [...plaqueBlocks, ...reflection, ...puzzleBlocks];
+  }
+
+  const rawContent = (pin.content && pin.content.filter(Boolean).length) ? pin.content : ['Add content for this stop in trail-data.js.'];
+  const content = pin.id === 'time-for-reflection'
+    ? finalStopContent(rawContent)
+    : withoutOptionalSections(rawContent);
+  contentSlot.innerHTML = content.map(block => {
+    if (typeof block === 'string') {
+      return block.startsWith('# ') ? `<h2>${block.slice(2)}</h2>` : `<p>${block}</p>`;
+    }
+    if (block.type === 'image') {
+      const caption = block.caption ? `<figcaption>${block.caption}</figcaption>` : '';
+      return `<figure class="content-image"><img src="${block.src}" alt="${block.alt || ''}">${caption}</figure>`;
+    }
+    if (block.type === 'video') {
+      const credit = block.credit ? `<figcaption>${block.credit}</figcaption>` : '';
+      return `<figure class="content-video"><video controls playsinline preload="none" poster="${block.poster || ''}"><source src="${block.src}" type="video/mp4">Your browser does not support video playback.</video>${credit}</figure>`;
+    }
+    if (block.type === 'story-panel') {
+      const paragraphs = (block.paragraphs || []).map(paragraph => `<p>${paragraph}</p>`).join('');
+      const panelImage = block.image ? `<img class="story-panel-image" src="${block.image}" alt="${block.imageAlt || ''}" loading="lazy">` : '';
+      return `<details class="story-panel"><summary><span>${block.title}</span><small>${block.label || 'Read the story'}</small></summary><div class="story-panel-body">${panelImage}${paragraphs}</div></details>`;
+    }
+    if (block.type === 'external-link') {
+      return `<a class="btn primary content-link" href="${block.href}" target="_blank" rel="noopener noreferrer">${block.label}</a>`;
+    }
+    if (block.type === 'link') {
+      const target = block.href.includes('?') ? `${block.href}&from=${encodeURIComponent(pin.id)}` : `${block.href}?from=${encodeURIComponent(pin.id)}`;
+      return `<a class="btn primary content-link" href="${target}">${block.label}</a>`;
+    }
+    return '';
+  }).join('');
+
+  const fromHere = document.getElementById('fromHere');
+  if (pin.fromHere) {
+    fromHere.hidden = false;
+    document.getElementById('fromHereText').textContent = pin.fromHere;
+  }
+
+  const locationPlaques = (jedburghTrail.plaques || []).filter(plaque => plaque.locationId === pin.id);
+  const plaqueSection = document.getElementById('plaqueSection');
+  const plaqueList = document.getElementById('plaqueList');
+  const plaqueCount = document.getElementById('plaqueCount');
+  document.getElementById('plaqueMapLink').href = `plaque-map.html?from=${encodeURIComponent(pin.id)}`;
+
+  function readCollectedPlaques() { return new Set(BluePlaqueGame.read().found); }
+
+  function plaqueNeedsAnswer(plaque, state) {
+    if (BluePlaqueGame.mysteries[plaque.id]) return !state.words[plaque.id];
+    const entry = Object.entries(BluePlaqueGame.collections).find(item => item[1].ids.includes(plaque.id));
+    if (!entry) return false;
+    const key = entry[0];
+    const collection = entry[1];
+    const count = collection.ids.filter(plaqueId => state.found.includes(plaqueId)).length;
+    const discoveryOrder = Array.isArray(state.discoveryOrder[key]) ? state.discoveryOrder[key] : [];
+    const latestPlaqueId = discoveryOrder[discoveryOrder.length - 1];
+    const questionPending = (count >= 3 && !state.named.includes(key)) || (count === 4 && !state.completed.includes(key));
+    return questionPending && plaque.id === latestPlaqueId;
+  }
+
+  function renderPlaques() {
+    if (!experience.plaques) return;
+    if (!locationPlaques.length) return;
+    plaqueSection.hidden = false;
+    const collected = readCollectedPlaques();
+    const gameState = BluePlaqueGame.read();
+    plaqueCount.textContent = `${locationPlaques.filter(plaque => collected.has(plaque.id)).length} of ${locationPlaques.length} collected`;
+    plaqueList.replaceChildren();
+
+    locationPlaques.forEach(plaque => {
+      const item = document.createElement('div');
+      const thumb = document.createElement('img');
+      const name = document.createElement('span');
+      const button = document.createElement('button');
+      const isCollected = collected.has(plaque.id);
+      const needsAnswer = isCollected && plaqueNeedsAnswer(plaque, gameState);
+
+      item.className = 'plaque-item';
+      item.classList.toggle('is-collected', isCollected);
+      thumb.className = 'plaque-thumb';
+      thumb.src = plaque.image || '';
+      thumb.alt = plaque.name;
+      thumb.loading = 'lazy';
+      name.textContent = plaque.name;
+      button.className = 'btn secondary plaque-button';
+      button.type = 'button';
+      button.textContent = !isCollected ? 'Found it' : needsAnswer ? 'Finish question' : 'Collected ✓';
+      button.disabled = isCollected && !needsAnswer;
+      button.setAttribute('aria-label', `${!isCollected ? 'Collect' : needsAnswer ? 'Finish question for' : 'Collected'} ${plaque.name}`);
+      button.addEventListener('click', () => {
+        const wasCollected = readCollectedPlaques().has(plaque.id);
+        try {
+          BluePlaqueGame.collect(plaque);
+          document.getElementById('bpInlineFeedback').textContent = wasCollected
+            ? `Continuing the question for ${plaque.name}.`
+            : `${plaque.name} was added to your collection.`;
+          renderPlaques();
+        } catch (error) {
+          console.error('Blue Plaque action failed', error);
+          console.error('Blue Plaque panel error', error);
+          document.getElementById('bpInlineFeedback').textContent = `${plaque.name} was added, but its panel could not be displayed. Select Finish question to try again.`;
+        }
+      });
+      item.append(thumb, name, button);
+      plaqueList.append(item);
+    });
+  }
+
+  renderPlaques();
+  function renderBluePlaqueSummary() {
+    const state = BluePlaqueGame.read();
+    const summaryLink = document.getElementById('bpSummaryLink');
+    summaryLink.hidden = !experience.plaques || index < 4;
+    document.getElementById('bpSummaryText').textContent = `${state.found.length} of 32 plaques · ${state.completed.length} of 6 stories`;
+    summaryLink.href = `plaque-game.html?from=${encodeURIComponent(pin.id)}${pin.id === 'time-for-reflection' ? '&final=1' : ''}`;
+  }
+  renderBluePlaqueSummary();
+  document.addEventListener('bluePlaqueStateChanged', () => { renderPlaques(); renderBluePlaqueSummary(); });
+
+  document.getElementById('walkBtn').addEventListener('click', () => {
+    const isApple = /iPhone|iPad|iPod|Macintosh/.test(navigator.userAgent);
+    const url = isApple
+      ? `https://maps.apple.com/?daddr=${pin.lat},${pin.lng}&dirflg=w`
+      : `https://www.google.com/maps/dir/?api=1&destination=${pin.lat},${pin.lng}&travelmode=walking`;
+    window.location.href = url;
+  });
+
+  const prevPin = jedburghTrail.pins[index - 1];
+  const nextPin = jedburghTrail.pins[index + 1];
+  const prevBtn = document.getElementById('prevBtn'), nextBtn = document.getElementById('nextBtn');
+  if (prevPin) prevBtn.href = `location.html?id=${encodeURIComponent(prevPin.id)}`; else prevBtn.style.display = 'none';
+  if (nextPin) nextBtn.href = `location.html?id=${encodeURIComponent(nextPin.id)}`; else { nextBtn.textContent = 'Back to list'; nextBtn.href = 'locations.html'; }
+</script>
+</body>
+</html>

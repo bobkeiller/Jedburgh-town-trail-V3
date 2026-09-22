@@ -1,0 +1,240 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#183c46">
+  <title>Geological Timeline</title>
+  <style>
+    :root {
+      --ink: #17292e;
+      --muted: #536970;
+      --paper: #fffdf7;
+      --wash: #e8f0ed;
+      --line: #c7d2cf;
+      --sea: #176d7b;
+      --stone: #354b52;
+      --amber: #c77719;
+      --correct: #277451;
+      --wrong: #b3453e;
+      --shadow: 0 12px 30px rgba(24, 60, 70, .14);
+    }
+
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      min-height: 100vh;
+      color: var(--ink);
+      background:
+        linear-gradient(rgba(255, 255, 255, .56), rgba(255, 255, 255, .56)),
+        repeating-linear-gradient(165deg, #d7e3df 0 20px, #edf1e8 20px 42px, #d9d2c4 42px 58px);
+      font-family: Georgia, "Times New Roman", serif;
+    }
+    button { font: inherit; touch-action: manipulation; }
+    button:focus-visible, a:focus-visible { outline: 3px solid #f0a341; outline-offset: 3px; }
+
+    .app { width: min(100% - 24px, 980px); margin: 0 auto; padding: 28px 0 48px; }
+    .back { display: inline-flex; margin-bottom: 18px; padding: 9px 13px; border-radius: 6px; color: var(--ink); background: var(--wash); font: 800 .85rem/1.2 ui-sans-serif, sans-serif; text-decoration: none; }
+    header { margin-bottom: 20px; }
+    .eyebrow { margin: 0 0 6px; color: var(--sea); font: 800 .78rem/1.2 ui-sans-serif, sans-serif; letter-spacing: .12em; text-transform: uppercase; }
+    h1 { margin: 0; font-size: clamp(2.25rem, 8vw, 4.6rem); line-height: .95; letter-spacing: 0; }
+    .intro { max-width: 690px; margin: 14px 0 0; color: var(--muted); font: 1.05rem/1.55 ui-sans-serif, sans-serif; }
+
+    .puzzle { padding: clamp(14px, 3vw, 24px); border: 1px solid rgba(23, 41, 46, .14); border-radius: 8px; background: rgba(255, 253, 247, .96); box-shadow: var(--shadow); }
+    .timeline { display: grid; gap: 12px; }
+    .timeline-card {
+      display: grid;
+      grid-template-columns: 46px minmax(0, 1fr) 50px;
+      gap: 12px;
+      align-items: center;
+      padding: 10px;
+      border: 3px solid var(--line);
+      border-radius: 8px;
+      background: white;
+      transition: border-color .18s ease, background .18s ease;
+    }
+    .timeline-card.correct { border-color: var(--correct); background: #eff9f3; }
+    .timeline-card.wrong { border-color: var(--wrong); background: #fff1ef; }
+    .position {
+      display: grid;
+      width: 42px;
+      height: 42px;
+      place-items: center;
+      border-radius: 50%;
+      color: white;
+      background: var(--stone);
+      font: 850 1rem/1 ui-sans-serif, sans-serif;
+    }
+    .card-image { display: block; width: 100%; max-height: 360px; object-fit: contain; border-radius: 4px; }
+    .move-controls { display: grid; gap: 8px; }
+    .move {
+      display: grid;
+      width: 46px;
+      height: 46px;
+      place-items: center;
+      border: 1px solid var(--line);
+      border-radius: 6px;
+      color: var(--ink);
+      background: var(--wash);
+      cursor: pointer;
+      font: 800 1.35rem/1 ui-sans-serif, sans-serif;
+    }
+    .move:hover:not(:disabled) { color: white; background: var(--sea); }
+    .move:disabled { cursor: not-allowed; opacity: .35; }
+    .actions { display: grid; grid-template-columns: 1fr 2fr; gap: 10px; margin-top: 18px; }
+    .action {
+      min-height: 50px;
+      padding: 0 18px;
+      border: 0;
+      border-radius: 6px;
+      cursor: pointer;
+      font: 800 .98rem/1 ui-sans-serif, sans-serif;
+    }
+    .secondary { border: 1px solid var(--line); color: var(--ink); background: white; }
+    .primary { color: white; background: var(--sea); }
+    .status { min-height: 28px; margin: 15px 0 0; font: 800 1rem/1.45 ui-sans-serif, sans-serif; text-align: center; }
+    .status.success { color: var(--correct); }
+    .status.error { color: var(--wrong); }
+
+    @media (min-width: 720px) {
+      .timeline { grid-template-columns: 1fr 1fr; }
+      .timeline-card { grid-template-columns: 42px minmax(0, 1fr) 46px; }
+      .card-image { max-height: 430px; }
+    }
+    @media (max-width: 480px) {
+      .app { width: min(100% - 16px, 980px); padding-top: 18px; }
+      .puzzle { padding: 10px; }
+      .timeline-card { grid-template-columns: 36px minmax(0, 1fr) 40px; gap: 7px; padding: 7px; }
+      .position { width: 34px; height: 34px; }
+      .move { width: 38px; height: 40px; }
+      .actions { grid-template-columns: 1fr; }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      * { transition: none !important; }
+    }
+  </style>
+<link rel="stylesheet" href="puzzle-consistency.css?v=2"><script defer src="puzzle-consistency.js?v=2"></script>
+</head>
+<body>
+  <main class="app">
+    <nav aria-label="Puzzle navigation"><a class="back" href="location.html?id=huttons-unconformity">&larr; Return to Hutton&rsquo;s Unconformity</a></nav>
+    <header>
+      <p class="eyebrow">James Hutton's unconformity</p>
+      <h1>Geological Timeline</h1>
+      <p class="intro">Place the picture cards in chronological order, from the earliest event to the most recent. Use the arrow controls to change the order, then test your timeline.</p>
+    </header>
+
+    <section class="puzzle" aria-label="Geological Timeline ordering puzzle">
+      <div class="timeline" id="timeline"></div>
+      <div class="actions">
+        <button class="action secondary" id="shuffle" type="button">Shuffle again</button>
+        <button class="action primary" id="check" type="button">Test my timeline</button>
+      </div>
+      <p class="status" id="status" aria-live="polite"></p>
+    </section>
+  </main>
+
+  <script>
+    (() => {
+      const assetPath = "../Jedburgh_Town_Trail_Assets/created graphics/";
+      const solution = [
+        { id: "sediments", image: "hutton_sediments.png", alt: "Sediments accumulate on the seabed" },
+        { id: "rocks-form", image: "hutton_rocks_form.png", alt: "Sediments are compacted and form older rocks" },
+        { id: "rocks-tilt", image: "hutton_rocks_tilt.png", alt: "Earth forces tilt the older rocks" },
+        { id: "erosion", image: "hutton_erosion.png", alt: "The tilted rocks are eroded" },
+        { id: "new-sediment", image: "hutton_new_sediment.png", alt: "New sediment is laid over the eroded rocks" },
+        { id: "younger-rocks", image: "hutton_younger_rocks_form.png", alt: "The newer sediment forms younger rocks" },
+        { id: "exposed-today", image: "hutton_rocks_exposed_today.png", alt: "The rock layers are exposed as seen today" },
+        { id: "hutton-recognises", image: "hutton_recognises.png", alt: "James Hutton recognises the geological sequence" }
+      ];
+
+      const timeline = document.querySelector("#timeline");
+      const status = document.querySelector("#status");
+      const shuffleButton = document.querySelector("#shuffle");
+      const checkButton = document.querySelector("#check");
+      let cards = [];
+
+      function shuffled(items) {
+        const result = [...items];
+        for (let index = result.length - 1; index > 0; index--) {
+          const swapIndex = Math.floor(Math.random() * (index + 1));
+          [result[index], result[swapIndex]] = [result[swapIndex], result[index]];
+        }
+        if (result.every((item, index) => item.id === items[index].id)) return shuffled(items);
+        return result;
+      }
+
+      function clearFeedback() {
+        status.className = "status";
+        status.textContent = "";
+      }
+
+      function moveCard(index, direction) {
+        const destination = index + direction;
+        if (destination < 0 || destination >= cards.length) return;
+        [cards[index], cards[destination]] = [cards[destination], cards[index]];
+        clearFeedback();
+        render();
+      }
+
+      function render(showFeedback = false) {
+        timeline.replaceChildren();
+        cards.forEach((card, index) => {
+          const row = document.createElement("article");
+          const isCorrect = card.id === solution[index].id;
+          row.className = `timeline-card${showFeedback ? (isCorrect ? " correct" : " wrong") : ""}`;
+
+          const position = document.createElement("span");
+          position.className = "position";
+          position.textContent = String(index + 1);
+          position.setAttribute("aria-label", `Position ${index + 1}`);
+
+          const image = document.createElement("img");
+          image.className = "card-image";
+          image.src = assetPath + card.image;
+          image.alt = card.alt;
+
+          const controls = document.createElement("span");
+          controls.className = "move-controls";
+          const up = document.createElement("button");
+          up.type = "button";
+          up.className = "move";
+          up.textContent = "↑";
+          up.disabled = index === 0;
+          up.setAttribute("aria-label", `Move ${card.alt} earlier`);
+          const down = document.createElement("button");
+          down.type = "button";
+          down.className = "move";
+          down.textContent = "↓";
+          down.disabled = index === cards.length - 1;
+          down.setAttribute("aria-label", `Move ${card.alt} later`);
+          up.addEventListener("click", () => moveCard(index, -1));
+          down.addEventListener("click", () => moveCard(index, 1));
+          controls.append(up, down);
+
+          row.append(position, image, controls);
+          timeline.append(row);
+        });
+      }
+
+      function shuffle() {
+        cards = shuffled(solution);
+        clearFeedback();
+        render();
+      }
+
+      shuffleButton.addEventListener("click", shuffle);
+      checkButton.addEventListener("click", () => {
+        const correct = cards.every((card, index) => card.id === solution[index].id);
+        render(true);
+        status.className = `status ${correct ? "success" : "error"}`;
+        status.textContent = correct
+          ? "Correct. Your geological timeline is complete."
+          : "Not quite. Green cards are in the correct position; red cards need to move.";
+      });
+
+      shuffle();
+    })();
+  </script>
+</body>
+</html>

@@ -1,0 +1,138 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Blue Plaque Collections · Jedburgh Town Trail</title>
+<link rel="stylesheet" href="trail.css?v=7">
+<link rel="stylesheet" href="blue-plaque-game.css?v=18">
+</head>
+<body>
+<header class="topbar">
+  <a id="backLink" href="locations.html">&larr; Trail</a>
+  <h1>Blue Plaque Puzzle</h1>
+  <span style="width:36px"></span>
+</header>
+<main class="shell">
+  <div class="experience-strip">
+    <span>Your experience: <strong id="experienceName"></strong></span>
+    <button type="button" class="trail-options-button" data-trail-options>Trail options</button>
+  </div>
+  <div class="location-body bp-board" id="plaqueBoard">
+    <section class="bp-progress" aria-labelledby="progressTitle">
+      <h2 id="progressTitle">Your plaque collection</h2>
+      <div class="bp-meter" aria-hidden="true"><span id="meterFill"></span></div>
+      <div class="bp-stats"><strong id="plaqueStat"></strong><span id="storyStat"></span><span id="wordStat"></span></div>
+    </section>
+    <section class="bp-section">
+      <h2>Discovered stories</h2>
+      <div class="bp-cards" id="storyCards"></div>
+    </section>
+    <section class="bp-section" id="unresolvedSection">
+      <h2>Not yet part of a story <small id="unresolvedCount"></small></h2>
+      <p>These are collected historical-story plaques whose connections have not yet been identified. Mystery Plaques are counted separately in the Mystery Words section below.</p>
+      <div class="bp-unresolved" id="unresolvedCards"></div>
+    </section>
+    <section class="bp-section">
+      <h2>Mystery words</h2>
+      <p>Recover all eight words and work out the sentence that describes Jedburgh especially well.</p>
+      <div class="bp-word-bank" id="wordBank"></div>
+    </section>
+    <section class="bp-finale" id="finale" hidden></section>
+    <div class="button-row">
+      <button class="btn secondary" id="resetBtn" type="button">Reset prototype progress</button>
+    </div>
+  </div>
+</main>
+<script src="trail-data.js?v=6"></script>
+<script src="trail-experience.js?v=1"></script>
+<script src="trail-audio.js?v=3"></script>
+<script src="trail-options.js?v=2"></script>
+<script src="blue-plaque-game.js?v=17"></script>
+<script>
+  const game = BluePlaqueGame;
+  const experience = TrailExperience.modes[TrailExperience.current()];
+  document.getElementById('experienceName').textContent = experience.name;
+  if (!experience.plaques) {
+    document.getElementById('plaqueBoard').innerHTML = '<section class="mode-restricted"><h2>Blue Plaques are optional</h2><p>This collection is not included in Explore the Town. Choose Places and Plaques or Punishing Puzzles if you would like to play.</p><a class="btn primary" href="index.html">Choose another experience</a></section>';
+  }
+  const params = new URLSearchParams(location.search);
+  const from = params.get('from');
+  const atFinalStop = from === 'time-for-reflection' || params.get('final') === '1';
+  if (from) document.getElementById('backLink').href = `location.html?id=${encodeURIComponent(from)}`;
+
+  function render() {
+    const state = game.read();
+    const total = state.found.length;
+    const storyFound = game.allStoryIds().filter(id => state.found.includes(id)).length;
+    const wordsFound = Object.keys(state.words).length;
+    document.getElementById('meterFill').style.width = `${total / 32 * 100}%`;
+    document.getElementById('plaqueStat').textContent = `${total} of 32 plaques`;
+    document.getElementById('storyStat').textContent = `${state.completed.length} of 6 stories complete`;
+    document.getElementById('wordStat').textContent = `${wordsFound} of 8 words`;
+
+    const cards = document.getElementById('storyCards');
+    cards.innerHTML = '';
+    Object.entries(game.collections).forEach(([key, collection]) => {
+      if (!state.named.includes(key)) return;
+      const complete = state.completed.includes(key);
+      const article = document.createElement('article');
+      article.className = `bp-card${complete ? ' is-complete' : ''}`;
+      article.innerHTML = `<h3>${collection.name}</h3><strong>${collection.ids.filter(id => state.found.includes(id)).length} of 4${complete ? ' — complete ✓' : ''}</strong><ul>${collection.ids.map(id => `<li class="${state.found.includes(id) ? '' : 'missing'}">${state.found.includes(id) ? '✓' : '○'} ${game.plaqueById(id).name}</li>`).join('')}</ul>`;
+      cards.append(article);
+    });
+    if (!cards.children.length) cards.innerHTML = '<p>No stories discovered yet. Three connected plaques will give you enough evidence to identify one.</p>';
+
+    const resolvedIds = Object.entries(game.collections).filter(([key]) => state.named.includes(key)).reduce((ids, entry) => ids.concat(entry[1].ids), []);
+    const unresolved = state.found.filter(id => game.allStoryIds().includes(id) && !resolvedIds.includes(id));
+    document.getElementById('unresolvedCount').textContent = `(${unresolved.length})`;
+    document.getElementById('unresolvedCards').innerHTML = unresolved.length ? unresolved.map(id => `<span class="bp-chip">${game.plaqueById(id).name}</span>`).join('') : '<span>Every collected story plaque has been placed.</span>';
+
+    const wordIds = game.allMysteryIds();
+    document.getElementById('wordBank').innerHTML = wordIds.map(id => state.words[id] ? `<span class="bp-word">${state.words[id]}</span>` : '<span class="bp-chip">?</span>').join('');
+    renderFinale(state);
+  }
+
+  function renderFinale(state) {
+    const finale = document.getElementById('finale');
+    if (!atFinalStop) { finale.hidden = true; return; }
+    finale.hidden = false;
+    if (!game.completeForFinale(state)) {
+      const missingIds = [...game.allStoryIds(), ...game.allMysteryIds()].filter(id => !state.found.includes(id) || (game.mysteries[id] && !state.words[id]));
+      finale.innerHTML = `<h2>Nearly there</h2><p>Don't worry if you missed some plaques. You can mark the remaining plaques as found here and finish the puzzle.</p><details><summary>Review ${missingIds.length} missing plaque${missingIds.length === 1 ? '' : 's'}</summary><ul>${missingIds.map(id => `<li>${game.plaqueById(id).name}</li>`).join('')}</ul></details><div class="button-row"><button class="btn primary" id="catchUpBtn" type="button">Mark missing plaques as found and continue</button><a class="btn secondary" href="locations.html">Return to the trail</a></div>`;
+      document.getElementById('catchUpBtn').addEventListener('click', () => { game.catchUp(); render(); });
+      return;
+    }
+    const storedOrder = Array.isArray(state.finalWordOrder) && state.finalWordOrder.length === 8 ? state.finalWordOrder : Object.values(state.words);
+    if (state.finaleCompleted) {
+      finale.innerHTML = '<div class="bp-success"><span>This is the undeniable truth:</span><strong>Jedburgh is a town built on exceptional stories.</strong><span>Well done.</span></div>';
+      return;
+    }
+    finale.innerHTML = `<h2>Solve Collection Seven</h2><p>You recovered eight words from the Mystery Plaques. Put them in order to reveal Jedburgh's insightful truth.</p><div class="bp-tile-row" id="tileRow"></div><button class="btn primary" id="checkAnswer" type="button">Check answer</button><p class="bp-feedback" id="finalFeedback" aria-live="polite"></p>`;
+    const tileRow = document.getElementById('tileRow');
+    let order = [...storedOrder];
+    function saveOrder() { const next = game.read(); next.finalWordOrder = order; game.write(next); }
+    function drawTiles() {
+      tileRow.innerHTML = order.map((word, index) => `<span class="bp-tile"><button type="button" data-move="left" data-index="${index}" aria-label="Move ${word} left" ${index === 0 ? 'disabled' : ''}>←</button>${word}<button type="button" data-move="right" data-index="${index}" aria-label="Move ${word} right" ${index === order.length - 1 ? 'disabled' : ''}>→</button></span>`).join('');
+      tileRow.querySelectorAll('[data-move]').forEach(button => button.addEventListener('click', () => {
+        const index = Number(button.dataset.index); const target = button.dataset.move === 'left' ? index - 1 : index + 1;
+        [order[index], order[target]] = [order[target], order[index]]; saveOrder(); drawTiles();
+      }));
+    }
+    drawTiles();
+    document.getElementById('checkAnswer').addEventListener('click', () => {
+      const feedback = document.getElementById('finalFeedback');
+      if (order.join(' ') === game.FINAL_SENTENCE.join(' ')) {
+        const next = game.read(); next.finaleCompleted = true; next.finalWordOrder = order; game.write(next); render();
+      } else { feedback.textContent = 'Not quite. Every word is here — try a different order.'; feedback.className = 'bp-feedback is-wrong'; }
+    });
+  }
+
+  const resetButton = document.getElementById('resetBtn');
+  if (resetButton) resetButton.addEventListener('click', () => {
+    if (confirm('Reset all Blue Plaque prototype progress on this device?')) { game.reset(); render(); }
+  });
+  if (experience.plaques) render();
+</script>
+</body>
+</html>

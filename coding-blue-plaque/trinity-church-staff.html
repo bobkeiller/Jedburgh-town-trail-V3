@@ -1,0 +1,195 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#382e29">
+  <title>Keeping the Church Going | Jedburgh Town Trail</title>
+  <style>
+    :root { --ink:#29231f; --muted:#665d55; --paper:#fffaf0; --cream:#f3e7cd; --line:#d2bea0; --red:#8b2923; --green:#276544; --gold:#b08035; --shadow:0 18px 45px rgba(45,32,20,.18); }
+    * { box-sizing:border-box; }
+    body { margin:0; color:var(--ink); background:#e8deca; font-family:Georgia, "Times New Roman", serif; }
+    button,input { font:inherit; }
+    button { cursor:pointer; touch-action:manipulation; }
+    button:focus-visible,input:focus-visible { outline:3px solid #d69f39; outline-offset:3px; }
+    .page { width:min(100% - 24px, 900px); margin:auto; padding:18px 0 48px; }
+    .banner { display:block; width:100%; max-height:330px; object-fit:cover; border:5px solid #fff6df; border-radius:18px 18px 6px 6px; box-shadow:var(--shadow); }
+    .panel { margin-top:16px; padding:clamp(18px,4vw,34px); border:1px solid var(--line); border-radius:16px; background:rgba(255,250,240,.97); box-shadow:var(--shadow); }
+    .eyebrow { margin:0 0 5px; color:var(--red); font:700 .78rem/1.2 system-ui,sans-serif; letter-spacing:.13em; text-transform:uppercase; }
+    h1 { margin:0; font-size:clamp(2rem,7vw,4rem); line-height:.98; }
+    h2 { margin:0 0 10px; font-size:1.45rem; }
+    p,li { line-height:1.55; }
+    .intro { margin:14px 0; font-size:1.08rem; }
+    .aside { padding:13px 15px; border-left:4px solid var(--gold); background:#f7edd8; }
+    .staff { display:block; width:100%; margin:20px 0; border:1px solid var(--line); border-radius:12px; }
+    .task { font-weight:700; }
+    .how-to { margin:14px 0 0; padding:13px 15px; border-radius:10px; color:#fff; background:#382e29; font-family:system-ui,sans-serif; font-size:.92rem; }
+    details { margin:18px 0; border:1px solid var(--line); border-radius:12px; background:#fff; }
+    summary { padding:14px 16px; cursor:pointer; color:var(--red); font-weight:700; }
+    .clues { margin:0; padding:0 22px 18px 42px; }
+    .clues li+li { margin-top:7px; }
+    .board-heading { display:flex; align-items:end; justify-content:space-between; gap:12px; margin:25px 0 10px; border-top:1px solid var(--line); padding-top:22px; }
+    .board-heading p { margin:0; color:var(--muted); font:600 .82rem/1.3 system-ui,sans-serif; }
+    .list { display:grid; gap:9px; }
+    .row { display:grid; grid-template-columns:42px minmax(0,1fr) 112px 80px; gap:9px; align-items:center; min-height:70px; padding:9px; border:2px solid var(--line); border-radius:13px; background:#fff; }
+    .row.position-correct { border-color:#89af96; }
+    .rank { display:grid; width:36px; height:36px; place-items:center; border-radius:50%; color:#fff; background:#382e29; font:800 1rem/1 system-ui,sans-serif; }
+    .name { font-size:1.08rem; font-weight:700; }
+    .years { display:grid; grid-template-columns:1fr auto; align-items:center; gap:5px; }
+    .years input { width:68px; min-height:42px; padding:5px 6px; border:1px solid var(--line); border-radius:8px; text-align:center; }
+    .years span { color:var(--muted); font:600 .73rem/1 system-ui,sans-serif; }
+    .moves { display:grid; grid-template-columns:1fr 1fr; gap:5px; }
+    .move { min-width:35px; min-height:38px; border:1px solid var(--line); border-radius:8px; color:var(--ink); background:var(--cream); font-weight:800; }
+    .move:disabled { opacity:.3; cursor:not-allowed; }
+    .actions { display:grid; grid-template-columns:1fr 2fr; gap:10px; margin-top:14px; }
+    .action { min-height:48px; border-radius:10px; font-weight:800; }
+    .reset { border:1px solid var(--line); color:var(--ink); background:#fff; }
+    .check { border:0; color:#fff; background:var(--red); }
+    .status { min-height:27px; margin:14px 0 0; text-align:center; font:750 .95rem/1.45 system-ui,sans-serif; }
+    .status.error { color:var(--red); }
+    .status.success { color:var(--green); }
+    .solution { display:none; margin-top:16px; padding:16px; border:2px solid var(--green); border-radius:12px; background:#edf7ef; }
+    .solution.show { display:block; }
+    .solution h2 { color:var(--green); }
+    .solution ol { margin-bottom:8px; }
+    .back { display:inline-block; margin-top:18px; color:var(--red); font-weight:700; }
+    @media (max-width:620px) {
+      .row { grid-template-columns:36px minmax(0,1fr) 92px; }
+      .moves { grid-column:2 / 4; grid-template-columns:1fr 1fr; }
+      .years input { width:55px; }
+      .actions { grid-template-columns:1fr; }
+    }
+  </style>
+<link rel="stylesheet" href="puzzle-consistency.css?v=2"><script defer src="puzzle-consistency.js?v=2"></script>
+</head>
+<body>
+  <main class="page">
+    <img class="banner" src="../Jedburgh_Town_Trail_Assets/created graphics/trinity_church_banner.png" alt="Keeping the Church Going at Jedburgh Trinity Church">
+    <section class="panel">
+      <p class="eyebrow">Jedburgh Town Trail · Trinity Church</p>
+      <h1>Keeping the church going</h1>
+      <p class="intro">This is not a murder mystery—it is a puzzle to discover how long each person had served at Jedburgh Trinity Church since it opened in 1818. The answer may be useful in another mystery later in the trail…</p>
+      <p class="aside">Although this site was once used by the Blackfriars, that is at odds with the convention that the “Trinitarians” were the Redfriars. The Whitefriars were known as the Carmelites—or “Caramel Lattes” to their detractors—and the Ayr Friars were handy cooks.</p>
+      <img class="staff" src="../Jedburgh_Town_Trail_Assets/created graphics/trinity_church_staff.png" alt="The five Trinity Church staff: Malcolm, Eric, Sandy, Plumton and Boris">
+      <p>In 1850, records show that all five members of staff had been in place for different lengths of service.</p>
+      <p class="task">Use the clues to arrange the staff from longest-serving to newest, then enter each person’s years of service.</p>
+      <p class="how-to"><strong>How to play:</strong> Use the ↑ and ↓ buttons to put the staff in order. Enter a number of years beside every name, then select <strong>Check my answer</strong>.</p>
+
+      <details open>
+        <summary>The seven clues</summary>
+        <ol class="clues">
+          <li>Boris had worked for seven-eighths of the time that Plumton had.</li>
+          <li>Sandy had worked for half the time that Malcolm had.</li>
+          <li>One year ago, Sandy had been working there for twice as many years as Eric has now.</li>
+          <li>The longest-serving member of staff had now been there for 32 years.</li>
+          <li>Plumton had been working there for ten years more than Malcolm.</li>
+          <li>Eric was the newest member of staff.</li>
+          <li>Five years after the date of the record, Sandy would have served for half the length of Plumton’s current tenure.</li>
+        </ol>
+      </details>
+
+      <div class="board-heading">
+        <h2>Your answer</h2>
+        <p>Longest-serving → newest</p>
+      </div>
+      <div class="list" id="list"></div>
+      <div class="actions">
+        <button class="action reset" id="reset" type="button">Reset puzzle</button>
+        <button class="action check" id="check" type="button">Check my answer</button>
+      </div>
+      <p class="status" id="status" aria-live="polite"></p>
+      <section class="solution" id="solution" tabindex="-1">
+        <h2>Correct!</h2>
+        <p>The service record is:</p>
+        <ol>
+          <li>Plumton — 32 years</li>
+          <li>Boris — 28 years</li>
+          <li>Malcolm — 22 years</li>
+          <li>Sandy — 11 years</li>
+          <li>Eric — 5 years</li>
+        </ol>
+        <p>Keep those numbers in mind—you may meet them again later on the trail.</p>
+      </section>
+      <a class="back" href="location.html?id=trinity-church">← Return to Trinity Church</a>
+    </section>
+  </main>
+  <script>
+    (() => {
+      const answer = [
+        { name: "Plumton", years: 32 },
+        { name: "Boris", years: 28 },
+        { name: "Malcolm", years: 22 },
+        { name: "Sandy", years: 11 },
+        { name: "Eric", years: 5 }
+      ];
+      const startingOrder = ["Sandy", "Boris", "Eric", "Malcolm", "Plumton"];
+      const list = document.querySelector("#list");
+      const status = document.querySelector("#status");
+      const solution = document.querySelector("#solution");
+      let people = startingOrder.map(name => ({ name, years: "" }));
+
+      function render() {
+        list.replaceChildren();
+        people.forEach((person, index) => {
+          const row = document.createElement("div");
+          row.className = "row";
+          row.innerHTML = `<span class="rank">${index + 1}</span><span class="name">${person.name}</span><label class="years"><input type="number" min="0" max="32" step="1" inputmode="numeric" aria-label="Years served by ${person.name}" value="${person.years}"><span>years</span></label><span class="moves"><button class="move" type="button" aria-label="Move ${person.name} up" data-dir="-1" ${index === 0 ? "disabled" : ""}>↑</button><button class="move" type="button" aria-label="Move ${person.name} down" data-dir="1" ${index === people.length - 1 ? "disabled" : ""}>↓</button></span>`;
+          row.querySelector("input").addEventListener("input", event => { person.years = event.target.value; clearFeedback(); });
+          row.querySelectorAll(".move").forEach(button => button.addEventListener("click", () => move(index, Number(button.dataset.dir))));
+          list.append(row);
+        });
+      }
+
+      function move(index, direction) {
+        const other = index + direction;
+        [people[index], people[other]] = [people[other], people[index]];
+        clearFeedback();
+        render();
+      }
+
+      function clearFeedback() {
+        status.textContent = "";
+        status.className = "status";
+        solution.classList.remove("show");
+        list.querySelectorAll(".row").forEach(row => row.classList.remove("position-correct"));
+      }
+
+      document.querySelector("#check").addEventListener("click", () => {
+        const blankCount = people.filter(person => person.years === "").length;
+        if (blankCount) {
+          status.textContent = `Enter a service length for ${blankCount === 1 ? "the remaining person" : `all ${blankCount} remaining people`}.`;
+          status.className = "status error";
+          return;
+        }
+        let correctNames = 0;
+        let correctYears = 0;
+        [...list.children].forEach((row, index) => {
+          const person = people[index];
+          if (person.name === answer[index].name) { correctNames++; row.classList.add("position-correct"); }
+          else row.classList.remove("position-correct");
+          const trueRecord = answer.find(item => item.name === person.name);
+          if (Number(person.years) === trueRecord.years) correctYears++;
+        });
+        if (correctNames === 5 && correctYears === 5) {
+          status.textContent = "Every person and service length is correct.";
+          status.className = "status success";
+          solution.classList.add("show");
+          solution.focus();
+        } else {
+          status.textContent = `${correctNames} of 5 positions and ${correctYears} of 5 service lengths are correct.`;
+          status.className = "status error";
+          solution.classList.remove("show");
+        }
+      });
+
+      document.querySelector("#reset").addEventListener("click", () => {
+        people = startingOrder.map(name => ({ name, years: "" }));
+        clearFeedback();
+        render();
+        status.textContent = "The puzzle has been reset.";
+      });
+      render();
+    })();
+  </script>
+</body>
+</html>

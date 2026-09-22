@@ -1,0 +1,37 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Trail Map — Jedburgh Town Trail</title>
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="">
+<link rel="stylesheet" href="trail.css">
+<style>#map{height:calc(100vh - 52px)}</style>
+</head>
+<body>
+<header class="topbar">
+  <a href="index.html">&larr; Home</a>
+  <h1>Trail Map</h1>
+  <a href="locations.html">List</a>
+</header>
+<div id="map"></div>
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
+<script src="trail-data.js"></script>
+<script>
+  const map = L.map('map').setView([jedburghTrail.pins[0].lat, jedburghTrail.pins[0].lng], 15);
+  L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', { maxZoom: 19, attribution: '&copy; OpenStreetMap contributors' }).addTo(map);
+
+  const points = [];
+  jedburghTrail.pins.forEach((pin, i) => {
+    points.push([pin.lat, pin.lng]);
+    const marker = L.marker([pin.lat, pin.lng], { icon: L.divIcon({ className: 'leaflet-div-icon', html: `<span>${i + 1}</span>`, iconSize: [26, 26] }) }).addTo(map);
+    marker.bindPopup(`<b>${pin.name}</b><br><a href="location.html?id=${encodeURIComponent(pin.id)}">View details</a>`);
+  });
+  if (points.length) map.fitBounds(L.latLngBounds(points), { padding: [30, 30] });
+
+  if (jedburghTrail.orderMode === 'sequential' && points.length > 1) {
+    L.polyline(points, { color: '#235c45', weight: 4, opacity: .7, dashArray: '6 8' }).addTo(map);
+  }
+</script>
+</body>
+</html>

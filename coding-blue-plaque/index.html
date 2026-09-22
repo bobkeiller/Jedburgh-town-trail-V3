@@ -1,0 +1,208 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="theme-color" content="#18352b">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="apple-mobile-web-app-title" content="Jedburgh Town Trail">
+<title>Jedburgh Town Trail · Blue Plaque Prototype</title>
+<link rel="manifest" href="manifest.webmanifest?v=jedburgh-1">
+<link rel="apple-touch-icon" href="../Jedburgh_Town_Trail_Assets/created%20graphics/Jed-icon-touchscreen.png?v=jedburgh-1">
+<link rel="icon" type="image/png" sizes="192x192" href="../Jedburgh_Town_Trail_Assets/created%20graphics/Jed-icon-192.png">
+<link rel="stylesheet" href="trail.css?v=8">
+<link rel="stylesheet" href="blue-plaque-game.css?v=18">
+</head>
+<body>
+<main class="shell">
+  <div class="hero">
+    <img src="../Jedburgh_Town_Trail_Assets/created%20graphics/jed_hero_image2.png" alt="Jedburgh Town Trail">
+  </div>
+  <section class="intro-panel">
+    <h2>Jedburgh</h2>
+    <p>Jedburgh is a town built on exceptional stories. A town full of exceptional people and a town with a unique history.</p>
+    <section class="location-audio home-audio" id="homeAudio" aria-label="Home page audio guide" hidden>
+      <div class="location-audio-head">
+        <div><strong>Audio guide</strong><small>Listen to the introduction</small></div>
+        <button class="btn secondary audio-btn" id="homeAudioButton" type="button"><span class="btn-icon">🔊</span> <span class="audio-label">Play</span></button>
+      </div>
+    </section>
+    <section class="home-options-summary" aria-labelledby="homeExperienceName">
+      <div>
+        <small>Your trail</small>
+        <h2 id="homeExperienceName">Choose how you would like to explore Jedburgh</h2>
+        <p id="homeOptionsMeta">Three experiences are available, with an optional audio guide.</p>
+      </div>
+      <button type="button" class="btn secondary" id="homeOptionsButton" data-trail-options data-trail-options-live>Choose trail options</button>
+    </section>
+    <p>This is the birthplace of the person who used maths to predict the existence of Neptune. The same person was the first ever to be called a scientist.</p>
+    <p>It is the birthplace of the person who invented rugby sevens—now played worldwide and at the Olympic Games.</p>
+    <p>And the person who wrote “Rule, Britannia!”</p>
+    <p>The person who developed stereoscopic vision, the understanding of polarisation and the kaleidoscope was born here.</p>
+    <p>And it was home to one of the two heroes who dived into a pitch-black U-boat as it sank to recover secret codebooks that helped to save thousands of lives and changed the course of the Second World War.</p>
+    <p>Jedburgh is a town that hosted Wordsworth, Burns and Sir Walter Scott—many times.</p>
+    <p>A Scottish king died here, one was married here and another had a boyfriend from here. A Scottish queen, Mary Queen of Scots, wished that she had died here. The reigning King recently came here and saw snippets from the street Hand Ba’ game and the annual Callants Festival.</p>
+    <p>It was here that James Hutton began to realise that the Earth was older—much older—than anyone knew. This changed the world and our understanding of it.</p>
+    <p>A man from Jedburgh wrote a book that was so powerful it was banned and burned. He was summoned to face charges of treason. That book influenced the American Revolution and the establishment of democracy.</p>
+    <p> Enjoy your time in our wonderful town, talk to some of us local people, we are very friendly. And let us know what you think.</p>
+  
+
+    <details class="story-panel" id="howToGuide">
+      <summary>
+        <span>How to use this trail</span>
+        <small>Read the guide</small>
+      </summary>
+      <div class="story-panel-body">
+        <p>Although we present the attractions in a given order, feel free to explore them in any order you choose. Our only advice is to finish at the “Time for Reflection” location.</p>
+        <p>If you have selected “Explore the Town”, you might prefer to listen to the audio descriptions where they are available. Go to the Trail Locations page and press Play beside a location, then listen and learn.</p>
+        <p>If you have selected “Places and Plaques” or “Punishing Puzzles”, you will probably want to read and absorb the information.</p>
+        <p>Follow the written directions, use the walking directions, or open the Trail Map on the home page to travel between locations. Open a location and read its story. Pinch in and out to change the text size, or rotate your smart device from portrait to landscape.</p>
+        <p>You can choose to watch three short videos: one about the Abbey, one showing the Jethart Callant’s Festival at the War Memorial, and one about the traditional Hand Ba’ game at the High Street.</p>
+        <p>You can collect the historic Blue Plaques as you follow the trail. Simply press the “Found it” button beside a listed plaque.</p>
+        <p>When you are asked to select a missing word or allocate a plaque to a theme, don’t worry if you get it wrong. Keep trying until you find the correct answer.</p>
+
+        <h3>Punishing Puzzle hints and tactics</h3>
+        <p>The Punishing Puzzles fall into seven categories: Bespoke Logic (10), List Ordering (2), Logic Matrix (3), Murdoku (1), Train Tracks (3), Codebreaker (3) and Seating Plan (2).</p>
+
+        <details class="help-popup">
+          <summary>Logic Matrix Puzzles</summary>
+          <div class="help-popup-body">
+            <h4>Who eats plums?</h4>
+            <p><strong>1. Direct clue:</strong> “Cam does not eat peaches.” Immediately mark an ✕.</p>
+            <figure><img src="../Jedburgh_Town_Trail_Assets/created%20graphics/matrix_help1.png" alt="Logic matrix showing a direct clue marked with a cross" loading="lazy"></figure>
+            <p><strong>2. Positive match:</strong> “Ann enjoys pears.” Mark ✓, then eliminate every other fruit for Ann and every other person for pears.</p>
+            <figure><img src="../Jedburgh_Town_Trail_Assets/created%20graphics/matrix_help2.png" alt="Logic matrix showing a positive match and its eliminations" loading="lazy"></figure>
+            <p><strong>3. Deduction:</strong> If neither Cam nor Ann eats peaches, it must be Bob. Bob therefore does not eat plums, and we already know he does not eat pears.</p>
+            <figure><img src="../Jedburgh_Town_Trail_Assets/created%20graphics/matrix_help3.png" alt="Logic matrix showing peaches deduced for Bob" loading="lazy"></figure>
+            <p>If neither Ann nor Bob eats plums, it must be Cam.</p>
+            <figure><img src="../Jedburgh_Town_Trail_Assets/created%20graphics/matrix_help4.png" alt="Completed fruit logic matrix" loading="lazy"></figure>
+            <p class="help-advice">Don’t try to solve each clue individually. One clue may eliminate only one possibility; the solution emerges by combining lots of small pieces of information.</p>
+          </div>
+        </details>
+
+        <details class="help-popup">
+          <summary>Train Tracks Puzzles</summary>
+          <div class="help-popup-body">
+            <p>Build one continuous railway from the entrance to the exit.</p>
+            <p>The numbers beside each row and column tell you exactly how many squares contain track. Track can go straight or turn a corner, but it cannot branch, cross itself, or end anywhere except at the two marked endpoints.</p>
+            <p>Start with what you know. If a row needs four pieces and only four possible squares remain, all four must contain track. Once a row reaches its total, every other square in that row must be empty.</p>
+            <p>Every ordinary track square must connect to exactly two neighbouring track squares. Alternate between the totals and the shape of the railway, then check that you have made one continuous route without a separate loop.</p>
+            <p class="help-advice">Don’t try to draw the route from start to finish. Use the numbers to identify where track must and cannot go, and let the railway gradually reveal itself.</p>
+            <div class="help-image-sequence">
+              <figure><img src="../Jedburgh_Town_Trail_Assets/created%20graphics/train_help1.png" alt="Train Tracks example showing the fixed sections" loading="lazy"><figcaption>1. Consider the fixed sections.</figcaption></figure>
+              <figure><img src="../Jedburgh_Town_Trail_Assets/created%20graphics/train_help2.png" alt="Train Tracks example adding placeholders" loading="lazy"><figcaption>2. Add placeholders at the ends.</figcaption></figure>
+              <figure><img src="../Jedburgh_Town_Trail_Assets/created%20graphics/train_help3.png" alt="Train Tracks example filling grass using totals" loading="lazy"><figcaption>3. Use the totals to fill grass.</figcaption></figure>
+              <figure><img src="../Jedburgh_Town_Trail_Assets/created%20graphics/train_help4.png" alt="Train Tracks example completing placeholders" loading="lazy"><figcaption>4. Add placeholders until totals match.</figcaption></figure>
+              <figure><img src="../Jedburgh_Town_Trail_Assets/created%20graphics/train_help5.png" alt="Train Tracks example identifying curved sections" loading="lazy"><figcaption>5. Pick out the curved sections.</figcaption></figure>
+              <figure><img src="../Jedburgh_Town_Trail_Assets/created%20graphics/train_help6.png" alt="Completed Train Tracks example" loading="lazy"><figcaption>6. Fill the straight sections.</figcaption></figure>
+            </div>
+          </div>
+        </details>
+
+        <details class="help-popup">
+          <summary>Codebreaker Puzzles</summary>
+          <div class="help-popup-body">
+            <p><strong>Eliminate:</strong> if 1 2 3 4 scores no matches, none of those symbols can appear.</p>
+            <p><strong>Compare:</strong> suppose 1 5 6 7 scores two matches and 1 5 6 8 scores three. Only one symbol changed, so 8 belongs in the code and 7 does not.</p>
+            <p><strong>Separate “what” from “where”:</strong> first establish which symbols belong in the code, then determine their positions.</p>
+            <p><strong>Use contradictions:</strong> if placing 8 in position two makes an earlier clue impossible, 8 cannot occupy that position.</p>
+            <p class="help-advice">Compare similar guesses. Look for what changed—and what happened to the score. Every clue must be true for your final answer.</p>
+          </div>
+        </details>
+
+        <details class="help-popup">
+          <summary>Seating Puzzles</summary>
+          <div class="help-popup-body">
+            <p>Start with definite positions, then use clues such as “beside” and “opposite” to narrow the possibilities.</p>
+            <p>Don’t guess while more than one seat is possible—use another clue. Each person has one seat and each seat has one person. Keep combining clues until only one arrangement fits them all.</p>
+          </div>
+        </details>
+
+        <h3>Acknowledgements and disclaimers</h3>
+        <p>This trail is based on previous versions produced by the Scottish Borders Council working with the Jedburgh Alliance.</p>
+        <p>Typical local names have been used in the puzzle scenarios, with no intended or implied similarity to anyone dead or alive and no intent to cause offence.</p>
+      </div>
+    </details>
+    <section id="plaqueIntroduction" hidden>
+      <h2>The Blue Plaque Puzzle</h2>
+      <p>As you explore, collect the 32 blue plaques and work out the stories and themes connecting them.</p>
+      <p>Every plaque belongs to one of seven collections. Six tell stories from Jedburgh's history. The seventh is different. You'll discover why.</p>
+    </section>
+    <section id="puzzleIntroduction" hidden>
+      <h2>Activities and Challenges</h2>
+      <p>You can unravel puzzles, break secret codes and solve murder mysteries. You can test your knowledge with a quiz. Have fun!</p>
+    </section>
+  </section>
+  <div class="button-row">
+    <a class="btn primary" href="../Jedburgh_Town_Trail_Assets/created%20graphics/Trail_Map.png">🗺️ Trail Map</a>
+    <a class="btn primary" href="locations.html">📍 Go to Trail Locations</a>
+    <a class="btn secondary" href="timeline.html">⌛ 1,200 Years of Jedburgh</a>
+    <a class="btn secondary" id="plaqueCollectionsLink" href="plaque-game.html" hidden>🔵 Blue Plaque Collections</a>
+  </div>
+</main>
+<script src="trail-experience.js?v=1"></script>
+<script src="trail-audio.js?v=3"></script>
+<script src="trail-options.js?v=2"></script>
+<script>
+  // Keep the detailed guide at the foot of the main text panel.
+  document.querySelector('.intro-panel').append(document.getElementById('howToGuide'));
+
+  function renderExperience(modeKey, hasSelection) {
+    const mode = TrailExperience.modes[modeKey];
+    document.getElementById('plaqueIntroduction').hidden = !mode.plaques;
+    document.getElementById('puzzleIntroduction').hidden = !mode.puzzles;
+    document.getElementById('plaqueCollectionsLink').hidden = !mode.plaques;
+    if (hasSelection) {
+      document.getElementById('homeExperienceName').textContent = mode.name;
+      document.getElementById('homeOptionsMeta').textContent = `${mode.time} · Audio guide ${TrailAudio.enabled() ? 'on' : 'off'}`;
+      document.getElementById('homeOptionsButton').textContent = 'Change trail options';
+    }
+  }
+
+  const homeAudio = document.getElementById('homeAudio');
+  const homeAudioButton = document.getElementById('homeAudioButton');
+  const homeAudioLabel = homeAudioButton.querySelector('.audio-label');
+  const homeAudioIcon = homeAudioButton.querySelector('.btn-icon');
+  const homeAudioPlayer = new Audio(TrailAudio.DEFAULT_AUDIO);
+  homeAudioPlayer.preload = 'metadata';
+
+  function renderHomeAudioButton() {
+    const playing = !homeAudioPlayer.paused;
+    homeAudioButton.classList.toggle('is-playing', playing);
+    homeAudioLabel.textContent = playing ? 'Pause' : (homeAudioPlayer.currentTime > 0 ? 'Resume' : 'Play');
+    homeAudioIcon.textContent = playing ? '⏸' : '🔊';
+  }
+
+  function renderHomeAudio(audioEnabled = TrailAudio.enabled()) {
+    homeAudio.hidden = !audioEnabled;
+    if (!audioEnabled) homeAudioPlayer.pause();
+    renderHomeAudioButton();
+  }
+
+  homeAudioButton.addEventListener('click', async () => {
+    if (!homeAudioPlayer.paused) {
+      homeAudioPlayer.pause();
+    } else {
+      try {
+        await homeAudioPlayer.play();
+      } catch (_) {
+        window.alert('Audio could not be played. Please check the recording and try again.');
+      }
+    }
+    renderHomeAudioButton();
+  });
+
+  homeAudioPlayer.addEventListener('ended', () => {
+    homeAudioPlayer.currentTime = 0;
+    renderHomeAudioButton();
+  });
+
+  const selectedAtLoad = TrailExperience.get();
+  renderExperience(selectedAtLoad || TrailExperience.DEFAULT_MODE, !!selectedAtLoad);
+  renderHomeAudio();
+  document.addEventListener('trailOptionsApplied', event => renderExperience(event.detail.mode, true));
+  document.addEventListener('trailAudioPreferenceChanged', event => renderHomeAudio(event.detail.enabled));
+</script>
+</body>
+</html>
