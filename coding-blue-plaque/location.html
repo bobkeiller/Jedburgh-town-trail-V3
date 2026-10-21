@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
 <title>Jedburgh Town Trail</title>
-<link rel="stylesheet" href="trail.css?v=7">
+<link rel="stylesheet" href="trail.css?v=9">
 <link rel="stylesheet" href="blue-plaque-game.css?v=18">
 </head>
 <body>
@@ -56,18 +56,20 @@
     <a class="btn primary" id="nextBtn" href="#">Next stop &rarr;</a>
   </div>
 </main>
-<script src="trail-data.js?v=6"></script>
-<script src="trail-experience.js?v=1"></script>
-<script src="trail-audio.js?v=3"></script>
+<script src="trail-data.js?v=7"></script>
+<script src="trail-experience.js?v=2"></script>
+<script src="trail-routes.js?v=1"></script>
+<script src="trail-audio.js?v=4"></script>
 <script src="trail-options.js?v=2"></script>
 <script src="blue-plaque-game.js?v=17"></script>
 <script>
   const params = new URLSearchParams(location.search);
   const id = params.get('id');
-  const index = jedburghTrail.pins.findIndex(p => p.id === id);
-  const pin = index >= 0 ? jedburghTrail.pins[index] : jedburghTrail.pins[0];
   const experienceKey = TrailExperience.current();
   const experience = TrailExperience.modes[experienceKey];
+  const routePins = TrailRoutes.pinsForMode(experienceKey);
+  const index = routePins.findIndex(p => p.id === id);
+  const pin = index >= 0 ? routePins[index] : routePins[0];
   document.getElementById('experienceName').textContent = experience.name;
 
   document.getElementById('stopTitle').textContent = pin.name;
@@ -81,7 +83,7 @@
   const locationAudio = document.getElementById('locationAudio');
   if (TrailAudio.enabled()) {
     const narrationSrc = TrailAudio.sourceFor(pin);
-    const directionSrc = TrailAudio.directionSourceFor(pin);
+    const directionSrc = TrailAudio.directionSourceFor(pin, experienceKey);
     const audioButton = document.getElementById('locationAudioButton');
     const audioLabel = audioButton.querySelector('.audio-label');
     const audioIcon = audioButton.querySelector('.btn-icon');
@@ -214,9 +216,7 @@
   }
 
   const rawContent = (pin.content && pin.content.filter(Boolean).length) ? pin.content : ['Add content for this stop in trail-data.js.'];
-  const content = pin.id === 'time-for-reflection'
-    ? finalStopContent(rawContent)
-    : withoutOptionalSections(rawContent);
+  const content = withoutOptionalSections(rawContent);
   contentSlot.innerHTML = content.map(block => {
     if (typeof block === 'string') {
       return block.startsWith('# ') ? `<h2>${block.slice(2)}</h2>` : `<p>${block}</p>`;
@@ -232,7 +232,8 @@
     if (block.type === 'story-panel') {
       const paragraphs = (block.paragraphs || []).map(paragraph => `<p>${paragraph}</p>`).join('');
       const panelImage = block.image ? `<img class="story-panel-image" src="${block.image}" alt="${block.imageAlt || ''}" loading="lazy">` : '';
-      return `<details class="story-panel"><summary><span>${block.title}</span><small>${block.label || 'Read the story'}</small></summary><div class="story-panel-body">${panelImage}${paragraphs}</div></details>`;
+      const footerImages = block.footerImages?.length ? `<div class="story-panel-gallery">${block.footerImages.map(image => `<figure><img src="${image.src}" alt="${image.alt || ''}" loading="lazy"><figcaption>${image.caption || ''}</figcaption></figure>`).join('')}</div>` : '';
+      return `<details class="story-panel"><summary><span>${block.title}</span><small>${block.label || 'Read the story'}</small></summary><div class="story-panel-body">${panelImage}${paragraphs}${footerImages}</div></details>`;
     }
     if (block.type === 'external-link') {
       return `<a class="btn primary content-link" href="${block.href}" target="_blank" rel="noopener noreferrer">${block.label}</a>`;
@@ -245,9 +246,10 @@
   }).join('');
 
   const fromHere = document.getElementById('fromHere');
-  if (pin.fromHere) {
+  const routeDirections = TrailRoutes.fromHereFor(pin, experienceKey);
+  if (routeDirections) {
     fromHere.hidden = false;
-    document.getElementById('fromHereText').textContent = pin.fromHere;
+    document.getElementById('fromHereText').textContent = routeDirections;
   }
 
   const locationPlaques = (jedburghTrail.plaques || []).filter(plaque => plaque.locationId === pin.id);
@@ -325,7 +327,7 @@
     const summaryLink = document.getElementById('bpSummaryLink');
     summaryLink.hidden = !experience.plaques || index < 4;
     document.getElementById('bpSummaryText').textContent = `${state.found.length} of 32 plaques · ${state.completed.length} of 6 stories`;
-    summaryLink.href = `plaque-game.html?from=${encodeURIComponent(pin.id)}${pin.id === 'time-for-reflection' ? '&final=1' : ''}`;
+    summaryLink.href = `plaque-game.html?from=${encodeURIComponent(pin.id)}`;
   }
   renderBluePlaqueSummary();
   document.addEventListener('bluePlaqueStateChanged', () => { renderPlaques(); renderBluePlaqueSummary(); });
@@ -338,11 +340,11 @@
     window.location.href = url;
   });
 
-  const prevPin = jedburghTrail.pins[index - 1];
-  const nextPin = jedburghTrail.pins[index + 1];
+  const prevPin = routePins[index - 1];
+  const nextPin = routePins[index + 1];
   const prevBtn = document.getElementById('prevBtn'), nextBtn = document.getElementById('nextBtn');
-  if (prevPin) prevBtn.href = `location.html?id=${encodeURIComponent(prevPin.id)}`; else prevBtn.style.display = 'none';
-  if (nextPin) nextBtn.href = `location.html?id=${encodeURIComponent(nextPin.id)}`; else { nextBtn.textContent = 'Back to list'; nextBtn.href = 'locations.html'; }
+  if (prevPin) prevBtn.href = `location.html?id=${encodeURIComponent(prevPin.id)}`; else { prevBtn.textContent = 'Welcome'; prevBtn.href = 'index.html'; }
+  if (nextPin) nextBtn.href = `location.html?id=${encodeURIComponent(nextPin.id)}`; else { nextBtn.textContent = 'Congratulations →'; nextBtn.href = 'congratulations.html'; }
 </script>
 </body>
 </html>

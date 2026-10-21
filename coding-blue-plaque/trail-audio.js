@@ -61,8 +61,10 @@
   };
 
   function enabled() {
-    try { return localStorage.getItem(ENABLED_KEY) === 'true'; }
-    catch (_) { return false; }
+    try {
+      const stored = localStorage.getItem(ENABLED_KEY);
+      return stored === null ? true : stored === 'true';
+    } catch (_) { return true; }
   }
 
   function setEnabled(value) {
@@ -77,7 +79,12 @@
     return DEFAULT_AUDIO;
   }
 
-  function directionSourceFor(pin) {
+  function directionSourceFor(pin, modeKey) {
+    if (window.TrailRoutes) {
+      const selectedMode = modeKey || TrailExperience.current();
+      const routePins = TrailRoutes.pinsForMode(selectedMode);
+      if (TrailRoutes.routeKeyForMode(selectedMode) === 'essential' || (pin && routePins.at(-1).id === pin.id)) return '';
+    }
     return pin && DIRECTION_BY_PIN[pin.id] ? DIRECTION_ROOT + DIRECTION_BY_PIN[pin.id] : '';
   }
 

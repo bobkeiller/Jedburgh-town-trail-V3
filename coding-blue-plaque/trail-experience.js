@@ -4,11 +4,21 @@
   const STORAGE_KEY = 'jedburghTownTrail:experience:v1';
   const DEFAULT_MODE = 'explore';
   const modes = {
+    essential: {
+      name: 'Essential Jedburgh Trail',
+      shortName: 'Essential',
+      time: 'About 1 hour',
+      description: 'A shorter trail featuring nine essential Jedburgh locations.',
+      route: 'essential',
+      plaques: false,
+      puzzles: false
+    },
     explore: {
       name: 'Explore the Town',
       shortName: 'Explore',
       time: 'About 2 hours',
       description: 'A gentle walk around the town’s key historic attractions.',
+      route: 'full',
       plaques: false,
       puzzles: false
     },
@@ -17,6 +27,7 @@
       shortName: 'Plaques',
       time: 'About 2½ hours',
       description: 'Explore the attractions, collect and sort the plaques into stories, and unveil the secret message.',
+      route: 'full',
       plaques: true,
       puzzles: false
     },
@@ -25,6 +36,7 @@
       shortName: 'Puzzles',
       time: 'About 4 hours',
       description: 'Explore, collect the plaques, then solve the puzzles presented at each location.',
+      route: 'full',
       plaques: true,
       puzzles: true
     }
