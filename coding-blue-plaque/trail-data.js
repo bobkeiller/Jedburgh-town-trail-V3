@@ -210,9 +210,42 @@ const jedburghTrail = {
       {type:'link', href:'cockburns-conundrum.html', label:'🍎 Try Cockburn’s Conundrum'}
     ]},
     {id:'prince-charlies-house', name:"Prince Charlie\u2019s House", lat:55.47741852353612, lng:-2.5561398267745976, radius:15, image:'../Jedburgh_Town_Trail_Assets/from brochure photographs_native/prince_charlie2.png', content:[
-      '# The Jacobite Young Pretender',
-      'During the 1745 attempt to restore the Stuart Monarchy, Prince Charles Edward Stuart - Bonnie Prince Charlie - is said to have stayed in this house on 6 and 7 November whilst making towards England with his army of supporters. A stone plaque on the first floor records this event. There was a complicated sundial at second floor level, which bore the Latin inscription “FUMIT CUNCTUS NOVANTHUS”, (which is grammatically very confused) although the sundial and the arms have now become badly eroded. An unusual feature of the sundial was its bowl and slab faces. Most of the building has been restored or rebuilt and little of the original fabric remains. Enter Blackhills Close and walk through (under) the buildings, and you will see some interesting features where you emerge, including an ornate doorway.',
-      'Return to Castlegate and head through Cornelius Close (but mind your head!) to emerge once more to the rear of the properties. Here you will see a drum staircase on your left, which was added in 1978 to the rear of Numbers 3-5 Castlegate (which date from the late 17th century) and replaced a range which extended back from the building. Although this is a later addition, it returns the building to something like its original plan. These Closes give a sense of what the medieval backland layout may have been like. Retrace your steps back to Castlegate and continue downhill. Numbers 1 and 2 Castlegate are set back from the rest of the buildings. Built in the 18th century they were altered in the 19th and again in the 20th century. At the foot of Castlegate, turn left into Exchange Street.',
+      '# The Young Pretender’s visit to Jedburgh',
+      'It is over 280 years since Bonnie Prince Charlie’s army of Jacobite supporters marched south to try and restore the Stuart monarchy to the British throne.',
+      {type:'story-panel', title:'Who were the Jacobites', label:'Read the background', paragraphs:[
+        'When Charles II died in 1685, having no legitimate children, he was succeeded by his younger brother James. James VII of Scotland was a catholic.',
+        'The reformation of 1560 had turned Great Britain away from Catholicism.',
+        'There was initially surprisingly little resistance to James’s succession.',
+        'He and his Catholic wife, Mary, were crowned at Westminster Abbey on 23 April 1685.',
+        'The problem was that James increasingly used the royal prerogative to bypass Parliament.',
+        'James was already in his fifties and his heirs were his Protestant daughters Mary and Anne. Mary was married to the Protestant Dutch ruler William of Orange.',
+        'Then James’s second wife, Mary of Modena, gave birth to a son: James Francis Edward Stuart on 10 June 1688.',
+        'A son took precedence over Mary and Anne in the succession.',
+        'Suddenly James’s opponents faced the possibility of an enduring Catholic Stuart dynasty.',
+        'Just 20 days later, on 30 June 1688, seven influential Englishmen secretly wrote to William of Orange.',
+        'They invited him to come to England with an army and assured him that substantial support existed for intervention.',
+        'William landed at Torbay in Devon on the 5th of November with a substantial Dutch-led army.',
+        'James’s political position collapsed remarkably quickly as senior politicians and military officers defected to William.',
+        'James eventually fled to France on 23 December 1688.',
+        'Parliament treated his flight as an abdication and offered the crown jointly to William III and Mary II in February 1689.',
+        'That was, so many thought, the end of that.',
+        'But many people were deeply seething at the deposition of James, or “Jacobus”, to give him his Latin name.',
+        'This is the origin of the Jacobites. They regarded James VII, his son and their successors as the rightful heirs to the throne and pushed for the restoration of the true Stuart Dynasty.',
+        'Despite the teachings of influential scholars such as Jedburgh’s Samuel Rutherford, the Jacobites argued that kings held their office through divine right, and, therefore, the entire post-1688 regime was illegitimate.',
+        'However, because Jacobitism served as an outlet for popular discontent, it contained a complex mix of ideas, many opposed by the Stuarts themselves.',
+        'The complexity of the ideas diluted the Jacobite Cause somewhat but did not prevent several uprisings.',
+        'King William fought James VII’s forces in Ireland between 1689 and 1691. He suppressed a 1689 revolution in Scotland and serious revolts in 1715, 1719 and 1745.'
+      ]},
+      'His plan was to conquer London, drive out King George II and regain the throne for the Stuarts. En route he spent one night in Jedburgh on November 6th, 1745. It is believed he stopped here to acquire boots for his troops, as Jedburgh was famous for its craftsmen “souters” or shoemakers.',
+      'Charles Edward Stuart was known as “the Young Pretender”. He believed his exiled father, James Stuart, “the Old Pretender”, was the rightful king of the United Kingdon.',
+      'It is not clear whether Jethart folk were for or against the Jacobite cause. The town had suffered economically after the Union of 1707 though, so perhaps they would have sympathy for his cause.',
+      'The Prince was a romantic figure who would draw crowds of admirers. Indeed, when he captured Edinburgh a crowd of 60,000 turned out to see his men march towards the Palace of Holyrood. His stay in Jedburgh is commemorated with a stone plaque on the front of ‘Bonnie Prince Charlie’s House’ at the foot of Castlegate.',
+      'It was 17th century town house owned by the Ainslies family from Oxnam and was likely one of the most important houses in Jedburgh at the time. It would have all the way along the close back then, but little of the original fabric remains now and the building is flats above a ground floor office.',
+      'However, an intricate sundial on the wall has survived and bears the Latin inscription “Fumit Cunctus Novanthus”. It is now badly decayed but the crest of the Blackhills family could be made out at one time.',
+      'After his stay there, the Prince marched south to cross the Esk into England. He failed in his quest to regain the throne, but he came very close.',
+      'The Jacobites made it to Derby - just 125 miles from London - but did not venture further as promised support from France failed to materialise. On December 6th 1745, known to the Jacobites as Black Friday, the men about turned and began the long march north again.',
+      'The Young Pretender’s army was ultimately defeated at the Battle of Culloden four months later, ending the Stuart claim to the throne. He died in Rome in 1788.',
+      'When Charles came to Jedburgh in 1745, he was confident that he would become King Charles III. He wasn’t to know that it would be a further 281 years before the actual King Charles III would visit Jedburgh.',
       '# Just for Fun',
       'An ancient Jacobite travel chest has been discovered in the basement. Can you use the four surviving attempts to crack its four-digit lock and reveal the royal secret inside?',
       {type:'link', href:'jacobite-code-breaker.html', label:'🔐 Crack the Jacobite Code'}
@@ -437,7 +470,6 @@ jedburghTrail.pins.forEach(pin => {
   pin.fromHere = fromHereByStop[pin.id] || '';
   pin.content = pin.content.filter(block => block !== '# Where next?');
   if (pin.id === 'mary-queen-of-scots-house') pin.content = pin.content.slice(0, 7);
-  if (pin.id === 'prince-charlies-house') pin.content = pin.content.filter((block, index) => index !== 2);
   pin.content = pin.content.map(block => typeof block === 'string' && block.startsWith('# Glebe Murder Part') ? '# Just for Fun' : block);
   for (const edit of removeRepeatedDirections[pin.id] || []) {
     if (typeof edit === 'string') pin.content = pin.content.filter(block => block !== edit);
