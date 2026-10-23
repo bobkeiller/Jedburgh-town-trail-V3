@@ -209,7 +209,7 @@ const jedburghTrail = {
       'Rob Cockburn’s nearby grocery shop challenged children with three wrongly labelled fruit bags. Can you draw just one fruit and identify the true contents of every bag?',
       {type:'link', href:'cockburns-conundrum.html', label:'🍎 Try Cockburn’s Conundrum'}
     ]},
-    {id:'prince-charlies-house', name:"Prince Charlie\u2019s House", lat:55.47741852353612, lng:-2.5561398267745976, radius:15, image:'../Jedburgh_Town_Trail_Assets/from brochure photographs_native/prince_charlie2.png', content:[
+    {id:'prince-charlies-house', name:"Prince Charlie\u2019s House", lat:55.477352, lng:-2.556008, radius:15, image:'../Jedburgh_Town_Trail_Assets/from brochure photographs_native/prince_charlie2.png', content:[
       '# The Young Pretender’s visit to Jedburgh',
       'It is over 280 years since Bonnie Prince Charlie’s army of Jacobite supporters marched south to try and restore the Stuart monarchy to the British throne.',
       {type:'story-panel', title:'Who were the Jacobites', label:'Read the background', paragraphs:[
