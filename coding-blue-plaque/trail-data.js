@@ -416,8 +416,8 @@ const fromHereByStop = {
   'sheriff-court': 'Walk another 80 metres uphill along Castlegate and you will see Abbey Close on your left.',
   'abbey-close': 'The next stop is a hike—all the way uphill to the castle-like building. It is worth the visit, but take your time.',
   'castle-jail': 'It is downhill all the way back towards Market Place. The Public Library is on your left before you reach The Square.',
-  'library': 'Walk down past Upper Nag’s Head Close and walk a few metres up Blackhills Close to find Prince Charlie’s House.',
-  'prince-charlies-house': 'Return to Castlegate and head through Cornelius Close—but mind your head—to emerge once more behind the properties. Here you will see a drum staircase on your left, added in 1978 to the rear of Numbers 3–5 Castlegate, which date from the late 17th century. The staircase replaced a range extending back from the building and returns it to something like its original plan. These closes give a sense of the medieval backland layout. Retrace your steps to Castlegate and continue downhill. Numbers 1 and 2 Castlegate are set back from the other buildings; built in the 18th century, they were altered in the 19th and again in the 20th century. At the foot of Castlegate, turn left into Exchange Street.',
+  'library': 'Simply walk a few metres down the pavement.',
+  'prince-charlies-house': 'Walk back down the Market Square,turn left into Exchange Street.',
   'exchange-street': 'Head back towards The Square and turn left down into High Street.',
   'high-street': 'You will see the prominent Spread Eagle Hotel on your left as you walk down High Street.',
   'spread-eagle': 'Keep walking downhill for another 120 metres or so and you will see the Loupin’on Stane on your left.',
@@ -429,6 +429,18 @@ const fromHereByStop = {
   'canongate-bridge': 'Come back from the bridge, but instead of walking through the underpass, follow the riverside path.',
   'riverside-walk': 'Follow the trail around to the end, where you will be back opposite the Abbey Visitor Centre. Cross the road carefully and walk back to the Glebe for the final point on the trail.',
   'time-for-reflection': 'You have completed the trail. The Glebe, where the walk began, is beside you. From here you can return to the Abbey, the town centre or your onward route.'
+};
+
+// Route-specific onward directions for the shortened Essential Trail.
+const essentialFromHereByStop = {
+  'public-hall': 'Walk about 50m down towards the bridge and the Abbey Visitors Centre is across the road.',
+  'abbey': 'You should be able to see the prominent War Memorial.',
+  'war-memorial': 'Walk along to the Market Place and turn left onto the Castlegate. About 30m up the hill on the left hand side you will see the Sheriff Court.',
+  'sheriff-court': 'Cross the road and look up to spot the plaque that identifies Prince Charlie’s House.',
+  'prince-charlies-house': 'Walk back down through the Square to the High Street.',
+  'high-street': 'Walk about 200m down the right hand pavement until you get to Smith’s Wynd. You will find Mary Queen of Scots House at the bottom of Smith’s Wynd.',
+  'mary-queen-of-scots-house': 'Walk south along Queen Street towards the Canongate.',
+  'canongate': 'Walk back up the gentle slope to the Market Place.'
 };
 
 const removeRepeatedDirections = {

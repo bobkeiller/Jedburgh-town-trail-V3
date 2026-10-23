@@ -66,7 +66,7 @@
     const next = pins[index + 1];
     if (!next) return '';
     if (routeKeyForMode(modeKey) === 'full') return pin.fromHere || '';
-    return `Your next location is ${next.name}. Use Walking directions for a suggested route.`;
+    return essentialFromHereByStop[pin.id] || `Your next location is ${next.name}. Use Walking directions for a suggested route.`;
   }
 
   window.TrailRoutes = {
