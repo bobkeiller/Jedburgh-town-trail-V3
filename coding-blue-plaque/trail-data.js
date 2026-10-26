@@ -21,7 +21,7 @@ const jedburghTrail = {
       'Today, the town retains largely the same plan as it had centuries ago, comprising the High Street and Castlegate with closes and tofts running at right angles to these main streets, similar to the Royal Mile in Edinburgh.',
       'Jedburgh lies on the A68 from Edinburgh. The quiet nature and great beauty of the town and its Abbey make it an essential stop for tourists from all over the world. The sight of the Abbey as you approach from the south gives a real sense of the history of the town you are entering.',
       '# Just for Fun',
-      'A man was shot at the Glebe, and suspect Wull Wylie gave three conflicting statements about where he had locked his shotgun. If exactly one statement was true, can you locate the gun? (The murders are ficticious by the way.)',
+      'A man was shot at the Glebe, and the initial suspect, Des Douglas, gave three conflicting statements about where he had locked his shotgun. If exactly one statement was true, can you locate the gun? (The murders are ficticious by the way.)',
       {type:'link', href:'glebe-murder.html', label:'🔎 Glebe Murder Part 1'}
     ]},
     {id:'huttons-unconformity', name:"Hutton\u2019s Unconformity", lat:55.47513376055063, lng:-2.5557696819305424, radius:15, image:'../Jedburgh_Town_Trail_Assets/from brochure photographs_native/hutton2.png', content:[
@@ -153,7 +153,7 @@ const jedburghTrail = {
     {id:'canongate', name:"Canongate", lat:55.477669337751884, lng:-2.555080354213715, radius:15, image:'../Jedburgh_Town_Trail_Assets/from brochure photographs_native/canongate2.png', content:[
       '# Canongate',
       'Canongate was once the principal entrance to Jedburgh from Canongate Bridge.',
-      'The Royal Hotel was previously the Harrow Inn and may have been renamed after a royal visit, although this is uncertain. Beyond it stood the house where Robert Burns stayed during his 1797 visit, when he was made a Freeman of the Royal Burgh. Before 1759, a line of buildings occupied the centre of the street. Known as the “Tongue o’ the Canongate”, it included the town’s Tolbooth at the Market Place end, where justice was administered before Newgate replaced it.',
+      'The Royal Hotel was previously the Harrow Inn and was renamed after Queen Victoria’s visit in 1867. Beyond it stood the house where Robert Burns stayed during his 1787 visit, when he was made a Freeman of the Royal Burgh. Before 1759, a line of buildings occupied the centre of the street. Known as the “Tongue o’ the Canongate”, it included the town’s Tolbooth at the Market Place end, where justice was administered before Newgate replaced it.',
       'Justice in 17th-century Scotland could be brutal, particularly for those accused of witchcraft. Illness, unexplained deaths, failed harvests and personal misfortune could all arouse suspicion. A relatively recent document highlighted the 1630 trial of Agnes Wood of Jedburgh. It describes how she was condemned for witchcraft, strangled and burned at the Gallows Knowe. Unfortunately no authentic historical records support this story.',
       'The name “Gallows Hill” gradually became “Galahill”, now at the top of Castlegate. Such accusations often grew from ordinary disputes or attempts to explain events that communities could not otherwise understand.',
       'Fear of witchcraft had intensified after James VI attended the North Berwick trials around 1590. Between 1563 and 1736, nearly 4,000 people were accused across Scotland and about 2,500 were executed. Accusations surged again in 1649 amid political turmoil, religious zeal and widespread hardship. Professional witch-prickers claimed to identify the Devil’s mark by piercing suspects’ skin with needles, while intimidation, torture and forced confessions spread suspicion through communities. Once a confession named neighbours or relatives, a single case could rapidly produce several more.',
@@ -501,7 +501,6 @@ const removeRepeatedDirections = {
 jedburghTrail.pins.forEach(pin => {
   pin.fromHere = fromHereByStop[pin.id] || '';
   pin.content = pin.content.filter(block => block !== '# Where next?');
-  if (pin.id === 'mary-queen-of-scots-house') pin.content = pin.content.slice(0, 7);
   pin.content = pin.content.map(block => typeof block === 'string' && block.startsWith('# Glebe Murder Part') ? '# Just for Fun' : block);
   for (const edit of removeRepeatedDirections[pin.id] || []) {
     if (typeof edit === 'string') pin.content = pin.content.filter(block => block !== edit);

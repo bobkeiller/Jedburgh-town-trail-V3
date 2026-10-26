@@ -43,4 +43,32 @@ for (const filename of ['index.html', 'locations.html', 'location.html', 'map.ht
   scripts.forEach((script, index) => new vm.Script(script, { filename: `${filename}:inline-${index + 1}` }));
 }
 
-console.log('V4 validation passed: Essential has 9 locations; full routes have 24; Welcome and Congratulations locations are correct.');
+const trail = vm.runInContext('jedburghTrail', context);
+for (const pin of trail.pins) {
+  const content = pin.content || [];
+  for (let index = 0; index < content.length; index += 1) {
+    if (content[index] !== '# Just for Fun') continue;
+
+    const links = [];
+    for (let blockIndex = index + 1; blockIndex < content.length; blockIndex += 1) {
+      const block = content[blockIndex];
+      if (typeof block === 'string' && block.startsWith('# ')) break;
+      if (block && typeof block === 'object' && block.type === 'link') links.push(block);
+    }
+
+    assert(links.length > 0, `${pin.name} has a Just for Fun section without a puzzle link.`);
+    for (const link of links) {
+      const filename = link.href.split(/[?#]/)[0];
+      const puzzleUrl = new URL(filename, pageDirectory);
+      assert(fs.existsSync(puzzleUrl), `${pin.name} links to missing puzzle page ${filename}.`);
+
+      const html = fs.readFileSync(puzzleUrl, 'utf8');
+      const returnMatch = html.match(/<a\b[^>]*href=["']location\.html\?id=([^"'&]+)[^"']*["'][^>]*>/i);
+      assert(returnMatch, `${filename} needs a return link to its location page.`);
+      assert(returnMatch[1] === pin.id, `${filename} returns to ${returnMatch[1]} instead of ${pin.id}.`);
+      assert(/puzzle-consistency\.css/.test(html) && /puzzle-consistency\.js/.test(html), `${filename} needs the shared puzzle return styling and behaviour.`);
+    }
+  }
+}
+
+console.log('V4 validation passed: routes are correct; every Just for Fun section links to a puzzle with a consistent return control.');
