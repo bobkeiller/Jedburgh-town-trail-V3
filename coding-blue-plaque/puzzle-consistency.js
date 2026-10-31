@@ -5,7 +5,7 @@
     abbey: 'Jedburgh Abbey',
     'war-memorial': 'the War Memorial',
     ramparts: 'the Ramparts',
-    'public-hall': 'the Public Hall',
+    'public-hall': 'the Town Hall',
     newgate: 'Newgate',
     'market-place': 'Market Place',
     canongate: 'Canongate',

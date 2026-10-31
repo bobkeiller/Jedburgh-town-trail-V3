@@ -116,8 +116,8 @@ a{color:inherit}
 .reasons-content ul{padding-left:22px}
 .reasons-content li{margin:8px 0}
 .timeline-callout{margin:22px 0 4px;padding:18px;border:1px solid #183f30;border-left:6px solid var(--amber);border-radius:14px;background:var(--green);color:var(--card);box-shadow:0 10px 24px rgba(31,48,40,.2)}
-.timeline-callout h2{margin:2px 0 7px;color:#fffdf8}
-.timeline-callout p{margin:0 0 15px;color:#f5f1e8}
+.location-body .timeline-callout h2{margin:2px 0 7px;color:#fff}
+.location-body .timeline-callout p{margin:0 0 15px;color:#fff}
 .timeline-callout .timeline-kicker{margin:0;color:#f3c579;font-size:12px;font-weight:850;letter-spacing:.06em;text-transform:uppercase}
 .timeline-button{background:var(--amber);color:#3a2405;box-shadow:none}
 .timeline-button:focus-visible{outline:3px solid #fffdf8;outline-offset:3px}

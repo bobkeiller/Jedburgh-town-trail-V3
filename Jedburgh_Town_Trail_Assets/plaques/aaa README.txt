@@ -33,8 +33,8 @@ photographs_native/page_12_stone_carving_of_bull.png - 236 x 239 px
 photographs_native/page_12_william_wordsworth_plaque.png - 239 x 239 px
 photographs_native/page_13_jedburgh_castle_jail.png - 239 x 239 px
 photographs_native/page_14_91_castlegate.png - 239 x 227 px
-photographs_native/page_15_map_artwork.png - 561 x 564 px
-photographs_native/page_15_map_base.png - 597 x 798 px
+created graphics/page_15_map_artwork.png - 561 x 564 px
+created graphics/page_15_map_base.png - 597 x 798 px
 photographs_native/page_17_bonnie_prince_charlie_plaque.png - 239 x 232 px
 photographs_native/page_17_public_library.png - 239 x 244 px
 photographs_native/page_18_exchange_street.png - 239 x 239 px

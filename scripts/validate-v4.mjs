@@ -26,7 +26,7 @@ assert(JSON.stringify(actualEssential) === JSON.stringify(expectedEssential), 'E
 assert(new Set(actualEssential).size === 9, 'Essential route must contain nine unique locations.');
 assert(new Set(full).size === 24, 'Full route must contain 24 unique locations.');
 assert(!full.includes('time-for-reflection'), 'Time for Reflection must not remain in the full route.');
-assert(context.TrailRoutes.welcomePin('essential').id === 'public-hall', 'Essential Welcome must use Public Hall.');
+assert(context.TrailRoutes.welcomePin('essential').id === 'public-hall', 'Essential Welcome must use Town Hall.');
 assert(context.TrailRoutes.congratulationsPin('essential').id === 'market-place', 'Essential Congratulations must use Market Place.');
 assert(context.TrailRoutes.welcomePin('explore').id === 'the-glebe', 'Full Welcome must use The Glebe.');
 assert(context.TrailRoutes.congratulationsPin('explore').id === 'the-glebe', 'Full Congratulations must use The Glebe.');
