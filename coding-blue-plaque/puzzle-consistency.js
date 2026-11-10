@@ -23,8 +23,7 @@
     'mary-queen-of-scots-house': 'Mary Queen of Scots House',
     'pipers-house': 'Piper’s House',
     'canongate-bridge': 'Canongate Bridge',
-    'riverside-walk': 'the Riverside Walk',
-    'time-for-reflection': 'Time for Reflection'
+    'riverside-walk': 'the Riverside Walk'
   };
 
   function finishPage() {

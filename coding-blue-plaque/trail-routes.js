@@ -21,7 +21,7 @@
       name: 'Essential Jedburgh Trail',
       welcomeLocationId: 'public-hall',
       congratulationsLocationId: 'market-place',
-      congratulationsImage: '../Jedburgh_Town_Trail_Assets/photographs/market_place3.png',
+      congratulationsImage: '../Jedburgh_Town_Trail_Assets/improved_photographs/market_square5.png',
       locationIds: ESSENTIAL_LOCATION_IDS,
       mapImage: '../Jedburgh_Town_Trail_Assets/created%20graphics/Essential_Jedburgh_Location_Map.png'
     },
@@ -29,6 +29,7 @@
       name: 'Full Jedburgh Town Trail',
       welcomeLocationId: 'the-glebe',
       congratulationsLocationId: 'the-glebe',
+      congratulationsImage: '../Jedburgh_Town_Trail_Assets/improved_photographs/congratulations4.png',
       locationIds: FULL_LOCATION_IDS,
       mapImage: '../Jedburgh_Town_Trail_Assets/created%20graphics/Trail_Map.png'
     }

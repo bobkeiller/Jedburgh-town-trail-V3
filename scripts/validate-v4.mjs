@@ -25,7 +25,7 @@ function assert(condition, message) {
 assert(JSON.stringify(actualEssential) === JSON.stringify(expectedEssential), 'Essential route order is incorrect.');
 assert(new Set(actualEssential).size === 9, 'Essential route must contain nine unique locations.');
 assert(new Set(full).size === 24, 'Full route must contain 24 unique locations.');
-assert(!full.includes('time-for-reflection'), 'Time for Reflection must not remain in the full route.');
+assert(!vm.runInContext('jedburghTrail', context).pins.some(pin => pin.id === 'time-for-reflection'), 'The retired Time for Reflection stop must not remain in trail data.');
 assert(context.TrailRoutes.welcomePin('essential').id === 'public-hall', 'Essential Welcome must use Town Hall.');
 assert(context.TrailRoutes.congratulationsPin('essential').id === 'market-place', 'Essential Congratulations must use Market Place.');
 assert(context.TrailRoutes.welcomePin('explore').id === 'the-glebe', 'Full Welcome must use The Glebe.');
@@ -63,6 +63,10 @@ for (const pin of trail.pins) {
       assert(fs.existsSync(puzzleUrl), `${pin.name} links to missing puzzle page ${filename}.`);
 
       const html = fs.readFileSync(puzzleUrl, 'utf8');
+      if (filename === 'songs-that-mention-jedburgh.html') {
+        assert(/<a\b[^>]*href=["']congratulations\.html["'][^>]*>[^<]*Return to Congratulations<\/a>/i.test(html), 'The music quiz must return to the Congratulations page.');
+        continue;
+      }
       const returnMatch = html.match(/<a\b[^>]*href=["']location\.html\?id=([^"'&]+)[^"']*["'][^>]*>/i);
       assert(returnMatch, `${filename} needs a return link to its location page.`);
       assert(returnMatch[1] === pin.id, `${filename} returns to ${returnMatch[1]} instead of ${pin.id}.`);

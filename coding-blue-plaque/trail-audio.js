@@ -3,61 +3,72 @@
 
   const ENABLED_KEY = 'jedburghTownTrail:audioGuide:v1';
   const PLAYBACK_KEY = 'jedburghTownTrail:audioPlayback:v1';
-  const AUDIO_ROOT = '../Jedburgh_Town_Trail_Assets/audio/mp3/';
+  const VOICEOVER_ROOT = '../Jedburgh_Town_Trail_Assets/audio/Location_voice_overs/';
+  const LEGACY_AUDIO_ROOT = '../Jedburgh_Town_Trail_Assets/audio/mp3/';
   const AUDIO_BY_PIN = {
-    'the-glebe': 'The Glebe.mp3',
-    'huttons-unconformity': 'Huttons Unconformity.mp3',
-    'abbey': 'The Abbey.mp3',
-    'war-memorial': 'War Memorial.mp3',
-    'ramparts': 'The Ramparts.mp3',
-    'public-hall': 'Public Hall.mp3',
-    'newgate': 'New Gate.mp3',
-    'market-place': 'Market Place .mp3',
-    'canongate': 'Canongate .mp3',
-    'sheriff-court': 'Sheriff Court.mp3',
-    'abbey-close': 'Abbey Close.mp3',
-    'castle-jail': 'Castle Jail.mp3',
-    'library': 'Public Library.mp3',
-    'prince-charlies-house': 'Prince Charlie’s House.mp3',
-    'exchange-street': 'Exchange Street.mp3',
-    'high-street': 'High Street.mp3',
-    'spread-eagle': 'Spread Eagle Hotel.mp3',
-    'loupin-on-stane': 'The Loupin On Stane.mp3',
-    'jedburgh-friary': 'Jedburgh Friary.mp3',
-    'trinity-church': 'Former Trinity Church.mp3',
-    'mary-queen-of-scots-house': 'Mary Queen of Scots.mp3',
-    'pipers-house': 'Pipers House.mp3',
-    'canongate-bridge': 'Canongate Bridge.mp3',
-    'riverside-walk': 'Riverside Walk .mp3',
-    'time-for-reflection': 'Time for Reflection .mp3'
+    'the-glebe': VOICEOVER_ROOT + '1 The Glebe.mp3',
+    'huttons-unconformity': VOICEOVER_ROOT + "2 Hutton's Unconformity.mp3",
+    'abbey': VOICEOVER_ROOT + '3 Abbey.mp3',
+    'war-memorial': VOICEOVER_ROOT + '4 War Memorial.mp3',
+    'ramparts': VOICEOVER_ROOT + '5 Ramparts.mp3',
+    'public-hall': VOICEOVER_ROOT + '6 Town Hall.mp3',
+    'newgate': VOICEOVER_ROOT + '7 New Gate.mp3',
+    'market-place': VOICEOVER_ROOT + '8 Market Place.mp3',
+    'canongate': VOICEOVER_ROOT + '9 Cannon Gate.mp3',
+    'sheriff-court': VOICEOVER_ROOT + '10 Sherriff Court.mp3',
+    'abbey-close': VOICEOVER_ROOT + '11 Abbey Close.mp3',
+    'castle-jail': VOICEOVER_ROOT + '12 Castle Jail.mp3',
+    'library': LEGACY_AUDIO_ROOT + 'Public Library.mp3',
+    'prince-charlies-house': VOICEOVER_ROOT + "14 Prince Charlie's House.mp3",
+    'exchange-street': VOICEOVER_ROOT + '15 Exchange Street.mp3',
+    'high-street': VOICEOVER_ROOT + '16 High Street.mp3',
+    'spread-eagle': VOICEOVER_ROOT + '17 Spread Eagle.mp3',
+    'loupin-on-stane': VOICEOVER_ROOT + "18 Loupin' -on Stane.mp3",
+    'jedburgh-friary': VOICEOVER_ROOT + '19 Jedburgh Friary.mp3',
+    'trinity-church': VOICEOVER_ROOT + '20 Trinity Church.mp3',
+    'mary-queen-of-scots-house': VOICEOVER_ROOT + '21 Mary Queen of Scots House.mp3',
+    'pipers-house': VOICEOVER_ROOT + "22 Piper's House.mp3",
+    'canongate-bridge': VOICEOVER_ROOT + '23 Canongate Bridge.mp3',
+    'riverside-walk': VOICEOVER_ROOT + '24 Riverside Walk.mp3',
+    'congratulations': LEGACY_AUDIO_ROOT + 'Time for Reflection .mp3'
   };
-  const DEFAULT_AUDIO = AUDIO_ROOT + 'Jedburgh Home Page copy.mp3';
-  const DIRECTION_ROOT = '../Jedburgh_Town_Trail_Assets/audio/mp3-directions/';
-  const DIRECTION_BY_PIN = {
-    'the-glebe': 'Glebe.mp3',
-    'huttons-unconformity': 'Huttons Unconformity.mp3',
-    'abbey': 'Abbey.mp3',
-    'war-memorial': 'War Memorial.mp3',
-    'ramparts': 'Ramparts.mp3',
-    'public-hall': 'Public Hall.mp3',
-    'newgate': 'Newgate.mp3',
-    'market-place': 'Market Place.mp3',
-    'canongate': 'Canongate.mp3',
-    'sheriff-court': 'Sheriff Court.mp3',
-    'abbey-close': 'Abbey Close.mp3',
-    'castle-jail': 'Castle Jail.mp3',
-    'library': 'Public Library.mp3',
-    'prince-charlies-house': 'Prince Charlie’s House.mp3',
-    'exchange-street': 'Exchange Street.mp3',
-    'high-street': 'High Street.mp3',
-    'spread-eagle': 'Spread Eagle.mp3',
-    'loupin-on-stane': 'Loupin on Stane.mp3',
-    'jedburgh-friary': 'Jedburgh Friary.mp3',
-    'trinity-church': 'Trinity Church .mp3',
-    'mary-queen-of-scots-house': 'Mary Queen of Scots.mp3',
-    'pipers-house': 'Pipers House.mp3',
-    'canongate-bridge': 'Canongate Bridge .mp3',
-    'riverside-walk': 'Riverside Walk.mp3'
+  const DEFAULT_AUDIO = VOICEOVER_ROOT + '0 Welcome.mp3';
+  const FULL_DIRECTION_ROOT = '../Jedburgh_Town_Trail_Assets/audio/Directions_full_trail/';
+  const ESSENTIAL_DIRECTION_ROOT = '../Jedburgh_Town_Trail_Assets/audio/Directions_essential_trail/';
+  const FULL_DIRECTION_BY_PIN = {
+    'the-glebe': FULL_DIRECTION_ROOT + '1 The Glebe copy.mp3',
+    'huttons-unconformity': FULL_DIRECTION_ROOT + "2 Hutton's Unconformity copy.mp3",
+    'abbey': FULL_DIRECTION_ROOT + '3 Abbey copy.mp3',
+    'war-memorial': FULL_DIRECTION_ROOT + '4 War Memorial copy.mp3',
+    'ramparts': FULL_DIRECTION_ROOT + '5 Ramparts copy.mp3',
+    'public-hall': FULL_DIRECTION_ROOT + '6 Town Hall copy.mp3',
+    'newgate': FULL_DIRECTION_ROOT + '7 New Gate copy.mp3',
+    'market-place': FULL_DIRECTION_ROOT + '8 Market Place copy.mp3',
+    'canongate': FULL_DIRECTION_ROOT + '9 Cannon Gate copy.mp3',
+    'sheriff-court': FULL_DIRECTION_ROOT + '10 Sherriff Court copy.mp3',
+    'abbey-close': FULL_DIRECTION_ROOT + '11 Abbey Close copy.mp3',
+    'castle-jail': FULL_DIRECTION_ROOT + '12 Castle Jail copy.mp3',
+    'library': FULL_DIRECTION_ROOT + '13 Library (Audio Missing) copy.mp3',
+    'prince-charlies-house': FULL_DIRECTION_ROOT + "14 Prince Charlie's House copy.mp3",
+    'exchange-street': FULL_DIRECTION_ROOT + '15 Exchange Street copy.mp3',
+    'high-street': FULL_DIRECTION_ROOT + '16 High Street copy.mp3',
+    'spread-eagle': FULL_DIRECTION_ROOT + '17 Spread Eagle copy.mp3',
+    'loupin-on-stane': FULL_DIRECTION_ROOT + "18 Loupin' -on Stane copy.mp3",
+    'jedburgh-friary': FULL_DIRECTION_ROOT + '19 Jedburgh Friary copy.mp3',
+    'trinity-church': FULL_DIRECTION_ROOT + '20 Trinity Church copy.mp3',
+    'mary-queen-of-scots-house': FULL_DIRECTION_ROOT + '21 Mary Queen of Scots House copy.mp3',
+    'pipers-house': FULL_DIRECTION_ROOT + "22 Piper's House copy.mp3",
+    'canongate-bridge': FULL_DIRECTION_ROOT + '23 Canongate Bridge copy.mp3'
+  };
+  const ESSENTIAL_DIRECTION_BY_PIN = {
+    'public-hall': ESSENTIAL_DIRECTION_ROOT + '1 Town Hall Short.mp3',
+    'abbey': ESSENTIAL_DIRECTION_ROOT + '2 Abbey.mp3',
+    'war-memorial': ESSENTIAL_DIRECTION_ROOT + '3 War Memorial.mp3',
+    'sheriff-court': ESSENTIAL_DIRECTION_ROOT + '4 Sheriff Court.mp3',
+    'prince-charlies-house': ESSENTIAL_DIRECTION_ROOT + "5 Prince Charlie's House.mp3",
+    'high-street': ESSENTIAL_DIRECTION_ROOT + '6 High Street.mp3',
+    'mary-queen-of-scots-house': ESSENTIAL_DIRECTION_ROOT + '7 Mary Queen of Scots House.mp3',
+    'canongate': ESSENTIAL_DIRECTION_ROOT + '8 Cannongate.mp3'
   };
 
   function enabled() {
@@ -75,17 +86,17 @@
 
   function sourceFor(pin) {
     if (pin && pin.audio) return pin.audio;
-    if (pin && AUDIO_BY_PIN[pin.id]) return AUDIO_ROOT + AUDIO_BY_PIN[pin.id];
+    if (pin && AUDIO_BY_PIN[pin.id]) return AUDIO_BY_PIN[pin.id];
     return DEFAULT_AUDIO;
   }
 
   function directionSourceFor(pin, modeKey) {
-    if (window.TrailRoutes) {
-      const selectedMode = modeKey || TrailExperience.current();
-      const routePins = TrailRoutes.pinsForMode(selectedMode);
-      if (TrailRoutes.routeKeyForMode(selectedMode) === 'essential' || (pin && routePins.at(-1).id === pin.id)) return '';
-    }
-    return pin && DIRECTION_BY_PIN[pin.id] ? DIRECTION_ROOT + DIRECTION_BY_PIN[pin.id] : '';
+    if (!pin || !window.TrailRoutes) return '';
+    const selectedMode = modeKey || TrailExperience.current();
+    const directions = TrailRoutes.routeKeyForMode(selectedMode) === 'essential'
+      ? ESSENTIAL_DIRECTION_BY_PIN
+      : FULL_DIRECTION_BY_PIN;
+    return directions[pin.id] || '';
   }
 
   function readPlayback() {

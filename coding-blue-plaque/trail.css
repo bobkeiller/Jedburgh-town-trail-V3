@@ -111,6 +111,18 @@ a{color:inherit}
 .welcome-hero{margin-top:14px}
 .eyebrow{margin-bottom:5px!important;color:var(--green)!important;font-size:12px;font-weight:850;letter-spacing:.05em;text-transform:uppercase}
 .final-thought-button{width:100%;margin:22px 0}
+.finish-next{margin-top:24px;padding-top:4px}
+.finish-next h2{margin-bottom:12px}
+.finish-link-list{display:flex;flex-direction:column;gap:10px}
+.finish-link{display:grid;grid-template-columns:38px minmax(0,1fr) auto;align-items:center;gap:11px;padding:14px 15px;border:1px solid var(--line);border-left:5px solid var(--amber);border-radius:13px;background:var(--card);box-shadow:var(--shadow);color:var(--ink);text-decoration:none}
+.finish-link:hover{border-color:var(--amber)}
+.finish-link:focus-visible{outline:3px solid var(--amber);outline-offset:3px}
+.finish-link-icon{display:grid;place-items:center;width:38px;height:38px;border-radius:50%;background:#f7f0df;font-size:20px}
+.finish-link strong,.finish-link small{display:block}
+.finish-link small{margin-top:3px;color:var(--muted);font-size:13px;line-height:1.35}
+.finish-link>b{color:var(--green);font-size:22px}
+.finish-link[hidden]{display:none}
+.plaque-finish-link{border-left-color:#287caf;background:linear-gradient(135deg,#f5fbff,#e7f4fb)}
 .reasons-content{margin:18px 0;color:#2f3f37}
 .reasons-content p{margin:0 0 12px}
 .reasons-content ul{padding-left:22px}

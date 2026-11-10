@@ -9,7 +9,7 @@ const jedburghTrail = {
   name: 'Jedburgh Town Trail',
   orderMode: 'sequential',
   pins: [
-    {id:'the-glebe', name:"The Glebe", lat:55.475424113692036, lng:-2.554855048656464, radius:30, image:'../Jedburgh_Town_Trail_Assets/photographs/glebe2.png', content:[
+    {id:'the-glebe', name:"The Glebe", lat:55.475424113692036, lng:-2.554855048656464, radius:30, image:'../Jedburgh_Town_Trail_Assets/improved_photographs/glebe4.png', content:[
       '# The Blue Plaque Puzzle',
       'As you explore the trail, you can simply collect the blue plaques—or work out the stories and themes that connect them. Every blue plaque belongs to one of seven collections. Six collections tell stories from Jedburgh’s history. The seventh is different. You’ll discover why. Your first plaques are waiting at the Ramparts.',
       '# Historical Background',
@@ -24,7 +24,7 @@ const jedburghTrail = {
       'A man was shot at the Glebe, and the initial suspect, Des Douglas, gave three conflicting statements about where he had locked his shotgun. If exactly one statement was true, can you locate the gun? (The murders are ficticious by the way.)',
       {type:'link', href:'glebe-murder.html', label:'🔎 Glebe Murder Part 1'}
     ]},
-    {id:'huttons-unconformity', name:"Hutton\u2019s Unconformity", lat:55.47513376055063, lng:-2.5557696819305424, radius:15, image:'../Jedburgh_Town_Trail_Assets/photographs/hutton2.png', content:[
+    {id:'huttons-unconformity', name:"Hutton\u2019s Unconformity", lat:55.47513376055063, lng:-2.5557696819305424, radius:15, image:'../Jedburgh_Town_Trail_Assets/improved_photographs/hutton4.png', content:[
       '# The place that helped to redefine the Earth',
       'Continue out of town from the Abbey, cross the Jed Water and enter the large car park on your right. At the rear of the car park, by the Jed Water is a monument to \u2018Hutton\u2019s Unconformity\u2019.',
       'This monument celebrates one of the most important geological sites in the world. James Hutton, a farmer and doctor from Duns in Berwickshire, conceived a theory about the formation of the Earth based upon what he saw in the geological formation of the ground at Siccar Point on the Berwickshire coast and here, in Jedburgh at Inchbonny \u2013 less than a mile from here.',
@@ -37,7 +37,7 @@ const jedburghTrail = {
       'Can you put the events that created Hutton\u2019s Unconformity into chronological order?',
       {type:'link', href:'geological-timeline.html', label:'🪨 Solve the Geological Timeline'}
     ]},
-    {id:'abbey', name:"Abbey", lat:55.476012414284924, lng:-2.554382979869843, radius:15, image:'../Jedburgh_Town_Trail_Assets/photographs/abbey2.png', content:[
+    {id:'abbey', name:"Abbey", lat:55.476012414284924, lng:-2.554382979869843, radius:15, image:'../Jedburgh_Town_Trail_Assets/improved_photographs/abbey4.png', content:[
       '# Jedburgh Abbey',
       'There has been a religious foundation associated with Jedburgh for many centuries. Ecgred, Bishop of Lindisfarne in AD 830, granted land to the church of Lindisfarne and a place of worship was built in this area. There is no known building on this site until the 11th century.' ,
       'A priory was founded by King David I (1124-53) in 1138 when he invited Augustinian canons from Beauvais in France to settle in Jedburgh. By 1154, the status of the priory had been raised to that of an Abbey.',
@@ -56,7 +56,7 @@ const jedburghTrail = {
       'On the eve of a royal wedding, the unpopular, and entirely fictional, Bishop of Bonchester was found slain. Can you find the evidence to identify the culprit?',
       {type:'link', href:'bishop-of-bonchester.html', label:'🔎 Who Killed the Bishop of Bonchester?'}
     ]},
-    {id:'war-memorial', name:"War Memorial", lat:55.47630580122155, lng:-2.5542193651199345, radius:15, image:'../Jedburgh_Town_Trail_Assets/photographs/callant.png', content:[
+    {id:'war-memorial', name:"War Memorial", lat:55.47630580122155, lng:-2.5542193651199345, radius:15, image:'../Jedburgh_Town_Trail_Assets/improved_photographs/war_memorial4.png', content:[
       '# War Memorial',
       'Once a year during the summer, the War Memorial is the centre of festivities when crowds gather during the Jethart Callant’s Festival to see the town’s principal—the Callant—receive the Jethart flag. He then carries the flag with him on horseback during Festival Day. At the end of Festival Day, respect is paid at the War Memorial to all those who lost their lives in armed conflict. Every name on the stone panels represents a family tragedy. Jedburgh is a small town that lost so many people whose memory should be kept large in our memories.',
       {type:'external-link', href:'https://www.youtube.com/watch?v=A7CYsqpll9s', label:'▶ Jathart Callant’s Festival'},
@@ -105,7 +105,7 @@ const jedburghTrail = {
       'Set three cipher rotors to J E D and use a simplified Enigma-style machine to decode an intercepted five-letter message.',
       {type:'link', href:'enigma-challenge.html', label:'⚙ Decode the Enigma Challenge'}
     ]},
-    {id:'ramparts', name:"Ramparts", lat:55.477041539166855, lng:-2.554718255996704, radius:15, image:'../Jedburgh_Town_Trail_Assets/photographs/ramparts2.png', content:[
+    {id:'ramparts', name:"Ramparts", lat:55.477041539166855, lng:-2.554718255996704, radius:15, image:'../Jedburgh_Town_Trail_Assets/improved_photographs/ramparts4.png', content:[
       '# Ramparts',
       'When French troops reinforced the Scots who were defending Jedburgh in 1548, from the English army, their commander General D\u2019Esse constructed gun platforms on the eastern side of the Abbey to afford it some protection. It is from these gun platforms that this raised area takes its name. Soil excavated from the ramparts area in the early 20th Century was used to create the sloped bankings of the local rugby ground, Riverside Park. The soil would have contained some fragments of human remains given the closeness to the graveyard \u2013 so even when no one is watching, Jed-Forest Rugby Club has a permanent crowd!',
       {type:'image', src:'../Jedburgh_Town_Trail_Assets/created graphics/cannons.png', alt:'The cannons', caption:'The cannons'},
@@ -113,7 +113,7 @@ const jedburghTrail = {
       'Alan Renton told the truth on only three days of the week. Can you work out when his curious statement was made?',
       {type:'link', href:'all-lies-and-jest.html', label:'🎭 Glebe Murder Part 2: All Lies and Jest'}
     ]},
-    {id:'public-hall', name:"Town Hall", lat:55.476904729431396, lng:-2.554061114788056, radius:15, image:'../Jedburgh_Town_Trail_Assets/photographs/public_hall2.png', content:[
+    {id:'public-hall', name:"Town Hall", lat:55.476904729431396, lng:-2.554061114788056, radius:15, image:'../Jedburgh_Town_Trail_Assets/improved_photographs/town_hall4.png', content:[
       '# Town Hall',
       'The Town Hall was designed in 1900 by the architect J. P. Alison and completed in 1901 in a style described in a contemporary journal as \u201can adaptation of the later Renaissance period\u201d. The Town Hall was designed to replace the town\u2019s Corn Exchange, which had burned down in 1898. The Hall can accommodate around 800 people. Below ground level, two rooms from an old malt barn remain. The malt barn at one time served as the town armoury. The Hall itself is quite grand with a barrel vaulted ceiling supported by pilasters and ornamental scrolled brackets, called consoles. There is a gallery supported on cast iron columns, providing further seating for the public. Pilaster - a rectangular feature in the shape of a pillar.',
       'Beside the Hall is Murray\u2019s Green car park, which was upgraded by Scottish Borders Council in 1999. During the excavation work, some bones were found which probably related to a burial in the Abbey as this area would have been part of the Abbey Precinct.',
@@ -133,7 +133,7 @@ const jedburghTrail = {
       'Young Rob Keiller needs to copy a four-colour dancehall pass-out. Can you decipher the dot pattern from his failed attempts?',
       {type:'link', href:'dancehall-passouts.html', label:'🔴 Decode the Dancehall Pass-outs'}
     ]},
-    {id:'newgate', name:"Newgate", lat:55.47737748105792, lng:-2.555353939533234, radius:15, image:'../Jedburgh_Town_Trail_Assets/photographs/newgate2.png', content:[
+    {id:'newgate', name:"Newgate", lat:55.47737748105792, lng:-2.555353939533234, radius:15, image:'../Jedburgh_Town_Trail_Assets/improved_photographs/newgate4.png', content:[
       '# Newgate',
       'This arch - which was at one time closed off by a pair of folding gates - has doors on either side which lead to cells. These are quite small and windowless. Just imagine the conditions for the prisoners during the cold, dark winter days. On the level above was the cell for condemned prisoners and they would have had a bit more to think about than the condition of their surroundings. That having been said, crime was low in Jedburgh in the latter part of the 18th century when only five people were condemned to death \u201cbut not one of them for murder\u201d.',
       'If you look up when you are under the arch, you will see that timber joists form the ceiling and not vaulting as you might expect. Once through the arch, you get another view of the Abbey. Through the railings you can see the old cemetery with many gravestones dating from the 17th century. The ground and the nave of the Abbey itself would have been used for burials from the time of its foundation. In 1993, during the laying of a gas pipe in Abbey Place \u201cseveral skulls\u201d were discovered, thereby extending the known graveyard limit towards the north side of the road. Walk the short distance into Market Place.',
@@ -141,7 +141,7 @@ const jedburghTrail = {
       'Ten captives have one chance to earn their freedom. Which hat-guessing strategy can guarantee their early release?',
       {type:'link', href:'early-release.html', label:'🎩 Solve Early Release'}
     ]},
-    {id:'market-place', name:"Market Place", lat:55.477591813528356, lng:-2.5553405284881596, radius:15, image:'../Jedburgh_Town_Trail_Assets/photographs/market_place2.png', content:[
+    {id:'market-place', name:"Market Place", lat:55.477591813528356, lng:-2.5553405284881596, radius:15, image:'../Jedburgh_Town_Trail_Assets/improved_photographs/market_place4.png', content:[
       '# Market Place',
       'This was the centre of the Burgh\u2019s social and economic life. Here traders would come from all over Scotland and even the continent to sell goods. In a law passed by King William I (1165-1214) it was a requirement that all goods for sale in Burghs be presented at the \u201cmercat and mercat cross\u201d. Mercat crosses signified the trading status of a town or village and served additional functions as sites of proclamations and punishment.',
       'Weekly markets were held on Mondays and Fridays, although this was changed in 1639 to Tuesday and Friday to stop people having to travel on a Sunday. The Cross was removed in the 19th century as part of the \u2018improvements\u2019 carried out to the town. The former location of the cross is marked by a circular panel set in the street, which is still used as the start point for the Jedburgh Handba\u2019 game.',
@@ -210,7 +210,7 @@ const jedburghTrail = {
       'Bryan and Richie can see everyone’s rosette except their own. Both men pass when asked to name their colour. Can their uncertainty reveal the colour pinned to your jacket?',
       {type:'link', href:'callants-rosette-challenge.html', label:'🔴 Take the Callant’s Rosette Challenge'}
     ]},
-    {id:'castle-jail', name:"Castle Jail", lat:55.47438430512205, lng:-2.5588434934616093, radius:15, image:'../Jedburgh_Town_Trail_Assets/photographs/castle_jail2.png', content:[
+    {id:'castle-jail', name:"Castle Jail", lat:55.47438430512205, lng:-2.5588434934616093, radius:15, image:'../Jedburgh_Town_Trail_Assets/improved_photographs/castle_jail4.png', content:[
       '# Jedburgh Castle Jail',
       'This was built on the site of a Royal Castle, which had been constructed to defend the town from southern attacks. The Royal Castle would have overlooked the entire town and a good impression of the commanding prospect can be gained from the brow of the hill. Although it is not certain exactly when the castle was built, it was in existence in the 12th century as it was here that King Malcolm IV died in 1165.',
       'The royal wedding at the Abbey also connects directly with this site. After Alexander III married Yolande in October 1285, the royal party would have stayed at the Castle. The King’s death in a riding accident in Fife the following year plunged Scotland into turmoil and eventually contributed to the Wars of Independence. Whoever controlled the Castle controlled the town and much of southern Scotland, so Jedburgh was vital to English attempts to subjugate Scotland.',
@@ -221,14 +221,14 @@ const jedburghTrail = {
       'The cemetery behind the castle, Castlewood, needs its daily inspection. Can you use Celia’s route clues and row and column totals to guide Simon around every required square?',
       {type:'link', href:'inspect-the-cemetery.html', label:'🪦 Inspect the Cemetery'}
     ]},
-    {id:'library', name:"Library", lat:55.47723307199863, lng:-2.5560620427131657, radius:15, image:'../Jedburgh_Town_Trail_Assets/photographs/library2.png', content:[
+    {id:'library', name:"Library", lat:55.47723307199863, lng:-2.5560620427131657, radius:15, image:'../Jedburgh_Town_Trail_Assets/improved_photographs/public_library4.png', content:[
       '# Jedburgh Public Library',
       'This building replaced the 1884 public library on High Street. It was completed in 1900 to the designs of George Washington Browne who also designed public libraries in Kelso and Edinburgh. Andrew Carnegie and his wife returned to Jedburgh in May 1900 to open it. The building is reminiscent of grand 16th century Scottish architecture and is not at all out of place here. Above the doorway there is a carved panel which says “LET THERE BE LIGHT”. The ground floor is built on a raised basement and is reached by a set of six steps. The library has a wonderful arched window which occupies a large proportion of the front wall, allowing light to flood into the building. The librarian was originally provided with a flat above the library but this was converted some years ago to provide offices for the Registrar. The next building on your left as you go downhill is known as Prince Charlie\u2019s House.',
       '# Just for Fun',
       'Rob Cockburn’s nearby grocery shop challenged children with three wrongly labelled fruit bags. Can you draw just one fruit and identify the true contents of every bag?',
       {type:'link', href:'cockburns-conundrum.html', label:'🍎 Try Cockburn’s Conundrum'}
     ]},
-    {id:'prince-charlies-house', name:"Prince Charlie\u2019s House", lat:55.477352, lng:-2.556008, radius:15, image:'../Jedburgh_Town_Trail_Assets/photographs/prince_charlie2.png', content:[
+    {id:'prince-charlies-house', name:"Prince Charlie\u2019s House", lat:55.477352, lng:-2.556008, radius:15, image:'../Jedburgh_Town_Trail_Assets/improved_photographs/prince_charlie4.png', content:[
       '# The Young Pretender’s visit to Jedburgh',
       'It is over 280 years since Bonnie Prince Charlie’s army of Jacobite supporters marched south to try and restore the Stuart monarchy to the British throne.',
       {type:'story-panel', title:'Who were the Jacobites', label:'Read the background', paragraphs:[
@@ -269,7 +269,7 @@ const jedburghTrail = {
       'An ancient Jacobite travel chest has been discovered in the basement. Can you use the four surviving attempts to crack its four-digit lock and reveal the royal secret inside?',
       {type:'link', href:'jacobite-code-breaker.html', label:'🔐 Crack the Jacobite Code'}
     ]},
-    {id:'exchange-street', name:"Exchange Street", lat:55.47779550429941, lng:-2.5555416941642766, radius:15, image:'../Jedburgh_Town_Trail_Assets/photographs/exchange_street2.png', content:[
+    {id:'exchange-street', name:"Exchange Street", lat:55.47779550429941, lng:-2.5555416941642766, radius:15, image:'../Jedburgh_Town_Trail_Assets/improved_photographs/exchange_street4.png', content:[
       '# Exchange Street',
       'This street is one of the four original streets of the Burgh which lead directly to Market Place. Here you will find Numbers 3-5, formerly a bank. Designed in 1868 by David Rhind as a branch of the Commercial Bank, the upper floors were designed as a flat for the manager. Notice how the central window at first floor level is a smaller version of the entrance. Further along, Number 11, West Port House, was designed in 1899 by the renowned Borders architect J. P. Alison, of Hawick, as commercial premises for the Co-operative Society. The design displays early use of ‘curtain walling’.',
       '# Just for Fun',
@@ -284,23 +284,24 @@ const jedburghTrail = {
       'Young David McCallum has forgotten the three-digit number his family used to obtain credit from the High Street traders. Can you recover it from his five marked guesses?',
       {type:'link', href:'family-number.html', label:'🔢 Solve The Family Number'}
     ]},
-    {id:'spread-eagle', name:"Spread Eagle", lat:55.478357928573885, lng:-2.5546726584434514, radius:15, image:'../Jedburgh_Town_Trail_Assets/photographs/spread_eagle2.png', content:[
+    {id:'spread-eagle', name:"Spread Eagle", lat:55.478357928573885, lng:-2.5546726584434514, radius:15, image:'../Jedburgh_Town_Trail_Assets/improved_photographs/spread_eagle4.png', content:[
       '# Spread Eagle Hotel',
       'On the left hand side of High Street as you head down, you will find the Spread Eagle Hotel. Notice the gilt double-headed eagle over the entrance. The present building dates from the early 18th century. Queen Mary reputedly visited the inn when she came to Jedburgh in 1566.',
       'Near this spot stood Moscrope Tower, one of the six towers of the town, although its exact site is not known. Opposite the Spread Eagle is Number 19, a fine Victorian building, designed by J. P. Alison. An inscribed panel bearing the date of construction, 1897, is visible at second floor level. It is worth pausing and admiring the fine detail around the windows and just below roof level. As you continue down High Street on the opposite side of the street next to the former Post Office is the original Library. The Dunfermline born philanthropist Andrew Carnegie opened this in October 1884 and there is a stone plaque on the building to commemorate the event. A new Public Library was opened in May 1900 on Castlegate.',
+      {type:'image', src:'../Jedburgh_Town_Trail_Assets/improved_photographs/original_library5.png', alt:'The original Jedburgh Library on High Street', caption:'The original Jedburgh Library'},
       '# Just for Fun',
       'Welcome to the Hotel Spread Eagle, you can check out anytime you like but some can never leave!',
       'Enjoy a murder mystery? And if you like Sudoku you might recognize the murder mystery puzzle we have provided – it uses a format called “Murdoku” and uses clues to place suspects onto squares in a floorplan – the floorplan of the Spread Eagle as it was back in the mid nineteenth century (sort of). Read the clues and work out who was where at the time of the murder and, most importantly, who was beside the victim!',
       {type:'link', href:'murder-in-the-spread.html', label:'🔎 Solve Murder in the Spread'}
     ]},
-    {id:'loupin-on-stane', name:"Loupin\u2019-on Stane", lat:55.4791240287268, lng:-2.5535219907760625, radius:15, image:'../Jedburgh_Town_Trail_Assets/photographs/loupin_stane2.png', content:[
+    {id:'loupin-on-stane', name:"Loupin\u2019-on Stane", lat:55.4791240287268, lng:-2.5535219907760625, radius:15, image:'../Jedburgh_Town_Trail_Assets/improved_photographs/loupin_on_stane4.png', content:[
       '# When you needed a leg up',
       'In front of you is the Bank of Scotland and in the grounds you find the \u2018Loupin\u2019-on stane\u2019, used as a step-up to allow riders to mount their horses. At one time, this was the house of one of Sir Walter Scott\u2019s friends, Sheriff Shortreed.',
       '# Just for Fun',
       'Three riders, three horses and three missing possessions. Can you discover who rode the black horse and what they dropped?',
       {type:'link', href:'lost-property.html', label:'🐎 Solve Lost Property'}
     ]},
-    {id:'jedburgh-friary', name:"Jedburgh Friary", lat:55.479561793556336, lng:-2.5545144081115727, radius:15, image:'../Jedburgh_Town_Trail_Assets/photographs/friary2.png', content:[
+    {id:'jedburgh-friary', name:"Jedburgh Friary", lat:55.479561793556336, lng:-2.5545144081115727, radius:15, image:'../Jedburgh_Town_Trail_Assets/improved_photographs/jedburgh_friary4.png', content:[
       '# Jedburgh Friary',
       'Even though nothing remains standing above ground, what remains is still the most extensive Franciscan Friary to be seen in Scotland. In the 15th century, Sir Andrew Ker of Ferniehirst provided this site so that the religious order of St Francis might establish a community in Jedburgh. To distinguish them from the “black friars” of the Dominican order, the Franciscans were known as “grey friars” from the colour of their habit or gown. Unlike other orders, the “grey friars” had close links with the community and they provided services such as healing the sick and teaching the locals.',
       'Much of the former Friary was used as a market garden and in 1982 development proposals led to an archaeological investigation. The site was investigated over two years with the Co- operative Society providing funds for further work in 1991-92. The following year, Borders Regional Council consolidated the site. To illustrate where there are remains under ground, brown gravel between sandstone edging represents original walls, drains are shown with grey cobbles and graves are marked by white gravel. Remnants of walls under the car park are marked by red setts and drains by grey. The present garden is based on historical research and has been laid out to reflect medieval interest in horticulture and the science of healing.',
@@ -309,14 +310,14 @@ const jedburghTrail = {
       'Only one of three unusually tight-lipped monks is telling the truth. Can you use their statements to discover what caused the demise of Father Ferguson?',
       {type:'link', href:'father-ferguson.html', label:'☠ Solve The Demise of Father Ferguson'}
     ]},
-    {id:'trinity-church', name:"Trinity Church", lat:55.479754834141026, lng:-2.5527253746986394, radius:15, image:'../Jedburgh_Town_Trail_Assets/photographs/trinity_church2.png', content:[
+    {id:'trinity-church', name:"Trinity Church", lat:55.479754834141026, lng:-2.5527253746986394, radius:15, image:'../Jedburgh_Town_Trail_Assets/improved_photographs/trinity_church4.png', content:[
       '# Former Trinity Church',
       'On the left as you reach the foot of High Street, is the former Trinity Church. Originally the Blackfriars Church was in this area, perhaps even on this site. A new church was built here in 1746, followed by a second in 1801 on the same site. The present building was constructed in 1818 in the low classical style, but set back from the location of its predecessors. The building is no longer in use as a church. This area of the town is where horse-trading used to take place and was called Horsemarket. The horse market was later moved to Abbey Close, only to return after protests from Townfoot residents. At this point you have the option of following the main trail along Queen Street, which is across or taking an alternative riverside route, which is described at the end of the main trail text. A short distance along Queen Street is Mary Queen of Scots\u2019 Visitor Centre.',
       '# Just for Fun',
       'In 1850, all five members of the Trinity Church staff had served for different lengths of time. Can you put them in order and work out each person\u2019s years of service?',
       {type:'link', href:'trinity-church-staff.html', label:'⛪ Solve Keeping the Church Going'}
     ]},
-    {id:'mary-queen-of-scots-house', name:"Mary Queen of Scots House", lat:55.478640657745146, lng:-2.5527709722518925, radius:15, image:'../Jedburgh_Town_Trail_Assets/photographs/mary_queen2.png', content:[
+    {id:'mary-queen-of-scots-house', name:"Mary Queen of Scots House", lat:55.478640657745146, lng:-2.5527709722518925, radius:15, image:'../Jedburgh_Town_Trail_Assets/improved_photographs/mary_queen_of_scots_house4.png', content:[
       '# Mary Queen of Scots\u2019 Visitor Centre',
       'This building dates from the last quarter of the 16th century and is according to tradition where Queen Mary rented accommodation from Lady Ferniehirst (a Scott by birth) during her temporary residence in the town in 1566. Both the Scott and Ferniehirst families were supporters of the Queen. In 1693, the Ferniehirst family were known to own the Tower of Jedburgh which was “situated near the cross”, at the head of Canongate. A further clue to the building\u2019s history comes from the arms on the west side of the building. These are of the Wigmer family and would have formerly been placed there in the 17th century, although they were re-carved at a later date. Given that the Earl of Surrey had destroyed Jedburgh in 1523, it is likely that this building was built in the years immediately after the attack.',
       'The building was thatched until at least the 1890s when red tiles replaced the thatch. In 1980, the roof was re-covered with slates. In the grounds, there are several pear trees, a fruit for which the town was once famous, and were even said to have been sold in markets in London. The main pear orchard for the town was on Lady\u2019s Green - the site of the former North British Rayon Mills - and at one time, there were over 40 types of pears growing in the town. You can also find an Early Medieval cross base, upon which are carved fantastic beasts. This cross base was found in the Bongate area of the town and may indicate the presence of an early Christian community in the town. Inside there is a small museum with many artefacts relating to Queen Mary.',
@@ -329,14 +330,14 @@ const jedburghTrail = {
       'Leave the Visitor Centre and turn left to walk further along Queen Street. At the junction with Canongate, turn left and head downhill towards the Jed Water.',
       'You will spot a plaque commemorating the birth of the scientist and inventor of the kaleidoscope, Sir David Brewster. With the re-alignment of roads and the construction of new bridges, Canongate lost its status as a major thoroughfare but it is still a busy shopping street. Continue down Canongate, through the subway to the riverside where you will come to Piper\u2019s House and the Canongate Bridge.'
     ]},
-    {id:'pipers-house', name:"Piper\u2019s House", lat:55.47827529783229, lng:-2.551167340263752, radius:15, image:'../Jedburgh_Town_Trail_Assets/photographs/pipers_house2.png', content:[
+    {id:'pipers-house', name:"Piper\u2019s House", lat:55.47827529783229, lng:-2.551167340263752, radius:15, image:'../Jedburgh_Town_Trail_Assets/improved_photographs/pipers_house4.png', content:[
       '# Piper\u2019s House',
       'Piper\u2019s House dates from 1604 although it was remodelled in 1896. If you look at the lintel over the central window on the first floor, you can see the initials of Adam Ainslie, who built the house, his wife Janet\u2019s initials  and the date 1604. The window replaced the original entrance door that was at the head of a flight of stone stairs. The town\u2019s last official piper, Robin Hastie, is said to have occupied a portion of the house. On the last crow step to the south east, there is a carved figure of a piper. According to Sir Walter Scott, the Hastie family had been Burgh Pipers for three hundred years. When Hastie died in the early 19th century, Scott wrote that “old age had rendered Robin a wretched performer but he knew several old songs and tunes, which have probably died with him”. The building has corbels on the south elevation that may have been used to support a lean-to building.',
       '# Just for Fun',
       'An implausible supper brought eight remarkable diners to Piper\u2019s House. Can you reconstruct the King\u2019s seating plan and discover his secretly favoured guest?',
       {type:'link', href:'implausible-supper.html', label:'🍽 Solve The Implausible Supper'}
     ]},
-    {id:'canongate-bridge', name:"Canongate Bridge", lat:55.477932310942734, lng:-2.5511777400970463, radius:15, image:'../Jedburgh_Town_Trail_Assets/photographs/canongate_bridge3.png', content:[
+    {id:'canongate-bridge', name:"Canongate Bridge", lat:55.477932310942734, lng:-2.5511777400970463, radius:15, image:'../Jedburgh_Town_Trail_Assets/improved_photographs/canongate_bridge4.png', content:[
       '# Canongate Bridge',
       'Now used only as a footbridge, this was at one time the principal route into the town. It is interesting to note that for defensive reasons, the approaches to the bridge are more or less at 90 degrees. Built in the 16th century, this is an attractive three-arched bridge. Under each arch are chamfered ribs. Originally each span had four ribs but the easternmost arch now has only two. Notice the way the cutwaters - which relieve the pressure of the flowing water on the bridge - carry right up to parapet level. When you get onto the bridge itself, you see the reason for this, in that they form refuges where pedestrians could get out of the way safely of traffic, predominantly horses, including the stagecoach from Edinburgh to Newcastle. The eastern refuges contain chamfered stones, possibly from the Jedburgh Friary. ',
       'On the upstream side of the bridge is a ford across the Jed Water. This ford is still used by horse riders instead of the bridge and each year during the Callant\u2019s Festival when the Callant is followed across the ford by massed ranks of riders. Across the bridge you will see a large 1930s building on the left, which occupies the site of Well House, a reminder that Jedburgh\u2019s water supply was not always piped. The steps on the right hand side of the building lead down to the well which is no longer in use. ',
@@ -358,21 +359,6 @@ const jedburghTrail = {
       '# Just for Fun',
       'High in the Cheviots, the Jed Water begins where Raven Burn and Tod Sike meet. Can you trace the twisting Tod Sike back towards its source?',
       {type:'link', href:'source-of-the-jed.html', label:'💧 Find the Source of the Jed'}
-    ]},
-    {id:'time-for-reflection', name:"Time for Reflection", lat:55.47539371032197, lng:-2.5545680522918706, radius:15, image:'../Jedburgh_Town_Trail_Assets/photographs/glebe2.png', content:[
-      '# Complete the Blue Plaque Puzzle',
-      'This is where the seventh collection is finally revealed. Don’t worry if you missed some plaques—we can mark them as found here to let you finish the puzzle. Open Blue Plaque Collections below when you are ready.',
-      {type:'link', href:'plaque-game.html?final=1', label:'🔵 Finish the Blue Plaque Puzzle'},
-      '# Jedburgh - A Town of History and Tradition',
-      'Jedburgh is a town shaped by more than a thousand years of history, border conflict, religious power, royal visits and local tradition. Its story begins beside the Jed Water, where early settlements grew into the Royal Burgh of Jedburgh. Positioned close to the Scotland–England border, the town was repeatedly attacked, burned and rebuilt during the Wars of Independence and later conflicts, giving it a history marked by resilience.',
-      'At the heart of Jedburgh stands its great Augustinian Abbey, founded by King David I in the 12th century and later raised to abbey status. Though damaged many times by English armies and eventually suppressed during the Reformation, its ruins remain one of the town’s defining landmarks. Nearby streets and closes preserve the old medieval layout, with the High Street, Castlegate, Market Place and Canongate still reflecting Jedburgh’s historic role as a market town and defensive settlement.',
-      'The town trail reveals layers of civic, royal and cultural history. Jedburgh Castle once controlled the town from above before being demolished in the 15th century; its site later became the Castle Jail, now a museum. Mary, Queen of Scots, Bonnie Prince Charlie, Sir Walter Scott, Robert Burns, William Wordsworth, Mary Somerville and Sir David Brewster all connect Jedburgh to wider Scottish, literary and scientific history.',
-      'Jedburgh’s traditions remain equally important. The Jethart Callant’s Festival, Handba’, old market sites, town ports, bridges, wynds and closes all show how community life has continued across centuries. The town also holds geological significance through Hutton’s Unconformity at nearby Inchbonny, which helped James Hutton develop modern ideas about deep time and the age of the Earth.',
-      'Overall, Jedburgh’s essence lies in the way a small Borders town gathers together Abbey, castle, river, royal memory, conflict, science, literature and living tradition into one richly layered place.',
-      'Jedburgh’s past is fascinating and Jedburgh is a vibrant community with an exciting future. A town of friendly and intelligent people shaped by the conflict, diplomacy and change. Thank you for taking the time to visit our town. And since you gave us the honour of your visit, it’s now your town as well. We are sure that you will agree, Jedburgh is a town built on exceptional stories.',
-      '# Just for Fun',
-      {type:'link', href:'quiz.html', label:'🧠 Try the Jedburgh Quiz'},
-      {type:'link', href:'songs-that-mention-jedburgh.html', label:'♫ Famous Songs That Mention Jedburgh'}
     ]}
   ],
   plaques: [
@@ -446,8 +432,7 @@ const fromHereByStop = {
   'mary-queen-of-scots-house': 'Leave the Visitor Centre and turn left to walk further along Queen Street. At the junction with Canongate, turn left and head downhill towards the Jed Water. At the foot of Canongate is a modern housing development dating from 1985, with a traditional Scottish appearance. Further down the road is a plaque commemorating the birth of Sir David Brewster, the scientist and inventor of the kaleidoscope. Continue down Canongate and through the subway to the riverside, where you will come to Piper’s House and Canongate Bridge.',
   'pipers-house': 'Continue to the bridge directly ahead of you.',
   'canongate-bridge': 'Come back from the bridge, but instead of walking through the underpass, follow the riverside path.',
-  'riverside-walk': 'Follow the trail around to the end, where you will be back opposite the Abbey Visitor Centre. Cross the road carefully and walk back to the Glebe for the final point on the trail.',
-  'time-for-reflection': 'You have completed the trail. The Glebe, where the walk began, is beside you. From here you can return to the Abbey, the town centre or your onward route.'
+  'riverside-walk': 'Follow the trail around to the end, where you will be back opposite the Abbey Visitor Centre. Cross the road carefully and walk back to the Glebe to complete the trail.'
 };
 
 // Route-specific onward directions for the shortened Essential Trail.

@@ -44,9 +44,9 @@
     </div>
   </div>
 </main>
-<script src="trail-data.js?v=6"></script>
+<script src="trail-data.js?v=9"></script>
 <script src="trail-experience.js?v=1"></script>
-<script src="trail-audio.js?v=3"></script>
+<script src="trail-audio.js?v=6"></script>
 <script src="trail-options.js?v=2"></script>
 <script src="blue-plaque-game.js?v=17"></script>
 <script>
@@ -58,7 +58,7 @@
   }
   const params = new URLSearchParams(location.search);
   const from = params.get('from');
-  const atFinalStop = from === 'time-for-reflection' || params.get('final') === '1';
+  const atFinalStop = params.get('final') === '1';
   if (from) document.getElementById('backLink').href = `location.html?id=${encodeURIComponent(from)}`;
 
   function render() {
