@@ -37,7 +37,7 @@
   </article>
   <div class="nav-buttons"><a class="btn secondary" href="locations.html">&larr; Locations</a><a class="btn primary" id="nextBtn" href="#">First location &rarr;</a></div>
 </main>
-<script src="trail-data.js?v=9"></script><script src="trail-experience.js?v=2"></script><script src="trail-routes.js?v=2"></script><script src="trail-audio.js?v=6"></script><script src="trail-options.js?v=2"></script>
+<script src="trail-data.js?v=9"></script><script src="trail-experience.js?v=2"></script><script src="trail-routes.js?v=2"></script><script src="trail-audio.js?v=7"></script><script src="trail-options.js?v=2"></script>
 <script>
 const player=new Audio(TrailAudio.DEFAULT_AUDIO),audioPanel=document.getElementById('homeAudio'),audioButton=document.getElementById('homeAudioButton'),audioLabel=audioButton.querySelector('.audio-label'),audioIcon=audioButton.querySelector('.btn-icon');player.preload='metadata';
 function render(modeKey=TrailExperience.current()){const mode=TrailExperience.modes[modeKey],welcome=TrailRoutes.welcomePin(modeKey),pins=TrailRoutes.pinsForMode(modeKey);document.getElementById('experienceName').textContent=mode.name;document.getElementById('welcomeLocation').textContent=welcome.name;document.getElementById('nextBtn').href=`location.html?id=${encodeURIComponent(pins[0].id)}`;document.getElementById('plaqueGuide').hidden=!mode.plaques;document.getElementById('puzzleGuide').hidden=!mode.puzzles;audioPanel.hidden=!TrailAudio.enabled();if(!TrailAudio.enabled())player.pause();}
