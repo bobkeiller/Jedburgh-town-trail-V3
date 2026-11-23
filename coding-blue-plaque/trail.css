@@ -109,6 +109,9 @@ a{color:inherit}
 .welcome-actions{padding-top:14px}
 .welcome-page,.congratulations-page{margin-top:8px}
 .welcome-hero{margin-top:14px}
+.visitor-attractions-callout{margin:18px 0;padding:15px 16px;border-left:5px solid var(--amber);border-radius:11px;background:#f7f0df;color:#2f3f37}
+.visitor-attractions-callout h2{margin:0 0 6px;font-size:18px}
+.visitor-attractions-callout p{margin:0!important}
 .eyebrow{margin-bottom:5px!important;color:var(--green)!important;font-size:12px;font-weight:850;letter-spacing:.05em;text-transform:uppercase}
 .final-thought-button{width:100%;margin:22px 0}
 .finish-next{margin-top:24px;padding-top:4px}

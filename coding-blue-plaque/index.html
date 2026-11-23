@@ -3,7 +3,7 @@
 <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"><meta name="theme-color" content="#18352b">
 <title>Welcome — Jedburgh Town Trail</title><link rel="manifest" href="manifest.webmanifest?v=jedburgh-1"><link rel="icon" type="image/png" sizes="192x192" href="../Jedburgh_Town_Trail_Assets/created%20graphics/Jed-icon-192.png"><link rel="stylesheet" href="trail.css?v=9">
 </head><body>
-<header class="topbar trail-brand"><a href="locations.html">&larr;</a><img src="../Jedburgh_Town_Trail_Assets/created%20graphics/Jed-icon-192.png" alt=""><h1>Jedburgh Town Trail</h1></header>
+<header class="topbar trail-brand"><a href="locations.html">&larr;</a><img src="../Jedburgh_Town_Trail_Assets/created%20graphics/Jed-icon-192.png" alt=""><h1>Jedburgh's Here - Our Heritage Trail</h1></header>
 <main class="shell">
   <div class="experience-strip"><span>Your experience: <strong id="experienceName"></strong></span><button type="button" class="trail-options-button" data-trail-options data-trail-options-live>Trail options</button></div>
   <div class="hero welcome-hero"><img src="../Jedburgh_Town_Trail_Assets/created%20graphics/jed_hero_image2.png" alt="A view of Jedburgh"></div>
@@ -14,6 +14,11 @@
     <p>It is the birthplace of people whose ideas helped us understand Neptune, stereoscopic vision and polarisation, and who invented rugby sevens. It was also home to one of the heroes who recovered secret codebooks from a sinking U-boat.</p>
     <p>Wordsworth, Burns and Sir Walter Scott all visited. Kings and queens came here, and James Hutton began to realise that the Earth was much older than anyone knew.</p>
     <p>Enjoy your time in our wonderful town. Talk to local people—we are very friendly—and let us know what you think.</p>
+    <p>You may notice that many of the local people call the town by a historic variant "Jethart". The trail name "Jedburgh's Here" is a modern version of the town's famous battle cry "Jethart's Here" at the Battle of Redeswire in 1575.</p>
+    <aside class="visitor-attractions-callout" aria-labelledby="visitorAttractionsTitle">
+      <h2 id="visitorAttractionsTitle">Visitor attractions</h2>
+      <p id="visitorAttractionsText"></p>
+    </aside>
     <details class="story-panel" id="howToGuide"><summary><span>How to use this trail</span><small>Read the guide</small></summary><div class="story-panel-body">
       <p>Follow the locations in order or explore them at your own pace. Use the Location Map, written directions or the Walking directions button to travel between stops.</p>
       <p>Audio starts switched on. You can turn it off at any time in Trail options.</p>
@@ -40,7 +45,10 @@
 <script src="trail-data.js?v=9"></script><script src="trail-experience.js?v=2"></script><script src="trail-routes.js?v=2"></script><script src="trail-audio.js?v=7"></script><script src="trail-options.js?v=2"></script>
 <script>
 const player=new Audio(TrailAudio.DEFAULT_AUDIO),audioPanel=document.getElementById('homeAudio'),audioButton=document.getElementById('homeAudioButton'),audioLabel=audioButton.querySelector('.audio-label'),audioIcon=audioButton.querySelector('.btn-icon');player.preload='metadata';
-function render(modeKey=TrailExperience.current()){const mode=TrailExperience.modes[modeKey],welcome=TrailRoutes.welcomePin(modeKey),pins=TrailRoutes.pinsForMode(modeKey);document.getElementById('experienceName').textContent=mode.name;document.getElementById('welcomeLocation').textContent=welcome.name;document.getElementById('nextBtn').href=`location.html?id=${encodeURIComponent(pins[0].id)}`;document.getElementById('plaqueGuide').hidden=!mode.plaques;document.getElementById('puzzleGuide').hidden=!mode.puzzles;audioPanel.hidden=!TrailAudio.enabled();if(!TrailAudio.enabled())player.pause();}
+function render(modeKey=TrailExperience.current()){const mode=TrailExperience.modes[modeKey],welcome=TrailRoutes.welcomePin(modeKey),pins=TrailRoutes.pinsForMode(modeKey),attractionText=mode.route==='essential'
+  ? 'The Essential Trail includes Jedburgh Abbey and Mary Queen of Scots House. Opening hours can vary seasonally, so please check before setting out.'
+  : 'The Full Trail includes Jedburgh Abbey, Jedburgh Castle Jail and Mary Queen of Scots House. Opening hours can vary seasonally, so please check before setting out.';
+  document.getElementById('experienceName').textContent=mode.name;document.getElementById('welcomeLocation').textContent=welcome.name;document.getElementById('visitorAttractionsText').textContent=attractionText;document.getElementById('nextBtn').href=`location.html?id=${encodeURIComponent(pins[0].id)}`;document.getElementById('plaqueGuide').hidden=!mode.plaques;document.getElementById('puzzleGuide').hidden=!mode.puzzles;audioPanel.hidden=!TrailAudio.enabled();if(!TrailAudio.enabled())player.pause();}
 function renderAudio(){const playing=!player.paused;audioButton.classList.toggle('is-playing',playing);audioLabel.textContent=playing?'Pause':(player.currentTime?'Resume':'Play');audioIcon.textContent=playing?'⏸':'🔊';}
 audioButton.addEventListener('click',async()=>{if(!player.paused)player.pause();else try{await player.play();}catch(_){alert('Audio could not be played. Please try again.');}renderAudio();});player.addEventListener('ended',()=>{player.currentTime=0;renderAudio();});document.addEventListener('trailOptionsApplied',event=>render(event.detail.mode));document.addEventListener('trailAudioPreferenceChanged',()=>render());render();renderAudio();
 </script></body></html>

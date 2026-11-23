@@ -6,14 +6,14 @@
 // Audio: add audio:'../Jedburgh_Town_Trail_Assets/audio/your-file.mp3' to any pin when its unique
 // recording is ready. Until then, the Trail Locations page uses the shared example recording.
 const jedburghTrail = {
-  name: 'Jedburgh Town Trail',
+  name: 'Here\u2019s Jedburgh - Our Heritage Trail',
   orderMode: 'sequential',
   pins: [
     {id:'the-glebe', name:"The Glebe", lat:55.475424113692036, lng:-2.554855048656464, radius:30, image:'../Jedburgh_Town_Trail_Assets/improved_photographs/glebe4.png', content:[
       '# The Blue Plaque Puzzle',
       'As you explore the trail, you can simply collect the blue plaques—or work out the stories and themes that connect them. Every blue plaque belongs to one of seven collections. Six collections tell stories from Jedburgh’s history. The seventh is different. You’ll discover why. Your first plaques are waiting at the Ramparts.',
       '# Historical Background',
-      'The history of the Royal Burgh of Jedburgh dates back many centuries. Around AD 830, Bishop Ecgred of Lindisfarne formed two settlements on the Jed Water, calling them both by the same name - Gedwearde (Pronounced "Jedward" \u2013 twins called Jedward!). The name meant \u201cthe enclosed settlement by the River Jed\u201d - which dates from around 1050. The settlements were created sometime before this making Jedburgh at least 1,000 years old.',
+      'The history of the Royal Burgh of Jedburgh dates back many centuries. Around AD 830, Bishop Ecgred of Lindisfarne formed two settlements on the Jed Water, calling them both by the same name - Gedwearde (Pronounced "Jedward" \u2013 twins called Jedward!). The name meant \u201cthe enclosed settlement by the River Jed\u201d Jedburgh is at least 1,200 years old.',
       'By the mid 16th century, the name \u2018Jedworth\u2019 was being used, even today locally the town is referred to as \u2018Jeddart\u2019 or \u201cJethart\u201d. Situated close to the National Border between Scotland and England, the town saw more than its fair share of turmoil. During the Wars of Independence in the 13th and 14th centuries, the English captured Jedburgh on numerous occasions.',
       'The town and Abbey were burned three times in the 15th century by the English, providing evidence of the strategic value of the town and the incendiary relationship with our southern neighbbours. The 16th century was no less troublesome and several attempts were made to restore order to the area. The English attacked and captured the town in 1544 as part of the \u201cRough Wooing\u201d and a year later, the Earl of Hertford invaded Scotland on the orders of Henry VIII of England and laid waste to vast tracts of southern Scotland.',
       {type:'image', src:'../Jedburgh_Town_Trail_Assets/created graphics/rough_wooing.png', alt:'The Rough Wooing', caption:'The Rough Wooing'},
@@ -184,7 +184,7 @@ const jedburghTrail = {
       'The Tolbooth once checked weights and measures. Can you identify one sack of genuine gold coins using only a single weighing?',
       {type:'link', href:'weights-and-measures.html', label:'⚖️ Solve Weights and Measures'}
     ]},
-    {id:'sheriff-court', name:"Sheriff Court", lat:55.477339, lng:-2.555606, radius:15, image:'../Jedburgh_Town_Trail_Assets/photographs/sheriff_court2.png', content:[
+    {id:'sheriff-court', name:"Sheriff Court", lat:55.477339, lng:-2.555606, radius:15, image:'../Jedburgh_Town_Trail_Assets/improved_photographs/sheriff_court4.png', content:[
       '# Jedburgh on Trial',
       'Jedburgh Sheriff Court, originally the site of the Council House was built in 1812 by French prisoners of war. A courtroom was added in 1861 to the designs of the Edinburgh architect David Rhind.',
       'Sir Walter Scott, who made his first appearance as a defence lawyer here in 1793, often visited the previous court building. There is a plaque (on the Market Place side of the building) dating from 1932 to commemorate the centenary of Scott\u2019s death.',
@@ -294,12 +294,12 @@ const jedburghTrail = {
       'Three secret letters and two confident answers reveal the rank of Exchange Street’s mystery donor. Can you solve McDiarmid’s parlour trick?',
       {type:'link', href:'street-exchange.html', label:'✉ Solve A Street Exchange'}
     ]},
-    {id:'high-street', name:"High Street", lat:55.477936871156004, lng:-2.5551420450210576, radius:15, image:'../Jedburgh_Town_Trail_Assets/photographs/high_street2.png', content:[
+    {id:'high-street', name:"High Street", lat:55.477936871156004, lng:-2.5551420450210576, radius:15, image:'../Jedburgh_Town_Trail_Assets/improved_photographs/High_Street4.png', content:[
       '# High Street',
       'High Street is where traditional game of Handba\u2019 is played in February/March each year, between the \u201cuppies\u201d and \u201cdoonies\u201d. One explanation of the origins of the game is that it is a spring ritual where the ball represents the sun. It is also said that on one occasion the local men attacked a group of English raiders who had been causing a great deal of suffering in the area. The severed head of the leader of the English troops is said to have been thrown in the air, which discouraged his soldiers, causing them to flee. Whatever the true origins of the game, the event is now part of the town\u2019s heritage and is eagerly awaited by all in the town.',
       {type:'external-link', href:'https://www.youtube.com/watch?v=t5AgjfEwC-Y', label:'▶ The Jedburgh Hand Ba\u2019 Game'},
       '# Just for Fun',
-      'Young David McCallum has forgotten the three-digit number his family used to obtain credit from the High Street traders. Can you recover it from his five marked guesses?',
+      'Young Kevin Wood has forgotten the three-digit number his family used to obtain credit from the High Street traders. Can you recover it from his five marked guesses?',
       {type:'link', href:'family-number.html', label:'🔢 Solve The Family Number'}
     ]},
     {id:'spread-eagle', name:"Spread Eagle", lat:55.478357928573885, lng:-2.5546726584434514, radius:15, image:'../Jedburgh_Town_Trail_Assets/improved_photographs/spread_eagle4.png', content:[
